@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [19/Jun/2018:13:34:01 -0500] GET /pasedb/ HTTP/1.1 200 3651 http-bio-8080-exec-1 375
+0:0:0:0:0:0:0:1 - - [19/Jun/2018:13:34:01 -0500] GET /pasedb/menu.css HTTP/1.1 200 3536 http-bio-8080-exec-2 2
+0:0:0:0:0:0:0:1 - - [19/Jun/2018:13:34:01 -0500] GET /pasedb/images/arrv_anim_1.gif HTTP/1.1 200 48 http-bio-8080-exec-3 2
+0:0:0:0:0:0:0:1 - - [19/Jun/2018:13:34:07 -0500] GET /pasedb/images/arrv_anim_1o.gif HTTP/1.1 200 374 http-bio-8080-exec-4 2
