@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,6 +6,9 @@
 <title>Parental Alienation Support &amp; Education Database
 	[PASEDB]</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<meta name="description" content="Crowdsourced links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..."">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="parental alienation, dmv-v, parental rights, alienation, mad mother syndrome, mad mother, parental alienation syndrome, dr chidress, pas, pa, parental alienation tactics, prevent parental alienation, child abuse" />
 
 
 <meta property="og:title" content="Parental Alienation Support & Education Database" />
