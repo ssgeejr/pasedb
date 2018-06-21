@@ -16,19 +16,14 @@
 <meta property="og:site_name" content="PASEDB" />
 
 
-
+</head>
 <body>
 	<div align="center">
 	<table style="border: 1px solid #AAAAAA;width: 900px">
 		<tr>
 			<td>
-				<center></center>
-				</td>
-		</tr>
-		<tr>
-			<td>
 				<center>
-				<img alt="We The People" height="186" src="WTP_banner_0.png" width="800">
+				<img alt="We The People" src="WTP_banner_0.png">
 				</center>
 			</td>
 		</tr>
@@ -39,7 +34,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td valign="top">
-					<img alt="PASEDB" height="37" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg" width="172"></td>
+					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
 					ALIENATION SUPPORT &amp; RECOVERY DATABASE</span></strong><br>
 					<span class="auto-style4">Centralized Crowdsourced Resository of PA/PAS related Articles, Stories, Sites &amp; Groups</span><span class="auto-style3">
