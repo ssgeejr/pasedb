@@ -14,7 +14,6 @@
 <meta property="og:image" content="http://pasedb.org/ogimg/logo-pasedb.jpg" />
 <meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
 <meta property="og:site_name" content="PASEDB" />
-<meta property="fb:fbid" content="643755066" />
 
 
 
