@@ -27,8 +27,10 @@
 		</tr>
 		<tr>
 			<td>
-				<!-- Persistant Header --> 
-				<img alt="We The People" height="186" src="WTP_banner_0.png" width="800"></td>
+				<center>
+				<img alt="We The People" height="186" src="WTP_banner_0.png" width="800">
+				</center>
+			</td>
 		</tr>
 		<tr>
 			<td>
