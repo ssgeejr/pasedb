@@ -7,14 +7,14 @@
 	[PASEDB]</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 
-<meta property="og:locale" content="en_US"/>
+
 <meta property="og:title" content="Parental Alienation Support & Education Database" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://pasedb.org/" />
+<meta property="og:url" content="http://pasedb.org/ogimg/logo-pasedb.jpg" />
 <meta property="og:image" content="http://pasedb.org/image.jpg" />
 <meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
 <meta property="og:site_name" content=PASEDB" />
-
+<meta property="fb:app_id" content=652691401742652" />
 
 
 
@@ -38,7 +38,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td valign="top">
-					<img alt="" height="63" src="pasedb-logo-00.png" width="65"></td>
+					<img alt="PASEDB" height="37" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg" width="172"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
 					ALIENATION SUPPORT &amp; RECOVERY DATABASE</span></strong><br>
 					<span class="auto-style4">Centralized Crowdsourced Resository of PA/PAS related Articles, Stories, Sites &amp; Groups</span><span class="auto-style3">
