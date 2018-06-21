@@ -6,6 +6,14 @@
 <title>Parental Alienation Support &amp; Education Database
 	[PASEDB]</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+
+<meta property="og:title" content="Parental Alienation Support &amp; Education Database" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://pasedb.org/" />
+<meta property="og:image" content="http://pasedb.org/image.jpg" />
+<meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
+<meta property="og:site_name" content=PASEDB" />
+
 <style type="text/css">
 .auto-style1 {
 	text-align: center;
@@ -13,9 +21,13 @@
 }
 .auto-style2 {
 	font-size: 16pt;
+	color: #000000;
 }
 .auto-style3 {
 	color: #4792E6;
+}
+.auto-style4 {
+	color: #4D4D4D;
 }
 </style>
 </head>
@@ -31,7 +43,7 @@
 		<tr>
 			<td>
 				<!-- Persistant Header --> 
-				<img alt="" height="186" src="we_the_people_logo.png" width="100%"></td>
+				<img alt="We The People" height="186" src="WTP_banner_0.png" width="800"></td>
 		</tr>
 		<tr>
 			<td>
@@ -43,7 +55,7 @@
 					<img alt="" height="63" src="pasedb-logo-00.png" width="65"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
 					ALIENATION SUPPORT &amp; RECOVERY DATABASE</span></strong><br>
-					<span class="auto-style3">Centralized Crowdsourced Resository of PA/PAS related Articles, Stories, Sites &amp; Groups
+					<span class="auto-style4">Centralized Crowdsourced Resository of PA/PAS related Articles, Stories, Sites &amp; Groups</span><span class="auto-style3">
 					</span>
 					</td>
 				</tr>
