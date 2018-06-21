@@ -12,7 +12,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://pasedb.org/" />
 <meta property="og:image" content="http://pasedb.org/ogimg/logo-pasedb_sm.jpg" />
-<meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
+<meta property="og:description" content="Crowdsourced links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..." />
 <meta property="og:site_name" content="PASEDB" />
 
 
