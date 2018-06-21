@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 
 body {
   background-color : #ffffff;
@@ -131,4 +131,18 @@ ul.pureCssMenu a:hover span{	_background-image:url(./images/arrv_anim_1o.gif)}
 ul.pureCssMenu ul span,ul.pureCssMenu a:hover table span{background-image:url(./images/arr_double_1.gif)}
 ul.pureCssMenu ul li:hover > a span{	background-image:url(./images/arr_double_1o.gif);}
 ul.pureCssMenu table a:hover span{background-image:url(./images/arr_double_1o.gif)}
+.auto-style1 {
+	text-align: center;
+	color: #0000FF;
+}
+.auto-style2 {
+	font-size: 16pt;
+	color: #000000;
+}
+.auto-style3 {
+	color: #4792E6;
+}
+.auto-style4 {
+	color: #4D4D4D;
+}
 </style>

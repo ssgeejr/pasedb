@@ -7,30 +7,16 @@
 	[PASEDB]</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 
-<meta property="og:title" content="Parental Alienation Support &amp; Education Database" />
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="Parental Alienation Support & Education Database" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://pasedb.org/" />
 <meta property="og:image" content="http://pasedb.org/image.jpg" />
 <meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
 <meta property="og:site_name" content=PASEDB" />
 
-<style type="text/css">
-.auto-style1 {
-	text-align: center;
-	color: #0000FF;
-}
-.auto-style2 {
-	font-size: 16pt;
-	color: #000000;
-}
-.auto-style3 {
-	color: #4792E6;
-}
-.auto-style4 {
-	color: #4D4D4D;
-}
-</style>
-</head>
+
+
 
 <body>
 	<div align="center">
