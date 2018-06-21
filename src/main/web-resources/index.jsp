@@ -22,7 +22,7 @@
 
 <body>
 	<!--  ????  -->
-	<table style="border: 1px solid #AAAAAA; width: 100%;">
+	<table style="border: 1px solid #AAAAAA;width=800">
 		<tr>
 			<td>
 				<center></center>
@@ -31,7 +31,7 @@
 		<tr>
 			<td>
 				<!-- Persistant Header --> 
-				<img alt="" height="186" src="we_the_people_logo.png" width="800"></td>
+				<img alt="" height="186" src="we_the_people_logo.png" width="100%"></td>
 		</tr>
 		<tr>
 			<td>
@@ -57,7 +57,7 @@
 				<table style="width: 100%">
 					<tr>
 						<td><center>Main Content</center></td>
-						<td style="border-left: 1px solid #AAAAAA; width: 250px"><center>
+						<td style="border-left: 1px solid #AAAAAA; width: 150px"><center>
 								Content Menu<br>Alternate Articles
 							</center></td>
 					</tr>
