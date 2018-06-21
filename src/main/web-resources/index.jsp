@@ -46,10 +46,14 @@
 					</span>
 					</td>
 				</tr>
-			</table>
-				
+			</table>			
 				
 			</td>
+		</tr>
+		<tr>
+		<td>
+		<%@ include file="menu.htm"%>
+		</td>
 		</tr>
 		<tr>
 			<td>
