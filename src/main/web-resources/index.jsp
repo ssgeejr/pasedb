@@ -10,8 +10,8 @@
 
 <meta property="og:title" content="Parental Alienation Support & Education Database" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://pasedb.org/ogimg/logo-pasedb.jpg" />
-<meta property="og:image" content="http://pasedb.org/image.jpg" />
+<meta property="og:url" content="http://pasedb.org/" />
+<meta property="og:image" content="http://pasedb.org/ogimg/logo-pasedb.jpg" />
 <meta property="og:description" content="Crowdsourced links for DSM-V, support, education, help, stories, comments, legal and court rulings regarding Parental Alienation" />
 <meta property="og:site_name" content=PASEDB" />
 <meta property="fb:app_id" content=652691401742652" />
