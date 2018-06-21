@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<!--  ????  -->
+	<div align="center">
 	<table style="border: 1px solid #AAAAAA;width=800">
 		<tr>
 			<td>
@@ -72,5 +72,6 @@
 			</td>
 		</tr>
 	</table>
+	</div>
 </body>
 </html>
