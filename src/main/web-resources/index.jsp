@@ -22,7 +22,7 @@
 
 <body>
 	<div align="center">
-	<table style="border: 1px solid #AAAAAA;width=800">
+	<table style="border: 1px solid #AAAAAA;width: 900px">
 		<tr>
 			<td>
 				<center></center>
