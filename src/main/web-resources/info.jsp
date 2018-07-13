@@ -57,9 +57,9 @@
 			<td>
 				<table style="width: 100%">
 					<tr>
-						<td><center>Main Content</center></td>
+						<td><center>Information on the Site, Support, Contact and how to contribute</center></td>
 						<td style="border-left: 1px solid #AAAAAA; width: 150px"><center>
-								Content Menu<br>Alternate Articles
+								Content Menu<br><hr>Alternate Articles
 							</center></td>
 					</tr>
 				</table>

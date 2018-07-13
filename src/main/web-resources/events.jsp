@@ -57,7 +57,7 @@
 			<td>
 				<table style="width: 100%">
 					<tr>
-						<td><center>Parental Rights [artcles, stories, opinions]</center></td>
+						<td><center>Live Meetings [brick & mortar, webcam, teleconference ... etc]</center></td>
 						<td style="border-left: 1px solid #AAAAAA; width: 150px"><center>
 								Content Menu<br><hr>Alternate Articles
 							</center></td>
