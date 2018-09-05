@@ -5,16 +5,40 @@
 
 	<groupId>org.pasedb.webapp</groupId>
 	<artifactId>pasedbpom</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.2</version>
 	<packaging>pom</packaging>
 
-	<name>PASEDB</name>
-	<description>Parental Alienation Support & Education DB</description>
-	<url>https://github.com/ssgeejr/pasedb</url>
+	<name>PASEDB (POM)</name>
+	<url>http://pasedb.org</url>
+	<description>Parental Alienation Support and Education DB</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<modules>
         	<module>pasedbui</module>
         	<module>pasedbms</module>
-    	</modules>
+    </modules>
+		
+		
+	<organization>
+		<name>PASEDB</name>
+		<url>http://pasedb.org/</url>
+	</organization>
+	<scm>
+		<url>https://github.com/ssgeejr/pasedb</url>
+		<connection>scm:git:git@github.com:ssgeejr/gpasedb.git</connection>
+		<developerConnection>scm:git:git://github.com/ssgeejr/pasedb.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/ssgeejr/pasedb/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.org/ssgeejr/pasedb</url>
+	</ciManagement>
+		
 </project>
 

@@ -13,6 +13,8 @@ IntelliJ
 *.iml
 frontend/*.iml
 service/*.iml
+pasedbui/*.iml
+pasedbms/*.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
