@@ -14,7 +14,7 @@
 <meta property="og:title" content="Parental Alienation Support & Education Database" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://pasedb.org/" />
-<meta property="og:image" content="http://pasedb.org/ogimg/logo-pasedb_sm.jpg" />
+<meta property="og:image" content="http://pasedb.org/logo-pasedb_sm.jpg" />
 <meta property="og:description" content="Crowdsourced links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..." />
 <meta property="og:site_name" content="PASEDB" />
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
@@ -39,10 +39,9 @@
 					<td valign="top">
 					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
-					ALIENATION SUPPORT &amp; RECOVERY DATABASE</span></strong><br>
-					<span class="auto-style4">Centralized Crowdsourced Repository of PA/PAS related Articles, Stories, Sites &amp; Groups</span><span class="auto-style3">
-					</span>
-					</td>
+					ALIENATION<br>SUPPORT &amp; EDUCATION DATABASE</span></strong><br>
+					<span class="auto-style4">Centralized Crowdsourced Repository of PA/PAS related Articles, Stories, 
+					Opinions, Rulings, Sites, Videos, Groups and more ...</span></td>
 				</tr>
 			</table>			
 				
