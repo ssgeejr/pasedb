@@ -14,13 +14,14 @@ ADD . /files
 RUN chown -R mongodb:mongodb /data/db2 \
 && chown -R mongodb:mongodb /files
 
-RUN mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db2 --smallfiles && sleep 20 \
-   && mongoimport --db pasedb --collection counter --type csv --headerline --file /files/counter.csv \
-   && mongoimport --db pasedb --collection userlinks --type csv --headerline --file /files/userlinks.csv \
-   && mongod --dbpath /data/db2 --shutdown \
-   && chown -R mongodb /data/db2
-
+#RUN mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db2 --smallfiles && sleep 20 \
+#   && mongoimport --db pasedb --collection counter --type csv --headerline --file /files/counter.csv \
+#   && mongod --dbpath /data/db2 --shutdown \
+#   && chown -R mongodb /data/db2
+#
+#   && mongoimport --db pasedb --collection userlinks --type csv --headerline --file /files/userlinks.csv \
 # Make the new dir a VOLUME to persists it
 VOLUME /data/db2
 
+#CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
 CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
