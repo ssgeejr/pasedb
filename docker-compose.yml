@@ -1,37 +1,39 @@
 version: '3'
 services:
-    database:
-        image: pasedb
+    db:
+        image: pasedb:db
         container_name: pasedb
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.10
-                        aliases:
-                                - pasedb
         tty: true
         stdin_open: true
         restart: always
 
-    service:
-        image: pasedbms
-        container_name: pasedbms
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.20
-                        aliases:
-                                - pasedbms
-
-    frontend:
-        image: pasedbui
+    ui:
+        image: pasedb:ui
         container_name: pasedbui
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.30
+        tty: true
+        stdin_open: true
+	links:
+            - db
         ports:
             - 80:8080
-networks:
-    pasedb_net:
-        driver: bridge
-        ipam:
-            driver: default
-            config: [{subnet: 10.10.10.0/24}]
+
+#        networks:
+#              pasedb_web:
+#                aliases:
+#                 - md
+#              pasedb_dmz:
+#                aliases:
+#                 - md
+
+#networks:
+#    pasedb_web:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.1.0/24}]
+#    pasedb_dmz:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.2.0/24}]
+
