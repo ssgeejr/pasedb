@@ -8,11 +8,12 @@ services:
         restart: always
 
     ui:
+        build: pasedbui/docker
         image: pasedb:ui
         container_name: pasedbui
         tty: true
         stdin_open: true
-	links:
+        links:
             - db
         ports:
             - 80:8080

@@ -45,6 +45,18 @@
 						</execution>
 					</executions>
 				</plugin>
+<!--
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.2.2</version>
+            <configuration>
+             <warName>ROOT.war</warName>
+             <outputDirectory>${project.basedir}/docker</outputDirectory>
+            </configuration>
+        </plugin>
+-->
+
 			</plugins>
 		</build>
 
