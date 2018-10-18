@@ -26,3 +26,5 @@ echo "<<<<<<<<<<< docker build >>>>>>>>>>>"
 cd $wd
 docker-compose build
 
+
+cd $wd
