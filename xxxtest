@@ -13,8 +13,9 @@ git fetch
 	cd docker
 	rm -rf pasedb*
 	rm -rf war-exec*
+	docker rmi pasedb:ui
 	mv ../target/pasedb.war ROOT.war
-        docker build -t pasedb:ui .
+    docker build -t pasedb:ui .
 #	docker stop ui
 #	docker rm ui
 	docker-compose down
