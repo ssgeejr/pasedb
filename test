@@ -9,7 +9,8 @@ if [ "$(git diff --name-only origin/develop | grep auto.deploy)" == "auto.deploy
         echo "*** UPDATING PROJECT ***"
 #        git pull origin develop
 	echo ">>>> merging updates into develop <<<<"
-	git merge
+        git pull origin develop
+#	git merge
 
 	echo ">>>> compiling new web-ui code <<<<"
 	cd pasedbui
