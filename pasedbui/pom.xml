@@ -1,66 +1,55 @@
-	<project xmlns="http://maven.apache.org/POM/4.0.0"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-		<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	  <groupId>org.pasedb</groupId>
-		<artifactId>pasedbui</artifactId>
-		<version>2.7</version>
-		<packaging>war</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pasedb</groupId>
+	<artifactId>pasedbui</artifactId>
+	<version>2.7</version>
+	<packaging>war</packaging>
 
-		<properties>
-			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		</properties>
+	<name>pasedb</name>
+	<url>http://pasedb.org</url>
+	<description>Parental Alienation Support and Education DB</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-		<build>
-			<finalName>pasedbui</finalName>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.1</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-						<fork>true</fork>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-			    <artifactId>tomcat7-maven-plugin</artifactId>
-			    <version>2.2</version>
-					<executions>
-						<execution>
-							<id>tomcat-run</id>
-							<goals>
-								<goal>exec-war-only</goal>
-							</goals>
-							<phase>package</phase>
-							<configuration>
-								<path>/</path>
-								<enableNaming>false</enableNaming>
-								<buildDirectory>${project.basedir}/docker</buildDirectory>
-								<finalName>pasedbui.jar</finalName>
-								<charset>utf-8</charset>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-<!--
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.2.2</version>
-            <configuration>
-             <warName>ROOT.war</warName>
-             <outputDirectory>${project.basedir}/docker</outputDirectory>
-            </configuration>
-        </plugin>
--->
+			<build>
+				<finalName>pasedb</finalName>
+				<plugins>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.1</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+							<fork>true</fork>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.3</version>
+						<configuration>
+							<warSourceDirectory>src/main/webapp</warSourceDirectory>
+							<webResources>
+								<resource>
+									<directory>src/main/web-resources</directory>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+					<plugin>
+						<!-- Used for local debugging -->
+						<groupId>org.eclipse.jetty</groupId>
+						<artifactId>jetty-maven-plugin</artifactId>
+						<version>9.4.10.v20180503</version>
+					</plugin>
+				</plugins>
+			</build>
 
-			</plugins>
-		</build>
-
-		<dependencies>
+			<dependencies>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -79,4 +68,24 @@
 		    <version>2.2</version>
 			</dependency>
 		</dependencies>
-	</project>
+
+		
+ 	<organization>
+		<name>PASEDB</name>
+		<url>http://pasedb.org/</url>
+	</organization>
+	<scm>
+		<url>https://github.com/ssgeejr/pasedb</url>
+		<connection>scm:git:git@github.com:ssgeejr/gpasedb.git</connection>
+		<developerConnection>scm:git:git://github.com/ssgeejr/pasedb.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/ssgeejr/pasedb/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.org/ssgeejr/pasedb</url>
+	</ciManagement>
+</project>
+

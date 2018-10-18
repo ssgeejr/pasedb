@@ -1,0 +1,82 @@
+	<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		<modelVersion>4.0.0</modelVersion>
+
+	  <groupId>org.pasedb</groupId>
+		<artifactId>pasedbui</artifactId>
+		<version>2.7</version>
+		<packaging>war</packaging>
+
+		<properties>
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		</properties>
+
+		<build>
+			<finalName>pasedbui</finalName>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<fork>true</fork>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <version>2.1</version>
+					<executions>
+						<execution>
+							<id>tomcat-run</id>
+							<goals>
+							<goal>exec-war-only</goal>
+							</goals>
+							<phase>package</phase>
+							<configuration>
+								<path>/</path>
+								<enableNaming>false</enableNaming>
+								<buildDirectory>${project.basedir}/docker</buildDirectory>
+								<finalName>pasedbui.jar</finalName>
+								<charset>utf-8</charset>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+<!--
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.2.2</version>
+            <configuration>
+             <warName>ROOT.war</warName>
+             <outputDirectory>${project.basedir}/docker</outputDirectory>
+            </configuration>
+        </plugin>
+-->
+
+			</plugins>
+		</build>
+
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+				</dependency>
+			<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>3.0-alpha-1</version>
+		    <scope>provided</scope>
+			</dependency>
+			<dependency>
+		    <groupId>org.apache.tomcat.maven</groupId>
+		    <artifactId>tomcat7-maven-plugin</artifactId>
+		    <version>2.1</version>
+			</dependency>
+		</dependencies>
+	</project>

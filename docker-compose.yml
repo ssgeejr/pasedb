@@ -1,14 +1,16 @@
 version: '3'
 services:
     db:
-        image: pasedb:db
-        container_name: pasedb
+        image: pasedb:mongo
+        container_name: mongodb
         tty: true
         stdin_open: true
         restart: always
+        volumes:
+            - /opt/pasedb/mongodb/db:/data/db2
 
     ui:
-        build: pasedbui/docker
+#        build: pasedbui/docker
         image: pasedb:ui
         container_name: pasedbui
         tty: true
