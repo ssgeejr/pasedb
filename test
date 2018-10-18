@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+echo $(git diff --name-only origin/develop | grep auto.deploy)
+
+if [ ! -n $(git diff --name-only origin/develop | grep auto.deploy) ]; then
+
+echo "update"
+
+else
+
+echo "online"
+
+fi
+ 
