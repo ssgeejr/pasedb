@@ -19,6 +19,9 @@
 <meta property="og:site_name" content="PASEDB" />
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 
+<% 
+	new org.pasedb.pasedbui.Counter(request);
+%>
 </head>
 <body>
 	<div align="center">
@@ -26,7 +29,7 @@
 		<tr>
 			<td>
 				<center>
-				<img alt="Parental Rights Banner" src="pasedb_00_01_sm.png">
+				<%@ include file="banner.htm"%>
 				</center>
 			</td>
 		</tr>

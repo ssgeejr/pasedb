@@ -17,14 +17,14 @@ mvn clean package
 #docker rmi ms
 
 
-echo "<<<<<<<<<<< DB >>>>>>>>>>>"
-docker stop db
-docker rm db
-docker rmi db
+#echo "<<<<<<<<<<< DB >>>>>>>>>>>"
+#docker stop db
+#docker rm db
+#docker rmi db
 
-echo "<<<<<<<<<<< docker build >>>>>>>>>>>"
-cd $wd
-docker-compose build
+#echo "<<<<<<<<<<< docker build >>>>>>>>>>>"
+#cd $wd
+#docker-compose build
 
 
 cd $wd
