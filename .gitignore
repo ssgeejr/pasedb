@@ -1,15 +1,13 @@
-# Compiled class file
 *.class
 
-# Log file
 *.log
+*.logs
 
-# BlueJ files
 *.ctxt
 
-IntelliJ
 .idea
 .extract
+.service
 *.iml
 frontend/*.iml
 service/*.iml
