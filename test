@@ -1,0 +1,35 @@
+#!/bin/bash
+
+proj_dir="/opt/dev/pasedb"
+cd $proj_dir
+
+git fetch
+
+if [ "$(git diff --name-only origin/develop | grep auto.deploy)" == "auto.deploy" ]; then
+        echo "*** UPDATING PROJECT ***"
+#        git pull origin develop
+	echo ">>>> merging updates into develop <<<<"
+        git pull origin develop
+#	git merge
+
+	echo ">>>> compiling new web-ui code <<<<"
+	cd pasedbui
+	mvn clean package	
+
+	echo ">>>> docker-compose compile and bring online <<<<"
+	docker-compose build ui
+#	docker stop ui
+#	docker rm ui
+	docker-compose down
+	docker-compose up
+
+#	docker-compose up -d --no-deps ui
+
+        echo "*** DEPLOYMENT COMPLETE ***"
+        exit 1
+else
+        echo "auto.deploy flag not enabled"
+        exit 1
+fi
+
+

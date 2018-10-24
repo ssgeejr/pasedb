@@ -1,37 +1,42 @@
 version: '3'
 services:
-    database:
-        image: pasedb
-        container_name: pasedb
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.10
-                        aliases:
-                                - pasedb
+    db:
+        image: pasedb:mongo
+        container_name: mongodb
         tty: true
         stdin_open: true
         restart: always
+        volumes:
+            - /opt/pasedb/mongodb/db:/data/db2
 
-    service:
-        image: pasedbms
-        container_name: pasedbms
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.20
-                        aliases:
-                                - pasedbms
-
-    frontend:
-        image: pasedbui
+    ui:
+#        build: pasedbui/docker
+        image: pasedb:ui
         container_name: pasedbui
-        networks:
-                pasedb_net:
-                        ipv4_address: 10.10.10.30
+        tty: true
+        stdin_open: true
+        links:
+            - db
         ports:
             - 80:8080
-networks:
-    pasedb_net:
-        driver: bridge
-        ipam:
-            driver: default
-            config: [{subnet: 10.10.10.0/24}]
+
+#        networks:
+#              pasedb_web:
+#                aliases:
+#                 - md
+#              pasedb_dmz:
+#                aliases:
+#                 - md
+
+#networks:
+#    pasedb_web:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.1.0/24}]
+#    pasedb_dmz:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.2.0/24}]
+
