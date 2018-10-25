@@ -7,14 +7,12 @@ git fetch
 
 if [ "$(git diff --name-only origin/develop | grep auto.deploy)" == "auto.deploy" ]; then
         echo "*** UPDATING PROJECT ***"
-#        git pull origin develop
+        echo "<<< Bringing down the website >>>"
+	docker-compose down
 	echo ">>>> merging updates into develop <<<<"
         git pull origin develop
-#	git merge
 
 	echo ">>>> compiling new web-ui code <<<<"
-#	cd pasedbui
-#	mvn clean package	
 	cd pasedbui
 	mvn clean package
 
@@ -29,7 +27,8 @@ if [ "$(git diff --name-only origin/develop | grep auto.deploy)" == "auto.deploy
 #	docker-compose build ui
 #	docker stop ui
 #	docker rm ui
-	docker-compose down
+
+cd $proj_dir
 	docker-compose up
 
 #	docker-compose up -d --no-deps ui
