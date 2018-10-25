@@ -34,13 +34,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
-				
-				
+			<td>				
 			<table style="width: 100%">
 				<tr>
-					<td valign="top">
-					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
 					ALIENATION<br>SUPPORT &amp; EDUCATION DATABASE</span></strong><br>
 					<span class="auto-style4">Centralized Crowdsourced Repository of PA/PAS related Articles, Stories, 
@@ -71,7 +67,7 @@
 			<td>
 				<center>
 					<!-- footer when ready -->
-				</center>
+					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></center>
 			</td>
 		</tr>
 	</table>
