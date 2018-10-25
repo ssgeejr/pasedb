@@ -11,6 +11,12 @@ echo "<<<<<<<<<<< UI >>>>>>>>>>>"
 cd pasedbui
 mvn clean package
 
+rm -f docker/paseadb.war
+cp target/pasedb.war docker
+cd docker
+docker rmi pasedbui
+docker build -t pasedbui .
+
 #echo "<<<<<<<<<<< MS >>>>>>>>>>>"
 #docker stop ms
 #docker rm ms
