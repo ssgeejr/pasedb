@@ -22,6 +22,12 @@
 <% 
 	new org.pasedb.pasedbui.Counter(request);
 %>
+<style type="text/css">
+.auto-style5 {
+	font-size: large;
+	color: #FF0000;
+}
+</style>
 </head>
 <body>
 	<div align="center">
@@ -48,8 +54,9 @@
 		</tr>
 		<tr>
 		<td>
-		<%@ include file="menu.htm"%>
-		</td>
+		<em><strong><span class="auto-style5">VALIDATION TESTING underway - site 
+		may (or MAY NOT) load correctly</span></strong></em><br><br>
+		<img alt="" src="testing.jpg"></td>
 		</tr>
 		<tr>
 			<td>
