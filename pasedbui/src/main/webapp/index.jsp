@@ -40,17 +40,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td>				
-			<table style="width: 100%">
-				<tr>
-					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
-					ALIENATION<br>SUPPORT &amp; EDUCATION DATABASE</span></strong><br>
-					<span class="auto-style4">Centralized Crowdsourced Repository of PA/PAS related Articles, Stories, 
-					Opinions, Rulings, Sites, Videos, Groups and more ...</span></td>
-				</tr>
-			</table>			
-				
-			</td>
+		<td>
+		<%@ include file="menu.htm"%>
+		</td>
 		</tr>
 		<tr>
 		<td>
