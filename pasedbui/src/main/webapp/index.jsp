@@ -54,9 +54,12 @@
 		</tr>
 		<tr>
 		<td>
+<div align="center">
 		<em><strong><span class="auto-style5">VALIDATION TESTING underway - site 
 		may (or MAY NOT) load correctly</span></strong></em><br><br>
-		<img alt="" src="testing.jpg"></td>
+		<img alt="" src="testing.jpg">
+</div>
+</td>
 		</tr>
 		<tr>
 			<td>
