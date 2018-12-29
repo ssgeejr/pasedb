@@ -27,16 +27,17 @@
 	font-size: large;
 	color: #FF0000;
 }
+.auto-style6 {
+	text-align: left;
+}
 </style>
 </head>
 <body>
 	<div align="center">
 	<table style="border: 1px solid #AAAAAA;width: 900px">
 		<tr>
-			<td>
-				<center>
+			<td class="auto-style6">
 				<%@ include file="banner.htm"%>
-				</center>
 			</td>
 		</tr>
 		<tr>
