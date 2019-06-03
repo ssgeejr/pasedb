@@ -6,14 +6,24 @@ og:url, og:type, og:title, og:image, og:description, fb:app_id
 
 The strong faces the evils that the victim refuses to acknowledge
 
+http://search.txcourts.gov/SearchMedia.aspx?MediaVersionID=705a257b-5a09-472d-bed7-fac25fb05772&coa=cossup&DT=BRIEFS&MediaID=2470fc89-b8cb-4b23-b23f-2a5e30c6a432
+Parental Alienation caused by
+whatever mean is a sickness that should be treated as a form of Cancer for civil
+society. It produces generation of bitter citizens with disregard to the law and
+order. Why not? They are a result of disregards of Law and order as this case
+shows over and over. 
+--Supreme Court Of Texas, CAUSE NO. 12-09-00392, Elmakiss v Rogers, Smith County, et all
 
 
+RUN mkdir -p /data/gsma \
+    && echo "dbpath = /data/gsma" > /etc/mongodb.conf \
+    && chown -R mongodb:mongodb /data/gsma
 
 
+# Make the new dir a VOLUME to persists it 
+VOLUME /data/gsma
 
-
-
-
+CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
 
 The rights of parents to the care, custody and nurture of their children is of such
 character that it cannot be denied without violating those fundamental principles of

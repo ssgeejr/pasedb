@@ -1,0 +1,4 @@
+#!/bin/bash
+mongoimport --db pasedb --collection counter --type json --file counter.json
+mongoimport --db pasedb --collection userlinks --type json --file userlinks.json
+

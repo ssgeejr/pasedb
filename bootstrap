@@ -1,0 +1,36 @@
+#!/bin/bash
+
+
+wd=`pwd`
+echo "Setting Working Directory (wd) to $wd"
+
+echo "<<<<<<<<<<< UI >>>>>>>>>>>"
+#docker stop ui
+#docker rm ui
+#docker rmi ui
+cd pasedbui
+mvn clean package
+
+rm -f docker/paseadb.war
+cp target/pasedb.war docker
+cd docker
+docker rmi pasedbui
+docker build -t pasedbui .
+
+#echo "<<<<<<<<<<< MS >>>>>>>>>>>"
+#docker stop ms
+#docker rm ms
+#docker rmi ms
+
+
+#echo "<<<<<<<<<<< DB >>>>>>>>>>>"
+#docker stop db
+#docker rm db
+#docker rmi db
+
+#echo "<<<<<<<<<<< docker build >>>>>>>>>>>"
+#cd $wd
+#docker-compose build
+
+
+cd $wd

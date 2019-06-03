@@ -1,0 +1,29 @@
+#!/bin/bash
+
+proj_dir="/opt/dev/pasedb"
+cd $proj_dir
+
+git fetch
+
+	echo ">>>> compiling new web-ui code <<<<"
+	cd pasedbui
+	mvn clean package	
+
+	echo ">>>> docker-compose compile and bring online <<<<"
+	cd docker
+	rm -rf pasedb*
+	rm -rf war-exec*
+	docker rmi pasedb:ui
+	mv ../target/pasedb.war ROOT.war
+    docker build -t pasedb:ui .
+#	docker stop ui
+#	docker rm ui
+	docker-compose down
+	docker-compose up
+
+#	docker-compose up -d --no-deps ui
+
+        echo "*** DEPLOYMENT COMPLETE ***"
+        exit 1
+
+
