@@ -4,20 +4,9 @@
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="content-type">
 <title>Parental Alienation Support & Education</title>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta name="title" content="Parental Alienation Support & Education" />
-<meta name="description" content="Educational links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ...">
-<meta name="robots" content="index, follow">
-<meta name="keywords" content="parental alienation, dmv-v, parental rights, alienation, mad mother syndrome, mad mother, parental alienation syndrome, craig chidress, pas, pa, parental alienation tactics, prevent parental alienation, child abuse, amy baker, steven miller" />
-<meta property="author" content="admin@pasedb.org" />
-
-<meta property="og:title" content="Parental Alienation Support & Education" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://pasedb.org/" />
-<meta property="og:image" content="http://pasedb.org/logo-pasedb_sm.jpg" />
-<meta property="og:description" content="Educational links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..." />
-<meta property="og:site_name" content="PASEDB" />
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<%@ include file="meta.htm"%>
+
 <!--
 <% 
 	// new org.pasedb.pasedbui.Counter(request);

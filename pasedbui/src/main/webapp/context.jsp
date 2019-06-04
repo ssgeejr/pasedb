@@ -12,15 +12,16 @@
 %>
 -->
 <%@ page
-	language="java"
-	contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+		language="java"
+		contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"
+		%>
 <%!
-
+	String[] context ={"Parental Alienation","Parental Rights","In the Media","Court Opinions","Support Groups","Comments"};
 %>
 <%
-
+	int cntx = 0;
+	try{cntx = Integer.parseInt(request.getParameter("id").toString());}catch(Exception ex){}
 %>
 
 
@@ -52,7 +53,7 @@
 		<td class="auto-style7">
 		<strong>OFFICIAL RELEASE JUNE 22, 2019</strong>
 		<br>
-		SEARCH
+		<%= context[cntx] %>
 		</td>
 		</tr>
 		<tr>
