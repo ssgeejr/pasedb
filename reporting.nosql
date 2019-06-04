@@ -1,5 +1,5 @@
 
-
+##### COUNT BY IP ######
 db.counter.aggregate([
     {"$group" : {_id:"$ip", count:{$sum:1}}}, 
 	{$sort:{"_id.source":1}}	
@@ -11,3 +11,195 @@ db.counter.aggregate([
 	}, 
 	{$sort:{"count":-1}}
 ])
+
+###### SORTING ######
+
+db.products.find().sort({"created_at": 1})
+
+limit the result set:  .limit(50);
+
+db.yourcollectionname.find({$query: {}, $orderby: {$natural : -1}}).limit(yournumber)
+
+###### FIND BY VALUE ######
+.... { "_id": "bananas", "qty": 7 }
+
+
+http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+https://howtodoinjava.com/mongodb/mongodb-find-documents/
+
+##### JAVA EXAMPLES #####
+MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+MongoDatabase database = mongoClient.getDatabase(db_name);
+MongoCollection<Document> collection = database.getCollection(collection_name);
+String value  = collection.find().projection(Projections.include("item")).first().getString("item");
+
+
+To create the document using the Java driver
+ Document doc = new Document("name", "MongoDB")
+                .append("type", "database")
+                .append("count", 1)
+                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
+                .append("info", new Document("x", 203).append("y", 102));
+				
+collection.insertOne(doc);				
+				
+#Matches a Filter			
+myDoc = collection.find(eq("i", 71)).first();
+System.out.println(myDoc.toJson());			
+		
+
+#Select document using where clause
+private static void selectSingleRecordAndFieldByRecordNumber(DBCollection collection)
+{
+    BasicDBObject whereQuery = new BasicDBObject();
+    whereQuery.put("employeeId", 5);
+    BasicDBObject fields = new BasicDBObject();
+    fields.put("employeeId", 1);
+  
+    DBCursor cursor = collection.find(whereQuery, fields);
+    while (cursor.hasNext()) {
+        System.out.println(cursor.next());
+    }
+}
+
+#Find by document id
+private static void selectAllRecordByRecordNumber(DBCollection collection)
+{
+    BasicDBObject whereQuery = new BasicDBObject();
+    whereQuery.put("employeeId", 5);
+    DBCursor cursor = collection.find(whereQuery);
+    while(cursor.hasNext()) {
+        System.out.println(cursor.next());
+    }
+}
+
+#MongoDb find documents matching multiple fields example
+#Find documents matching multiple fields
+private static void andLogicalComparison_Example(DBCollection collection)
+{
+    BasicDBObject andQuery = new BasicDBObject();
+    List<BasicDBObject> obj = new ArrayList<BasicDBObject>();
+    obj.add(new BasicDBObject("employeeId", 2));
+    obj.add(new BasicDBObject("employeeName", "TestEmployee_2"));
+    andQuery.put("$and", obj);
+  
+    System.out.println(andQuery.toString());
+  
+    DBCursor cursor = collection.find(andQuery);
+    while (cursor.hasNext()) {
+        System.out.println(cursor.next());
+    }
+}
+
+
+
+##### (full) TEXT SEARCH #####
+https://code.tutsplus.com/tutorials/full-text-search-in-mongodb--cms-24835
+https://stackoverflow.com/questions/44833817/mongodb-full-and-partial-text-search
+https://docs.mongodb.com/manual/core/index-text/
+
+https://docs.mongodb.com/manual/text-search/
+
+https://examples.javacodegeeks.com/software-development/mongodb/mongodb-full-text-search-tutorial/
+
+
+2.1 Enabling Text Search
+Initially, Text Search was an experimental feature but starting from version 2.4, this configuration is enabled by default. But if you are using the previous version of MongoDB, the following code shows how this can be done:
+
+Enable Text Search Command
+
+> db.adminCommand({setParameter:true,textSearchEnabled:true})
+
+2.2 Creating Text Index
+Consider the following document under the articles collection containing the id and subject fields,
+* We will create a text index on subject field so that we can we can perform a search operation.
+> db.articles.ensureIndex({subject:"text"});
+....................................................................
+2.3.1 $search: “coffee”
+This query returns the documents that contain the term coffee in the indexed subject field.
+
+Query 1
+
+> db.articles.find({$text: {$search: "coffee" }});
+....................................................................
+2.3.2 $search: “bake coffee cake”
+This query returns documents that contain either bake or coffee or cake in the indexed subject field, or more precisely, the stemmed version of these words (e.g. bake, baking, baked).
+
+Query 2
+
+> db.articles.find({ $text: {$search: "bake coffee cake"}});
+....................................................................
+2.3.3 $search: “\”coffee shop\””
+This query returns documents that contain the phrase coffee shop.
+
+Query 3
+
+> db.articles.find({ $text: {$search: "\"coffee shop\"" }});
+....................................................................
+2.3.4 $search: “coffee -shop”
+This query returns documents that contain the phrase coffee -shop.
+
+Query 4
+
+> db.articles.find({ $text: {$search: "coffee -shop"}});
+....................................................................
+2.3.5 Case Sensitive Search – $search: “Coffee”
+This query performs a case sensitive search for the term Coffee. It may impact your search performance if $caseSensitive : true.
+
+Query 5
+
+> db.articles.find({ $text: {$search: "Coffee", $caseSensitive: true}});
+....................................................................
+2.3.6 Diacritic Sensitive Search – $search: “CAFÉ”
+This query performs a diacritic sensitive text search on the term CAFÉ.
+
+Query 6
+
+> db.articles.find({$text:{ $search: "CAFÉ", $diacriticSensitive: true }});
+....................................................................
+2.4 Deleting Text Index
+To delete an existing text index, first find the name of the index using the below query.
+
+Finding Index Name
+
+> db.articles.getIndexes();
+....................................................................
+After getting the name of the index from the above query, run the below command. Here, subject_text is the name of the index.
+
+Deleting Index
+
+> db.articles.dropIndex("subject_text");
+
+....................................................................
+
+
+....................................................................
+
+
+....................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+javascript; 
+collection.find({}, {"sort" : ['datefield', 'asc']} ).toArray(function(err,docs) {});

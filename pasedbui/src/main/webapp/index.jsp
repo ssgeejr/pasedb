@@ -24,11 +24,8 @@
 %>
 <style type="text/css">
 .auto-style5 {
-	font-size: large;
+	font-size: 8pt;
 	color: #FF0000;
-}
-.auto-style6 {
-	text-align: left;
 }
 </style>
 </head>
@@ -36,7 +33,7 @@
 	<div align="center">
 	<table style="border: 1px solid #AAAAAA;width: 900px">
 		<tr>
-			<td class="auto-style6">
+			<td>
 				<%@ include file="banner.htm"%>
 			</td>
 		</tr>
@@ -48,17 +45,18 @@
 		<tr>
 		<td>
 <div align="center">
-		<em><strong><span class="auto-style5">VALIDATION TESTING underway - site 
-		may (or MAY NOT) load correctly</span></strong></em><br><br>
-		<img alt="" src="testing.jpg">
-</div>
+		<strong><span class="auto-style5">VALIDATION TESTING underway - site 
+		may (or MAY NOT) load correctly</span></strong></div>
 </td>
 		</tr>
 		<tr>
 			<td>
 				<table style="width: 100%">
 					<tr>
-						<td><center>Main Content</center></td>
+						<td><center><strong>Main Content</strong><br>
+						<span style="color: rgb(77, 77, 77)">
+						Centralized Crowdsourced Resository of PA/PAS related 
+						Articles, Sites &amp; Groups</span></center></td>
 						<td style="border-left: 1px solid #AAAAAA; width: 150px"><center>
 								Content Menu<br>Alternate Articles
 							</center></td>
@@ -69,8 +67,8 @@
 		<tr>
 			<td>
 				<center>
-					<!-- footer when ready -->
-					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></center>
+					<%@ include file="banner.htm"%>
+					</center>
 			</td>
 		</tr>
 	</table>
