@@ -39,9 +39,8 @@
 					<td valign="top">
 					<img alt="PASEDB" longdesc="Parental Alienation Support &amp; Education Database" src="logo-pasedb_sm.jpg"></td>
 					<td class="auto-style1"><strong><span class="auto-style2">PARENTAL 
-					ALIENATION SUPPORT &amp; RECOVERY DATABASE</span></strong><br>
-					<span class="auto-style4">Centralized Crowdsourced Resository of PA/PAS related Articles, Stories, Sites &amp; Groups</span><span class="auto-style3">
-					</span>
+					ALIENATION SUPPORT &amp; EDUCATION DATABASE</span></strong><br>
+					<span class="auto-style4">Centralized Repository of PA/PAS related Articles, Stories, &amp; Sites</span>
 					</td>
 				</tr>
 			</table>			
