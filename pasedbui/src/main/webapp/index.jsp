@@ -66,9 +66,11 @@
 		</tr>
 		<tr>
 			<td>
+			<!--
 				<center>
-					<%@ include file="banner.htm"%>
+					<%@ include file="footer.htm"%>
 					</center>
+					-->
 			</td>
 		</tr>
 	</table>
