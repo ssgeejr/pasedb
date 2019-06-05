@@ -5,7 +5,7 @@ cwd=`pwd`
 mvn clean package
 cd docker
 docker-compose -f ../../docker-compose.yml down
-docker rmi pasedb
+docker rmi pasedbui
 docker build -t pasedbui .
 docker-compose -f ../../docker-compose.yml up -d
 
