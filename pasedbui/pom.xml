@@ -29,6 +29,15 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>pasedb</warName>
+					<outputDirectory>docker/</outputDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
 				<!-- Used for local debugging -->
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>

@@ -73,7 +73,8 @@ public class pasedbService {
 			MongoCollection<Document> collection = mongodb.getCollection("gsma");
 //			int limit = 3;
 //			Document carFilter = collection.find(eq(constraint, carModel)).limit(limit);
-			Document carFilter = collection.find(eq(constraint, carModel)).first();
+//			Document carFilter = collection.find(eq(constraint, carModel)).first();
+			Document carFilter = null;
 			searchResult = carFilter.toJson();
 			
 			System.out.println(searchResult);

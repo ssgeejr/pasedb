@@ -1,3 +1,47 @@
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+URL url=new URL("Any web image url");
+ BufferedImage image = ImageIO.read(url);
+ int height = image.getHeight();
+ int width = image.getWidth();
+ System.out.println("Height : "+ height);
+ System.out.println("Width : "+ width);
+ 
+ 
+ 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+https://stackoverflow.com/questions/18009507/how-can-i-determine-image-size-and-dimension-before-downloading-the-image?rq=1
+You can get image size easily using URLConnection method getContentLength()
+
+ URL url = new URL("https://www.google.com.pk/images/srpr/logo4w.png");
+ URLConnection conn = url.openConnection();
+
+  // now you get the content length
+ int contentLength = conn.getContentLength();
+ // you can check size here using contentLength
+
+ InputStream in = conn.getInputStream();
+ BufferedImage    image = ImageIO.read(in);
+  // you can get size  dimesion      
+  int width          = image.getWidth();
+  int height         = image.getHeight(); 
+
+... extended ... 
+
+BufferedImage readImage = null;
+
+try {
+    readImage = ImageIO.read(new File(folder);
+    int h = readImage.getHeight();
+    int w = readImage.getWidth();
+} catch (Exception e) {
+    readImage = null;
+}
+
+
+
 <meta property="fb:fbid" content="643755066" />
 
 og:url, og:type, og:title, og:image, og:description, fb:app_id

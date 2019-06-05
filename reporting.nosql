@@ -1,4 +1,57 @@
 
+Added June 5th, 2019
+https://stackoverflow.com/questions/24483727/how-to-insert-a-document-with-date-in-mongo
+
+db.links.insert({
+   title: 'MongoDB Overview', 
+   description: 'MongoDB is no sql database',
+   image: 'https://www.somesample.com/',
+   url: 'http://www.tutorialspoint.com',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   postedon: new Date(Date.now()),
+   insertedby: 2
+})
+
+
+
+
+db.links.insertMany([
+   {title: '0000', description: 'description0000', image: 'image0000', url: 'url0000',tags: ['mongodb', 'database', 'xml'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '1111', description: 'description1111', image: 'image1111', url: 'url1111',tags: ['mongodb', 'database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '2222', description: 'description2222', image: 'image2222', url: 'url2222',tags: ['apache', 'database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '3333', description: 'description3333', image: 'image3333', url: 'url3333',tags: ['mongodb', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '4444', description: 'description4444', image: 'image4444', url: 'url4444',tags: ['database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   ])
+
+
+
+db.links.find( { tags: "mongodb" } )
+
+db.products.find().sort({"created_at": 1}) --- 1 for asc and -1 for desc
+
+
+.sort({"postedon": -1})
+
+Keanu Reeves Quotes to guide you:
+"Every struggle in your life has shaped you into the person you are today. Be thankful for the hard times, they can only make you stronger."
+
+"Even in the face of tragedy, a stellar person can thrive. No matter what’s going on in your life, you can overcome it! Life is worth living."
+
+"The simple act of paying attention can take you a long way."
+
+"If you have been brutally broken but still have the courage to be gentle to other living beings, then you’re a badass with a heart of an angel."
+
+"The person who was holding me back from my happiness was me."
+
+
+
+#java
+myDoc.put("value","someValue");
+myDoc.put("timestamp", new Date());
+myCollection.insert(myDoc);
+
+..............
+
 ##### COUNT BY IP ######
 db.counter.aggregate([
     {"$group" : {_id:"$ip", count:{$sum:1}}}, 
@@ -115,42 +168,42 @@ Consider the following document under the articles collection containing the id 
 * We will create a text index on subject field so that we can we can perform a search operation.
 > db.articles.ensureIndex({subject:"text"});
 ....................................................................
-2.3.1 $search: “coffee”
+2.3.1 $search: "coffee"
 This query returns the documents that contain the term coffee in the indexed subject field.
 
 Query 1
 
 > db.articles.find({$text: {$search: "coffee" }});
 ....................................................................
-2.3.2 $search: “bake coffee cake”
+2.3.2 $search: "bake coffee cake"
 This query returns documents that contain either bake or coffee or cake in the indexed subject field, or more precisely, the stemmed version of these words (e.g. bake, baking, baked).
 
 Query 2
 
 > db.articles.find({ $text: {$search: "bake coffee cake"}});
 ....................................................................
-2.3.3 $search: “\”coffee shop\””
+2.3.3 $search: "\"coffee shop\""
 This query returns documents that contain the phrase coffee shop.
 
 Query 3
 
 > db.articles.find({ $text: {$search: "\"coffee shop\"" }});
 ....................................................................
-2.3.4 $search: “coffee -shop”
+2.3.4 $search: "coffee -shop"
 This query returns documents that contain the phrase coffee -shop.
 
 Query 4
 
 > db.articles.find({ $text: {$search: "coffee -shop"}});
 ....................................................................
-2.3.5 Case Sensitive Search – $search: “Coffee”
+2.3.5 Case Sensitive Search – $search: "Coffee"
 This query performs a case sensitive search for the term Coffee. It may impact your search performance if $caseSensitive : true.
 
 Query 5
 
 > db.articles.find({ $text: {$search: "Coffee", $caseSensitive: true}});
 ....................................................................
-2.3.6 Diacritic Sensitive Search – $search: “CAFÉ”
+2.3.6 Diacritic Sensitive Search – $search: "CAFÉ"
 This query performs a diacritic sensitive text search on the term CAFÉ.
 
 Query 6
