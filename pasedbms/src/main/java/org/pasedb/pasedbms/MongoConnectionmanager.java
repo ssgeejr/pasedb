@@ -38,7 +38,7 @@ public class MongoConnectionmanager {
 	}
 
 	public MongoDatabase getDatabase(String dbase) throws Exception{
-	 return mongoClient.getDatabase("sku");
+	 return mongoClient.getDatabase(dbase);
 	}
 	
 	public void closeConnection() {

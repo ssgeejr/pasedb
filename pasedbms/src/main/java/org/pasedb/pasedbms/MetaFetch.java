@@ -33,7 +33,7 @@ public class MetaFetch {
 		    if (1 == 1) return;
 */
 		    
-			String url = "http://iloveandneedmydaughter.blogspot.com/2015/12/167-red-flags-of-parental-alienation.html";
+			String url = "https://www.researchgate.net/post/Parental_alienation_syndrome";
 			Document document = Jsoup.connect(url).get();
 		    String title = null;
 		    Elements metaOgTitle = document.select("meta[property=og:title]");
@@ -55,19 +55,30 @@ public class MetaFetch {
 		    Elements metaOgImage = document.select("meta[property=og:image]");
 		    if (metaOgImage!=null) {
 		    	imageUrl = metaOgImage.attr("content");
-		    	
-				URL iurl=new URL(imageUrl);
-				BufferedImage image = ImageIO.read(iurl);
-				int height = image.getHeight();
-				int width = image.getWidth();
-				System.out.println("Height : "+ height);
-				System.out.println("Width : "+ width);
-				// add the code to make the image smaller here -- revision 2, no need to work on this now!
+//		    	System.out.println("imageUrl: " + imageUrl);
+//		    	System.out.println("length: " + imageUrl.trim().length());
+		    	if(imageUrl != null && imageUrl.trim().length() > 4){
+			    	try{
+						URL iurl=new URL(imageUrl);
+						BufferedImage image = ImageIO.read(iurl);
+						int height = image.getHeight();
+						int width = image.getWidth();
+						System.out.println("Image Height : "+ height);
+						System.out.println("Image Width : "+ width);
+						// add the code to make the image smaller here -- revision 2, no need to work on this now!
+			    	}catch(java.net.MalformedURLException mu){
+			    		mu.printStackTrace();
+			    	}
+		    	}
 		    }
 		    
+//		    URL:  max length than 256 characters
 		    System.out.println("URL: " + url);
+//		    title max length than 100 characters
 		    System.out.println("Title: " + title);
+//		    description max length than 200 characters
 		    System.out.println("Description: " + desc);
+//		    Image url max length than 256 characters
 		    System.out.println("Image: " + imageUrl);
 		    
 		}catch(Exception ex){

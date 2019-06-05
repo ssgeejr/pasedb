@@ -1,15 +1,22 @@
 
+
+Login Search Comments Support Groups Court Opinions In the Media Parental Rights
+Parental Alienation
+Home
+   
+Parental Rights	In the Media	Court Opinions	Support Groups
 Added June 5th, 2019
 https://stackoverflow.com/questions/24483727/how-to-insert-a-document-with-date-in-mongo
 
 db.links.insert({
+   url: 'http://www.tutorialspoint.com',
    title: 'MongoDB Overview', 
    description: 'MongoDB is no sql database',
    image: 'https://www.somesample.com/',
-   url: 'http://www.tutorialspoint.com',
    tags: ['mongodb', 'database', 'NoSQL'],
-   postedon: new Date(Date.now()),
-   insertedby: 2
+   isize: [1,1],
+   date: new Date(Date.now()),
+   user: 2
 })
 
 
