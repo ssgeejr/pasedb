@@ -16,13 +16,14 @@
 	language="java"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.List"
+	import="java.util.*"
 	import ="org.pasedb.pasedbui.*"
 %>
 <%!
 //--static
 %>
 <%
+	StringBuffer bfr = new StringBuffer();
 	try{
 		String addurl = request.getParameter("addurl");
 		if(addurl == null)
@@ -36,7 +37,13 @@
 			System.out.println("_cbim: " + request.getParameter("_cbim"));
 			System.out.println("_cbco: " + request.getParameter("_cbco"));
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			new AddNewLink().fetchOGMetaData(request.getParameter("url"));
+			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"));
+			
+			bfr.append("<img src=\"" + li.getImgurl() + "\"><br>");
+			bfr.append<"<b>Title:</b>" + li.getTitle() + "<br>");
+			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
+			
+			
 		}
 	}catch(Exception ex){}
 %>
@@ -142,6 +149,11 @@ input[type=text], textarea, input[type=submit] {
         <tr>
                 <td class="auto-style1">
                 <input name="addurl" style="width: 148px; height: 28px" type="submit" value="Add Link" />&nbsp;</td>
+        </tr>
+        <tr>
+        <td>
+        <%= bfr.toString() %>
+        </td>
         </tr>
 </table>
 </div>
