@@ -5,6 +5,7 @@
 <meta content="text/html;charset=utf-8" http-equiv="content-type">
 <title>Parental Alienation Support & Education</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<%@ include file="meta.htm"%>
 
 <!--
 <% 
