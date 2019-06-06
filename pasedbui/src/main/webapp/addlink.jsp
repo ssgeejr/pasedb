@@ -1,11 +1,23 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html>
+<html>
 
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="content-type">
+<title>Parental Alienation Support & Education</title>
+<link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<%@ include file="meta.htm"%>
+
+<!--
+<% 
+	// new org.pasedb.pasedbui.Counter(request);
+%>
+-->
 <%@ page
 	language="java"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	import="java.util.List"
-	import ="org.pasedb.pasedbui"
+	import ="org.pasedb.pasedbui.*"
 %>
 <%!
 //--static
@@ -24,21 +36,23 @@
 			System.out.println("_cbim: " + request.getParameter("_cbim"));
 			System.out.println("_cbco: " + request.getParameter("_cbco"));
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			
 			new AddNewLink().fetchOGMetaData(request.getParameter("url"));
-			
 		}
 	}catch(Exception ex){}
 %>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-<meta content="en-us" http-equiv="Content-Language" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>PASEDB Add Link</title>
 <style type="text/css">
+.auto-style5 {
+	font-size: 8pt;
+	color: #FF0000;
+}
+.auto-style7 {
+	color: #FF0000;
+	font-size: large;
+	text-align: center;
+}
+
 .auto-style1 {
         text-align: right;
 }
@@ -66,10 +80,34 @@ input[type=text], textarea, input[type=submit] {
 }
 </style>
 </head>
-
 <body>
-
-
+	<div align="center">
+	<table style="border: 1px solid #AAAAAA;width: 900px">
+		<tr>
+			<td>
+				<%@ include file="banner.htm"%>
+			</td>
+		</tr>
+		<tr>
+		<td>
+		<%@ include file="menu.htm"%></td>
+		</tr>
+		<tr>
+		<td class="auto-style7">
+		<strong>OFFICIAL RELEASE JUNE 22, 2019</strong>
+		<br>
+		LOGIN
+		</td>
+		</tr>
+		<tr>
+		<td>
+<div align="center">
+		<strong><span class="auto-style5">VALIDATION TESTING underway - site 
+		may (or MAY NOT) load correctly</span></strong></div>
+</td>
+		</tr>
+		<tr>
+			<td>
 
 
 <form action="addlink.jsp" method="post">
@@ -109,6 +147,21 @@ input[type=text], textarea, input[type=submit] {
 </div>
 </div>
 </form>
-</body>
 
+
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<!--
+				<center>
+					<%@ include file="footer.htm"%>
+					</center>
+					-->
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
 </html>
