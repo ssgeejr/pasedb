@@ -21,14 +21,13 @@ table.customTable {
 }
 
 table.customTable td, table.customTable th {
-
 }
 
 table.customTable thead {
   background-color: #7EA8F8;
 }
 
-input[type=text], textarea {
+input[type=text], textarea, input[type=submit] {
   background-color : #ffffcc; 
 }
 table.
@@ -41,8 +40,8 @@ table.
 
 
 <form>
-
-<table style="width: 100%" class="customTable">
+<div>
+<table style="width: 800px" class="customTable">
 	<tr>
 		<td>Add Link</td>
 	</tr>
@@ -57,24 +56,25 @@ table.
 	<tr>
 		<td>
 		<table style="width: 100%">
-			<tr>
+			<tr style="vertical-align: top">
 				<td style="width: 125px" class="auto-style1">URL</td>
-				<td><input name="Text1" style="width: 100%; vertical-align:top" type="text" />&nbsp;</td>
+				<td><input name="Text1" style="width: 99%;" type="text" />&nbsp;</td>
 			</tr>
-			<tr>
+			<tr style="vertical-align: top">
 				<td style="width: 125px" class="auto-style1">Comments</td>
-				<td><textarea name="TextArea1" rows="3" style="width: 100%; vertical-align:top"></textarea>&nbsp;</td>
+				<td><textarea name="TextArea1" rows="3" style="width: 99%; "></textarea>&nbsp;</td>
 			</tr>
 		</table>
 		</td>	
 	</tr>
 	<tr>
 		<td class="auto-style1">
-		<input name="Submit1" style="width: 148px" type="submit" value="submit" />&nbsp;</td>
+		<input name="Submit1" style="width: 148px; height: 28px" type="submit" value="submit" />&nbsp;</td>
 	</tr>
 </table>
-
+</div>
 </form>
 </body>
 
 </html>
+
