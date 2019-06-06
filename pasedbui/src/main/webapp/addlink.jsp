@@ -40,7 +40,7 @@
 			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"));
 			
 			bfr.append("<img src=\"" + li.getImgurl() + "\"><br>");
-			bfr.append<"<b>Title:</b>" + li.getTitle() + "<br>");
+			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
 			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
 			
 			
