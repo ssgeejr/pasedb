@@ -28,8 +28,12 @@ import com.google.common.collect.Multiset;
 import com.google.common.collect.Multisets;
 import com.google.common.collect.TreeMultiset;
 
+import java.math.BigDecimal;
+
 public class AddNewLink {
 
+	private final int MAX_XY = 200;
+	
 	public void addNewLink(HttpServletRequest request) {
 		MongoClient mongoClient = null;
 		try {
@@ -105,6 +109,14 @@ public class AddNewLink {
 					int width = image.getWidth();
 					System.out.println("Image Height : "+ height);
 					System.out.println("Image Width : "+ width);
+					float pct = setPct(height,width);
+					int display_height = Math.round(height * pct);
+					int display_width = Math.round(width * pct);
+					System.out.println("Display Height : "+ display_height);
+					System.out.println("Display Width : "+ display_width);
+					ogi.setImgurl(imageUrl);
+					ogi.setDisplayHeight(display_height);
+					ogi.setDisplayWidth(display_width);
 					// add the code to make the image smaller here -- revision 2, no need to work on this now!
 		    	}catch(java.net.MalformedURLException mu){
 		    		mu.printStackTrace();
@@ -126,4 +138,24 @@ public class AddNewLink {
 	    ogi.setDescription(desc);
 	    return ogi;
 	}
+	
+//	
+	
+	
+	private float setPct(int height, int width) {
+		int max = height;
+		if (width > height) max = width;
+		if (max <= MAX_XY) return 1;
+		double val = MAX_XY / max; 
+	    BigDecimal bd = new BigDecimal(Double.toString(val));
+	    bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);       
+	    return bd.floatValue();
+	}
+	
+	
+	
+	
+	
+	
+	
 }

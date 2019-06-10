@@ -42,9 +42,7 @@
 			bfr.append("<img src=\"" + li.getImgurl() + "\"><br>");
 			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
 			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
-			
-			
-		}
+ 		}
 	}catch(Exception ex){}
 %>
 
@@ -116,7 +114,6 @@ input[type=text], textarea, input[type=submit] {
 		<tr>
 			<td>
 
-
 <form action="addlink.jsp" method="post">
 <div align="center">
 <div>
@@ -159,9 +156,6 @@ input[type=text], textarea, input[type=submit] {
 </div>
 </div>
 </form>
-
-
-
 			</td>
 		</tr>
 		<tr>
