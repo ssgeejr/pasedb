@@ -143,12 +143,18 @@ public class AddNewLink {
 	
 	
 	private float setPct(int height, int width) {
-		int max = height;
-		if (width > height) max = width;
+		double max = new Double(height).doubleValue();
+		if (width > height) max = new Double(width).doubleValue();;
 		if (max <= MAX_XY) return 1;
 		double val = MAX_XY / max; 
 	    BigDecimal bd = new BigDecimal(Double.toString(val));
 	    bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);       
+//		System.out.println("width: " + width);
+//		System.out.println("height: " + height);
+//		System.out.println("max: " + max);
+//		System.out.println("MAX_XY: " + MAX_XY);
+//		System.out.println("val: " + val);
+//		System.out.println("bd: " + bd.floatValue());
 	    return bd.floatValue();
 	}
 	
