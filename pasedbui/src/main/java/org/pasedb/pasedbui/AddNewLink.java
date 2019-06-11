@@ -159,7 +159,7 @@ public class AddNewLink {
 		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
 		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
 		try{
-			mongodb.getCollection("customers").insertOne(new org.bson.Document("url", ogi.getUrl())
+			mongodb.getCollection("links").insertOne(new org.bson.Document("url", ogi.getUrl())
 					.append("title", ogi.getTitle())
 					.append("desc", ogi.getDescription())
 					.append("imageUrl", ogi.getImgurl())
