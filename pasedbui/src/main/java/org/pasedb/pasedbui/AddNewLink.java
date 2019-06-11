@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.pasedb.pasedbms.MongoConnectionmanager;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -17,6 +18,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
 import java.awt.image.BufferedImage;
 import java.net.URL;
@@ -76,7 +78,7 @@ public class AddNewLink {
 		}
 	}
 	
-	public LinkItem fetchOGMetaData(String url) throws Exception{
+	public LinkItem fetchOGMetaData(String url, String comment, int userID) throws Exception{
 		LinkItem ogi = new LinkItem();
 		Document document = Jsoup.connect(url).get();
 	    String title = null;
@@ -132,13 +134,45 @@ public class AddNewLink {
 	    System.out.println("Description: " + desc);
 //	    Image url max length than 256 characters
 	    System.out.println("Image: " + imageUrl);
+	    System.out.println("comment: " + comment);
+	    System.out.println("userID: " + userID);
+	    
 	    ogi.setUrl(url);
 	    ogi.setImgurl(imageUrl);
 	    ogi.setTitle(title);
 	    ogi.setDescription(desc);
+	    ogi.setComment(comment);
+	    ogi.setUserID(userID);
+	    	    
+	    try{
+	    	
+	    	persist(ogi);
+	    	
+	    }catch(Exception ex){
+	    	System.out.println("FAILED TO INSERT RECORD");
+	    	ex.printStackTrace();
+	    }
+	    
 	    return ogi;
 	}
 	
+	private void persist(LinkItem ogi) throws Exception{
+		MongoConnectionmanager connMan = new MongoConnectionmanager();
+		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
+		try{
+			mongodb.getCollection("customers").insertOne(new org.bson.Document("url", ogi.getUrl())
+					.append("title", ogi.getTitle())
+					.append("desc", ogi.getDescription())
+					.append("imageUrl", ogi.getImgurl())
+					.append("display_height", ogi.getDisplayHeight())
+					.append("display_width", ogi.getDisplayWidth())
+					.append("comment", ogi.getComment())
+					.append("userID", ogi.getUserID())
+					.append("date", new Date()));
+		}finally{
+			if (connMan != null) connMan.closeConnection();
+		}
+	}
 //	
 	
 	
@@ -152,7 +186,7 @@ public class AddNewLink {
 //		System.out.println("width: " + width);
 //		System.out.println("height: " + height);
 //		System.out.println("max: " + max);
-//		System.out.println("MAX_XY: " + MAX_XY);
+//		System.out.println("MAX_XY: " + MAX_XY);m 
 //		System.out.println("val: " + val);
 //		System.out.println("bd: " + bd.floatValue());
 	    return bd.floatValue();
