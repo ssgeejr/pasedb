@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.pasedb.pasedbms.MongoConnectionmanager;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
