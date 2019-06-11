@@ -37,7 +37,7 @@
 			System.out.println("_cbim: " + request.getParameter("_cbim"));
 			System.out.println("_cbco: " + request.getParameter("_cbco"));
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"));
+			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),"<comment>",-99);
 			
 			bfr.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
 			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
