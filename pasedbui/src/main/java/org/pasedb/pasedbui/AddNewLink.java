@@ -156,7 +156,7 @@ public class AddNewLink {
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
-		MongoConnectionmanager connMan = new MongoConnectionmanager();
+		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
 		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
 		try{
 			mongodb.getCollection("customers").insertOne(new org.bson.Document("url", ogi.getUrl())
