@@ -97,6 +97,7 @@ input[type=text], textarea, input[type=submit] {
 	border: 1px solid #0000FF;
 	padding: 3px;
 }
+img { border-style: none; }
 </style>
 </head>
 <body>
