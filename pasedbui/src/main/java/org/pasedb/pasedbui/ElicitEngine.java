@@ -79,7 +79,7 @@ public class ElicitEngine {
 				System.out.println("Title:: " + doc.getString("title"));
 				item = new LinkItem();
 				item.setUrl(doc.getString("url"));
-				item.setImgurl(doc.getString("comment"));
+				item.setImgurl(doc.getString("imageUrl"));
 				item.setTitle(doc.getString("title"));
 				item.setDescription(doc.getString("desc"));
 				item.setComment(doc.getString("comment"));
