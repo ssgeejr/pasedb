@@ -35,13 +35,28 @@ public class TestRunner {
 			
 			
 			
-			alphaDogTest();
-			
+//			alphaDogTest();
+			omegaDogTest();
 			
 			
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
+		}
+	}
+	
+	private void omegaDogTest() throws Exception{
+		
+		try{
+			System.out.println("==========>> Fetch Filtered Record <<==========");
+//			connMan = new MongoConnectionmanager(source);
+//			mongodb = connMan.getDatabase("pasedb");
+			int cntx = 0;
+			System.out.println(new HtmlEngine().generateTable(new ElicitEngine("localhost").getLinks(cntx)));
+			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
+		}finally{
+//			connMan.closeConnection();
+//			closeConnection();
 		}
 	}
 	

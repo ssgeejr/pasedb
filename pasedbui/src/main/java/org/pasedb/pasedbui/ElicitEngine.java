@@ -66,7 +66,11 @@ public class ElicitEngine {
 			connMan = new MongoConnectionmanager(source);
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> col = mongodb.getCollection("links");
-			FindIterable<Document> fcol = col.find(Filters.all("tags", cntx));
+			FindIterable<Document> fcol = null;
+			if(cntx == 0) 
+				fcol = col.find();
+			else 
+				fcol = col.find(Filters.all("tags", cntx));
 			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
 			MongoCursor<Document> collection = fcol.iterator();
 			LinkItem item = null;
