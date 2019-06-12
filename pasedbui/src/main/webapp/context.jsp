@@ -15,13 +15,20 @@
 		language="java"
 		contentType="text/html; charset=UTF-8"
 		pageEncoding="UTF-8"
-		%>
+		import="org.pasedb.pasedbui.*"
+%>
 <%!
 	String[] context ={"Parental Alienation","Parental Rights","In the Media","Court Opinions","Support Groups","Comments"};
 %>
 <%
+	StringBuffer lnks = new StringBuffer();
 	int cntx = 0;
 	try{cntx = Integer.parseInt(request.getParameter("id").toString());}catch(Exception ex){}
+	try{
+		lnks.append(new HtmlEngine().generateTable(new ElicitEngine().getLinks(cntx)));
+	}catch(Exception ex){
+		ex.printStackTrace();
+	}
 %>
 
 
@@ -35,6 +42,20 @@
 	font-size: large;
 	text-align: center;
 }
+.links {
+	width: 800px;
+	border: 1px solid #0000FF;
+	border-collapse: collapse;
+	padding: 3px;
+}
+.links td {
+	padding: 3px;
+}
+.links tbody {
+	border: 1px solid #0000FF;
+	padding: 3px;
+}
+img { border-style: none; }
 </style>
 </head>
 <body>
@@ -65,12 +86,9 @@
 		</tr>
 		<tr>
 			<td>
-				<table style="width: 100%">
-					<tr>
-						<td style="text-align: left">THIS IS WHERE THE LOADED 
-						LINKS WILL APPEAR BASED ON CONTEXT ... <br>
-						</tr>
-				</table>
+								<table class="links">
+									<%=lnks.toString()%>
+								</table>
 			</td>
 		</tr>
 		<tr>
@@ -83,6 +101,10 @@
 			</td>
 		</tr>
 	</table>
+	
+	
+	
+	
 	</div>
 </body>
 </html>

@@ -9,6 +9,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class ElicitEngine {
 		source = dbsource;
 	}
 	
-	private ArrayList<LinkItem> fetchPALinks() throws Exception{
+	public ArrayList<LinkItem> fetchPALinks() throws Exception{
 		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
 		try{
 			System.out.println("==========>> Fetch Filtered Record <<==========");
@@ -37,9 +38,15 @@ public class ElicitEngine {
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> col = mongodb.getCollection("links");
 			FindIterable<Document> fcol = col.find();
+//			FindIterable<Document> fcol = col.find(Filters.all("tags", 5));
+//			find(Filters.all(TAGS_FIELD, tags))
+			
+			
 			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
 			MongoCursor<Document> collection = fcol.iterator();
-			
+//			for (Document cur : collection.find()) {
+//			    System.out.println(cur.toJson());
+//			}
 			while (collection.hasNext()) {
 				Document doc = collection.next(); 
 				System.out.println("Title:: " + doc.getString("title"));
@@ -51,8 +58,42 @@ public class ElicitEngine {
 		}
 		return links;
 	}
+
+	public ArrayList<LinkItem> getLinks(int cntx) throws Exception{
+		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
+		try{
+			System.out.println("==========>> Fetch Filtered Record <<==========");
+			connMan = new MongoConnectionmanager(source);
+			mongodb = connMan.getDatabase("pasedb");
+			MongoCollection<Document> col = mongodb.getCollection("links");
+			FindIterable<Document> fcol = col.find(Filters.all("tags", cntx));
+			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
+			MongoCursor<Document> collection = fcol.iterator();
+			LinkItem item = null;
+			while (collection.hasNext()) {
+				Document doc = collection.next(); 
+				System.out.println("Title:: " + doc.getString("title"));
+				item = new LinkItem();
+				item.setUrl(doc.getString("url"));
+				item.setImgurl(doc.getString("comment"));
+				item.setTitle(doc.getString("title"));
+				item.setDescription(doc.getString("desc"));
+				item.setComment(doc.getString("comment"));
+				item.setDisplayHeight(doc.getInteger("display_width"));	
+				item.setDisplayWidth(doc.getInteger("display_height"));
+//				{ "_id" : ObjectId("5d01231da7b11b000115c863"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:06:53.907Z") }
+//				{ "_id" : ObjectId("5d0123b3a7b11b0001641022"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:09:23.625Z") }
+				links.add(item);
+			}
+			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
+		}finally{
+			connMan.closeConnection();
+//			closeConnection();
+		}
+		return links;
+	}
 		
-	private void filterPALinks() throws Exception{
+	public void filterPALinks() throws Exception{
 		try{
 			connMan = new MongoConnectionmanager();
 			mongodb = connMan.getDatabase("pasedb");
