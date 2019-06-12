@@ -155,7 +155,7 @@ input[type=text], textarea, input[type=submit] {
 											value="Add Link" />&nbsp;</td>
 									</tr>
 								</table>
-
+<br>
 								<table class="links">
 									<%=bfr.toString()%>
 								</table>
