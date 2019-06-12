@@ -25,7 +25,7 @@ public class HtmlEngine {
 		sb.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
 		sb.append("</td></tr><tr><td>");
 //		sb.append("<b>Title: </b>" + li.getTitle());
-		sb.append("<b>" + li.getTitle());
+		sb.append("<a href=\"" + li.getUrl() + "\"<img src=\"link.png\"></a><b>" + li.getTitle());
 		sb.append("</b></td></tr><tr><td>");
 //		sb.append("<b>Description: </b>" + li.getDescription());
 		sb.append(li.getDescription());
