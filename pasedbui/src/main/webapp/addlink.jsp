@@ -39,9 +39,11 @@
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
 			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),"<comment>",-99);
 			
-			bfr.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
-			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
-			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
+			bfr.append(new HtmlEngine().generateTable(li));
+			
+//			bfr.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
+//			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
+//			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
  		}
 	}catch(Exception ex){}
 %>

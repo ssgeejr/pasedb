@@ -43,12 +43,6 @@ public class AddNewLink {
 			// mongoClient = new MongoClient("gorkly", 27017);
 			// mongoClient = new MongoClient("gorkly");
 			mongoClient = new MongoClient("db");
-			// or, to connect to a replica set, supply a seed list of members
-			// MongoClient mongoClient = new MongoClient(Arrays.asList(new
-			// ServerAddress("localhost", 27017),
-			// new ServerAddress("localhost", 27018),
-			// new ServerAddress("localhost", 27019)));
-			
 			DB db = mongoClient.getDB("pasedb");
 			DBCollection coll = db.getCollection("links");
 			List<BasicDBObject> tags = new ArrayList<BasicDBObject>();
@@ -137,7 +131,6 @@ public class AddNewLink {
 	    System.out.println("userID: " + userID);
 	    
 	    ogi.setUrl(url);
-	    ogi.setImgurl(imageUrl);
 	    ogi.setTitle(title);
 	    ogi.setDescription(desc);
 	    ogi.setComment(comment);
