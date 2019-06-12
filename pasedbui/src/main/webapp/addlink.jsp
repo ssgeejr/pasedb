@@ -33,7 +33,8 @@
 			System.out.println("_cbim: " + request.getParameter("_cbim"));
 			System.out.println("_cbco: " + request.getParameter("_cbco"));
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),"<comment>",-99);
+			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),request.getParameter("comment"),-99);
+			
 			
 			bfr.append(new HtmlEngine().generateTable(li));
 			
