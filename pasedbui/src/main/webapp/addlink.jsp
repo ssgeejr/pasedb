@@ -89,7 +89,9 @@ input[type=text], textarea, input[type=submit] {
 	border-collapse: collapse;
 	padding: 3px;
 }
-
+.links td {
+	padding: 3px;
+}
 .links tbody {
 	border: 1px solid #0000FF;
 	padding: 3px;
