@@ -83,8 +83,8 @@ public class ElicitEngine {
 				item.setTitle(doc.getString("title"));
 				item.setDescription(doc.getString("desc"));
 				item.setComment(doc.getString("comment"));
-				item.setDisplayHeight(doc.getInteger("display_width"));	
-				item.setDisplayWidth(doc.getInteger("display_height"));
+				item.setDisplayHeight(doc.getInteger("display_height"));	
+				item.setDisplayWidth(doc.getInteger("display_width"));
 //				{ "_id" : ObjectId("5d01231da7b11b000115c863"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:06:53.907Z") }
 //				{ "_id" : ObjectId("5d0123b3a7b11b0001641022"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:09:23.625Z") }
 				links.add(item);
