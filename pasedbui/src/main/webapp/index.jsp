@@ -7,11 +7,9 @@
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 <%@ include file="meta.htm"%>
 
-<!--
 <% 
-	// new org.pasedb.pasedbui.Counter(request);
+	 new org.pasedb.pasedbui.Counter(request);
 %>
--->
 <style type="text/css">
 .auto-style5 {
 	font-size: 8pt;
