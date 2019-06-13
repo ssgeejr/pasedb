@@ -1,5 +1,6 @@
 package org.pasedb.pasedbui;
 
+import javax.management.Query;
 import javax.servlet.http.HttpServletRequest;
 
 import org.bson.Document;
@@ -29,8 +30,10 @@ public class Counter {
 		try {
 			connMan = new MongoConnectionmanager("db");
 			mongodb = connMan.getDatabase("pasedb");
-			MongoCollection<Document> collection =  mongodb.getCollection("counter");		
-			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("uri",request.getRequestURI()).append("page",request.getQueryString()).append("timestamp", new Date()));	
+			MongoCollection<Document> collection =  mongodb.getCollection("counter");	
+			String qeuery = "";
+			try{qeuery = request.getQueryString().trim()}catch(Exception x){}
+			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("page",request.getRequestURI()).append("query",qeuery).append("timestamp", new Date()));	
 //			DBCollection coll = db.getCollection("links");				
 //			System.out.println("REMOTE_ADDRESS: " + remoteIP);
 //			System.out.println(request.getHeader("X_FORWARDED_FOR"));
