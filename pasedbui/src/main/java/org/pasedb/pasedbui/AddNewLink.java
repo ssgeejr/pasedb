@@ -91,7 +91,7 @@ public class AddNewLink {
 	    if (metaOgTitle!=null) {
 	    	desc = metaOgDesc.attr("content");
 	    }else {
-	    	desc = "missing og:description";
+	    	desc = "No description available";
 	    }
 	    
 	    String imageUrl = null;

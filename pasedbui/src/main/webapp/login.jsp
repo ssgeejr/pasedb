@@ -6,11 +6,9 @@
 <title>Parental Alienation Support & Education</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 
-<!--
 <% 
-	// new org.pasedb.pasedbui.Counter(request);
+	new org.pasedb.pasedbui.Counter(request);
 %>
--->
 <%@ page
 	language="java"
 	contentType="text/html; charset=UTF-8"

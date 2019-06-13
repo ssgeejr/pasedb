@@ -7,11 +7,9 @@
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 <%@ include file="meta.htm"%>
 
-<!--
 <% 
-	// new org.pasedb.pasedbui.Counter(request);
+	 new org.pasedb.pasedbui.Counter(request);
 %>
--->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"
 	import="org.pasedb.pasedbui.*"%>
