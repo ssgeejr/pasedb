@@ -30,7 +30,7 @@ public class Counter {
 			connMan = new MongoConnectionmanager("db");
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> collection =  mongodb.getCollection("counter");		
-			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("page",request.getRequestURI()).append("timestamp", new Date()));	
+			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("uri",request.getRequestURI()).append("page",request.getQueryString()).append("timestamp", new Date()));	
 //			DBCollection coll = db.getCollection("links");				
 //			System.out.println("REMOTE_ADDRESS: " + remoteIP);
 //			System.out.println(request.getHeader("X_FORWARDED_FOR"));
