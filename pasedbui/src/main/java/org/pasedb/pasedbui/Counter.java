@@ -32,7 +32,7 @@ public class Counter {
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> collection =  mongodb.getCollection("counter");	
 			String qeuery = "";
-			try{qeuery = request.getQueryString().trim()}catch(Exception x){}
+			try{qeuery = request.getQueryString().trim();}catch(Exception x){}
 			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("page",request.getRequestURI()).append("query",qeuery).append("timestamp", new Date()));	
 //			DBCollection coll = db.getCollection("links");				
 //			System.out.println("REMOTE_ADDRESS: " + remoteIP);
