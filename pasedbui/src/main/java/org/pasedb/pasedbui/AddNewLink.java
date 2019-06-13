@@ -79,9 +79,11 @@ public class AddNewLink {
 	    Elements metaOgTitle = document.select("meta[property=og:title]");
 	    if (metaOgTitle!=null) {
 	        title = metaOgTitle.attr("content");
-	    }
-	    else {
+	    }else {
 	        title = document.title();
+	    }
+	    if (title == null || title.length() < 3){
+	    	title = url;
 	    }
 	    String desc = null;
 	    Elements metaOgDesc = document.select("meta[property=og:description]");
