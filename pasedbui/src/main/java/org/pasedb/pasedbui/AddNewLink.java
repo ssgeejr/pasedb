@@ -160,7 +160,8 @@ public class AddNewLink {
 					.append("display_height", ogi.getDisplayHeight())
 					.append("display_width", ogi.getDisplayWidth())
 					.append("comment", ogi.getComment())
-					.append("tags", Arrays.asList(ogi.getTags()))
+					.append("tags", ogi.getTags())
+//					.append("tags", Arrays.asList(ogi.getTags()))
 					.append("userID", ogi.getUserID())
 					.append("date", new Date()));
 		}finally{
