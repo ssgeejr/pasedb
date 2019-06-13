@@ -79,7 +79,8 @@ public class AddNewLink {
 	    Elements metaOgTitle = document.select("meta[property=og:title]");
 	    if (metaOgTitle!=null) {
 	        title = metaOgTitle.attr("content");
-	    }else {
+	    }
+	    if (title == null || title.length() < 3){
 	        title = document.title();
 	    }
 	    if (title == null || title.length() < 3){
