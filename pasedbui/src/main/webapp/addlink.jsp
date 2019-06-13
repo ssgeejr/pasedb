@@ -28,12 +28,19 @@
 			System.out.println("... SAVE FORM VALUE ...");
 			System.out.println(": " + request.getParameter("url"));
 			System.out.println(": " + request.getParameter("comment"));		
-			
+	    	ArrayList<Integer> tags = new ArrayList<Integer>();
+	    	tags.add(0);
+	    	int tagval = -1;
+			try{tagval = Integer.parseInt(request.getParameter("_cbpr"));tags.add(tagval);}catch(Exception ex){}
+			try{tagval = Integer.parseInt(request.getParameter("_cbim"));tags.add(tagval);}catch(Exception ex){}
+			try{tagval = Integer.parseInt(request.getParameter("_cbco"));tags.add(tagval);}catch(Exception ex){}
+			try{tagval = Integer.parseInt(request.getParameter("_cbsg"));tags.add(tagval);}catch(Exception ex){}
 			System.out.println("_cbpr: " + request.getParameter("_cbpr"));
 			System.out.println("_cbim: " + request.getParameter("_cbim"));
 			System.out.println("_cbco: " + request.getParameter("_cbco"));
 			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),request.getParameter("comment"),-99);
+			
+			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),request.getParameter("comment"),tags,-99);
 			
 			
 			bfr.append(new HtmlEngine().generateTable(li));
@@ -133,10 +140,9 @@ img { border-style: none; }
 									</tr>
 									<tr>
 										<td><input name="_cbpr" type="checkbox" value="1" />Parental
-											Rights <input name="_cbim" type="checkbox" value="1" />In the
-											Media <input name="_cbco" type="checkbox" value="1" />Court
-											Opinions <input name="_cbsg" type="checkbox" value="1" />Support
-											Groups</td>
+											Rights <input name="_cbim" type="checkbox" value="2" />In the
+											Media <input name="_cbco" type="checkbox" value="3" />Court
+											Opinions <input name="_cbsg" type="checkbox" value="4" />Support</td>
 									</tr>
 									<tr>
 										<td>

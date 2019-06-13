@@ -10,7 +10,7 @@ public class LinkItem {
 	private String imgurl = "";
 	private float imgPct = 0.0f;
 	private int userID = -1;
-	private ArrayList<String> tags = new ArrayList<String>();
+	private ArrayList<Integer> tags = new ArrayList<Integer>();
 	private String GUID = null;
 	private String comment = "";
 	private Date date = null;
@@ -63,10 +63,10 @@ public class LinkItem {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	public ArrayList<String> getTags() {
+	public ArrayList<Integer> getTags() {
 		return tags;
 	}
-	public void setTags(ArrayList<String> tags) {
+	public void setTags(ArrayList<Integer> tags) {
 		this.tags = tags;
 	}
 	public String getGUID() {

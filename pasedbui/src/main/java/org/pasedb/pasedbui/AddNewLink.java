@@ -23,6 +23,7 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import com.google.common.collect.Multiset;
@@ -71,7 +72,7 @@ public class AddNewLink {
 		}
 	}
 	
-	public LinkItem fetchOGMetaData(String url, String comment, int userID) throws Exception{
+	public LinkItem fetchOGMetaData(String url, String comment, ArrayList<Integer> tags, int userID) throws Exception{
 		LinkItem ogi = new LinkItem();
 		Document document = Jsoup.connect(url).get();
 	    String title = null;
@@ -135,9 +136,9 @@ public class AddNewLink {
 	    ogi.setDescription(desc);
 	    ogi.setComment(comment);
 	    ogi.setUserID(userID);
+	    ogi.setTags(tags);
 	    	    
-	    try{
-	    	
+	    try{	    	
 	    	persist(ogi);
 	    	
 	    }catch(Exception ex){
@@ -159,6 +160,7 @@ public class AddNewLink {
 					.append("display_height", ogi.getDisplayHeight())
 					.append("display_width", ogi.getDisplayWidth())
 					.append("comment", ogi.getComment())
+					.append("tags", Arrays.asList(ogi.getTags()))
 					.append("userID", ogi.getUserID())
 					.append("date", new Date()));
 		}finally{
