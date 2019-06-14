@@ -1,11 +1,18 @@
-# Compiled class file
 *.class
 
-# Log file
 *.log
+*.logs
 
-# BlueJ files
 *.ctxt
+
+.idea
+.extract
+.service
+*.iml
+frontend/*.iml
+service/*.iml
+pasedbui/*.iml
+pasedbms/*.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -21,3 +28,24 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Tomcat autobuild files
+war-*
+
+/target
+pasedbms/target
+pasedbui/target
+
+
+.extract
+pasedbms/.extract
+pasedbui/.extrace
+
+.service
+pasedbms/.service
+pasedbui/.service
+
+.settings
+pasedbms/.settings
+pasedbui/.settings
+

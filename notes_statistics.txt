@@ -1,0 +1,331 @@
+
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+URL url=new URL("Any web image url");
+ BufferedImage image = ImageIO.read(url);
+ int height = image.getHeight();
+ int width = image.getWidth();
+ System.out.println("Height : "+ height);
+ System.out.println("Width : "+ width);
+ 
+ 
+ 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+https://stackoverflow.com/questions/18009507/how-can-i-determine-image-size-and-dimension-before-downloading-the-image?rq=1
+You can get image size easily using URLConnection method getContentLength()
+
+ URL url = new URL("https://www.google.com.pk/images/srpr/logo4w.png");
+ URLConnection conn = url.openConnection();
+
+  // now you get the content length
+ int contentLength = conn.getContentLength();
+ // you can check size here using contentLength
+
+ InputStream in = conn.getInputStream();
+ BufferedImage    image = ImageIO.read(in);
+  // you can get size  dimesion      
+  int width          = image.getWidth();
+  int height         = image.getHeight(); 
+
+... extended ... 
+
+BufferedImage readImage = null;
+
+try {
+    readImage = ImageIO.read(new File(folder);
+    int h = readImage.getHeight();
+    int w = readImage.getWidth();
+} catch (Exception e) {
+    readImage = null;
+}
+
+
+
+<meta property="fb:fbid" content="643755066" />
+
+og:url, og:type, og:title, og:image, og:description, fb:app_id
+
+
+
+The strong faces the evils that the victim refuses to acknowledge
+
+http://search.txcourts.gov/SearchMedia.aspx?MediaVersionID=705a257b-5a09-472d-bed7-fac25fb05772&coa=cossup&DT=BRIEFS&MediaID=2470fc89-b8cb-4b23-b23f-2a5e30c6a432
+Parental Alienation caused by
+whatever mean is a sickness that should be treated as a form of Cancer for civil
+society. It produces generation of bitter citizens with disregard to the law and
+order. Why not? They are a result of disregards of Law and order as this case
+shows over and over. 
+--Supreme Court Of Texas, CAUSE NO. 12-09-00392, Elmakiss v Rogers, Smith County, et all
+
+
+RUN mkdir -p /data/gsma \
+    && echo "dbpath = /data/gsma" > /etc/mongodb.conf \
+    && chown -R mongodb:mongodb /data/gsma
+
+
+# Make the new dir a VOLUME to persists it 
+VOLUME /data/gsma
+
+CMD ["mongod", "--config", "/etc/mongodb.conf", "--smallfiles"]
+
+The rights of parents to the care, custody and nurture of their children is of such
+character that it cannot be denied without violating those fundamental principles of
+liberty and justice which lie at the base of all our civil and political institutions, and such
+right is a fundamental right protected by this amendment (First) and Amendments 5, 9,
+and 14. Doe v. Irwin, 441 F Supp 1247; U.S. D.C. of Michigan, (1985).
+
+((((((((( MENUS )))))))))
+parental alienation examples
+parental alienation checklist
+parental alienation laws
+what to do about parental alienation
+
+signs of parental alienation
+parental alienation definition
+parental alienation syndrome
+parental alienation cases
+
+Steps to Prevent it ...
+
+Impact on Children
+Impact on Target
+
+Narcissism
+https://www.facebook.com/groups/22340749940/?ref=nf_target&fref=nf
+https://www.facebook.com/groups/paofiowa/permalink/1382740541825704/
+https://www.facebook.com/groups/428429243981565/?ref=nf_target&fref=nf
+https://www.facebook.com/groups/186692551398283/?ref=nf_target&fref=nf
+https://www.facebook.com/groups/157846364775239/?ref=nf_target&fref=nf
+https://www.facebook.com/ParentingTodaybyattn/
+https://www.facebook.com/groups/paaonorthtexas/?ref=nf_target&fref=nf
+https://www.facebook.com/groups/529209747272231/
+https://www.facebook.com/groups/PASurvivalCoach/
+
+PTSD ... is it caused 
+
+Opinions:
+State
+Appealat
+Federal
+Supreme Court
+
+
+222222222222222222------------------------22222222222222222222222
+
+Children's Rights: 167 Red Flags of Parental Alienation
+http://iloveandneedmydaughter.blogspot.com/2015/12/167-red-flags-of-parental-alienation.html
+
+====================================================
+ DSM-5 - Parental Alienation Syndrome and Child Psychiatric Syndromes
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3143687/
+
+
+====================================================
+https://www.brianwalterslawfirm.com/blog/dirty-divorce-alienating-children
+Dirty Divorce Trick #1 – Faking Violence 
+Dirty Divorce Trick #2 – “Conflicting Out” Attorneys
+Dirty Divorce Trick #3 – Turning Into a Helicopter Parent
+Dirty Divorce Trick #4 – Hiding Assets;
+Dirty Divorce Trick #5 – Starving the Spouse Financially;
+Dirty Divorce Trick #6 – Intentional Un/Underemployment to Avoid Paying Support;
+Dirty Divorce Trick #7 – Making Secret Copies; 
+Dirty Divorce Trick #8 – Stealing Bank Records, Health Care Records, & Other Documents;
+Dirty Divorce Trick #9 – Spending Money Wildly/Excessively
+Dirty Divorce Trick #10 – Dummy Emails
+Dirty Divorce Trick #11 – Extortion/Blackmailing the Other Spouse
+Dirty Divorce Trick #12 – Alienating the Children from the Other Spouse
+
+====================================================
+alleging then proving parental alienation 
+https://www.arwanilawfirm.com/separating-fact-from-fear-parental-alienation/
+====================================================
+
+Does Parental Alienation Cause Posttraumatic Stress Disorder?
+https://patch.com/connecticut/southbury/bp--does-parental-alienation-cause-posttraumatic-streee61379ec3
+
+====================================================
+
+Narcissism and Parental Alienation Syndrome
+https://standupforzoraya.wordpress.com/2015/11/26/narcissism-and-parental-alienation-syndrome-the-recovery-expert/
+_cbpr
+_cbim
+_cbco
+_cbsg
+
+====================================================
+
+**SIGNS OF PA**
+https://childrenanddivorceguide.com/articles/signs-of-parental-alienation/
+
+====================================================
+**AMAZING documentation ... **
+https://www.researchgate.net/post/Parental_alienation_syndrome
+
+Warshak, R. A. (2015). Ten parental alienation fallacies that compromise decisions in court and in therapy. Professional Psychology: Research and Practice. Advance online publication. http://dx.doi.org/10.1037/pro0000031. Retrieved from http://www.californiaparentingcoordinator.com/wp-content/uploads/2015/07/Warshak-2015.pdf
+
+
+................................................................
+
+special section of commentaries on Parental Alienation
+https://www.tandfonline.com/doi/full/10.1080/15379418.2016.1221270
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
+
+In numbers | Divorce
+34% of marriages end by their 20th anniversary.
+114,720 divorces: Number of divorces in England and Wales in 2013. The number of divorces is falling, along with the marriage rate
+13 per hour: Average rate of divorce in 2013
+40-44 years old: the age group when divorce is at its highest
+17 months 26 days: average length of time it takes to finalise a divorce
+64% of children whose families divorced in 2013 were under 1
+£337m: the UK’s biggest divorce settlement
+Source: ONS 2015
+
+
+**Are Some Judges Ignoring Child Abuse Because of “Parental Alienation” Claims?**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

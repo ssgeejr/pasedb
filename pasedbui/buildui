@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cwd=`pwd`
+
+mvn clean package
+cd docker
+docker-compose -f ../../docker-compose.yml down
+docker rmi pasedbui
+docker build -t pasedbui .
+docker-compose -f ../../docker-compose.yml up -d
+
+cd ..

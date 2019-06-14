@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cwd=`pwd`
+cd /opt/dev/pasedb/pasedbui/
+git pull origin develop
+rm -rf /opt/dev/pasedb/pasedbui/docker/pasedb.war
+mvn clean package
+docker-compose -f /opt/dev/pasedb/docker-compose.yml down
+docker rmi pasedbui
+cd docker
+docker build -t pasedbui .
+docker-compose -f /opt/dev/pasedb/docker-compose.yml up -d
+
+cd $cwd

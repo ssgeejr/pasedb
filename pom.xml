@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.pasedb.webapp</groupId>
+	<artifactId>pasedb</artifactId>
+	<version>1.2</version>
+	<packaging>pom</packaging>
+
+	<name>PASEDB (POM)</name>
+	<url>http://pasedb.org</url>
+	<description>Parental Alienation Support and Education DB</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+        	<module>pasedbui</module>
+        	<module>pasedbms</module>
+	</modules>
+		
+	<organization>
+		<name>PASEDB</name>
+		<url>http://pasedb.org/</url>
+	</organization>
+	<scm>
+		<url>https://github.com/ssgeejr/pasedb</url>
+		<connection>scm:git:git@github.com:ssgeejr/gpasedb.git</connection>
+		<developerConnection>scm:git:git://github.com/ssgeejr/pasedb.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/ssgeejr/pasedb/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.org/ssgeejr/pasedb</url>
+	</ciManagement>
+		
+</project>
+

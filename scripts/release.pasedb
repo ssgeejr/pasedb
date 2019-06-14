@@ -1,0 +1,12 @@
+#!/bin/bash
+
+docker stop pasedb
+docker rmi tomcat:pasedb
+cd /opt/dev/pasedb
+git pull origin develop
+mvn clean package -Pdefault
+cd docker
+rm -rf ROOT.war
+cp ../target/pasedb.war ROOT.war
+docker build -t tomcat:pasedb .
+sudo docker run -ti --name pasedb --rm -p 80:8080 -d tomcat:pasedb

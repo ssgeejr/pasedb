@@ -1,0 +1,14 @@
+db.counter.aggregate(
+  {
+    $group: {
+      _id: {
+        name: '$ip'
+      },
+      count: {
+        $sum: 1
+      }
+    }
+  }
+)
+
+

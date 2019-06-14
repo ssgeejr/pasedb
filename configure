@@ -1,0 +1,9 @@
+#!/bin/bash
+
+wd=`pwd`
+rm -rf docker/ROOT.war
+mvn clean package
+mv target/pasedb-1.0-SNAPSHOT.war docker/ROOT.war
+cd docker
+docker-compose restart pasedb
+cd $wd
