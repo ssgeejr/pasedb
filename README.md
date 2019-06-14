@@ -1,6 +1,6 @@
 
 
-[pasedb.org](https://i.imgur.com/UMLrUKs.png)
+![pasedb.org](https://i.imgur.com/UMLrUKs.png)
 
 # PASEDB
 Parental Alienation Support &amp; Education Database
