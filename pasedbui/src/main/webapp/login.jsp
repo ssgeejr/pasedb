@@ -79,6 +79,7 @@ img { border-style: none; }
 				<table style="width: 100%">
 					<tr>
 						<td style="text-align: left">
+<div align="center">
 						<table class="links" style="width:300px">
 						<tr> 
 						<td>Username:
@@ -92,9 +93,15 @@ img { border-style: none; }
 						<td><input type="text" id="un">
 						</td>
 						</tr>
+						<tr>
+						<td colspan="2" align="right"><input type="submit" name="login" value="Login"></td>
+						</tr>
+						<tr>
+						<td colspan="2" align="center">sign-up  |  forgot password
+						</td>
+						</tr>
 						</table>
-
-
+</div>
 						</td>
 						</tr>
 				</table>
