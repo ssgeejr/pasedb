@@ -16,7 +16,7 @@
 		import="org.pasedb.pasedbui.*"
 %>
 <%!
-	String[] context ={"Parental Alienation","Parental Rights","In the Media","Court Opinions","Support Groups","Comments"};
+	String[] context ={"Parental Alienation","Parental Rights","In the Media","Court/Legal","Support Groups","Comments"};
 %>
 <%
 	StringBuffer lnks = new StringBuffer();

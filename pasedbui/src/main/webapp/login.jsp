@@ -32,6 +32,20 @@
 	font-size: large;
 	text-align: center;
 }
+.links {
+	width: 800px;
+	border: 1px solid #0000FF;
+	border-collapse: collapse;
+	padding: 3px;
+}
+.links td {
+	padding: 3px;
+}
+.links tbody {
+	border: 1px solid #0000FF;
+	padding: 3px;
+}
+img { border-style: none; }
 </style>
 </head>
 <body>
@@ -64,8 +78,24 @@
 			<td>
 				<table style="width: 100%">
 					<tr>
-						<td style="text-align: left">THIS IS WHERE THE LOADED 
-						LINKS WILL APPEAR BASED ON CONTEXT ... <br>
+						<td style="text-align: left">
+						<table class="links" style="width:300px">
+						<tr> 
+						<td>Username:
+						</td>
+						<td><input type="text" id="un">
+						</td>
+						</tr>
+						<tr> 
+						<td>Password:
+						</td>
+						<td><input type="text" id="un">
+						</td>
+						</tr>
+						</table>
+
+
+						</td>
 						</tr>
 				</table>
 			</td>

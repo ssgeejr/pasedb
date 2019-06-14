@@ -1,5 +1,115 @@
 
 
+
+
+
+
+
+
+
+
+
+
+https://www.baeldung.com/mongodb-tagging
+
+.append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
+new Document().append("a", "MongoDB")
+              .append("b", Arrays.asList(1, 2));
+
+db.links.find( { tags: { $all: [ 1 ] } } )
+
+https://mongodb.github.io/mongo-java-driver/3.8/builders/filters/
+
+https://examples.javacodegeeks.com/software-development/mongodb/mongodb-array-query-operators-example/
+db.survey.find( { results: { $elemMatch: { product: "xyz", score: { $gte: 8 } } } } )
+
+db.inventory.find( { tags: { $all: [ "appliance", "school", "book" ] } } )
+
+db.links.find( { tags: { $all: [ 0 ] } } )
+
+http://www.javahotchocolate.com/notes/mongodb-crud.html
+
+db.links.insertMany([
+   {title: '0000', description: 'description0000', image: 'image0000', url: 'url0000',tags: [0, 1, 4],   postedon: new Date(Date.now()),insertedby: 1},
+   {title: '1111', description: 'description1111', image: 'image1111', url: 'url1111',tags: [0, 1, 2],   postedon: new Date(Date.now()),insertedby: 7},
+   {title: '2222', description: 'description2222', image: 'image2222', url: 'url2222',tags: [5, 1, 2],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '3333', description: 'description3333', image: 'image3333', url: 'url3333',tags: [0, 2],   postedon: new Date(Date.now()),insertedby: 4},
+   {title: '4444', description: 'description4444', image: 'image4444', url: 'url4444',tags: [1, 2],   postedon: new Date(Date.now()),insertedby: 2},
+   ])
+
+
+
+https://www.journaldev.com/6178/mongodb-find#mongodb-find-in-array
+
+https://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+Document doc = new Document("name", "MongoDB")
+                .append("type", "database")
+                .append("count", 1)
+                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
+                .append("info", new Document("x", 203).append("y", 102));
+
+				
+new BasicDBObject("regno", 75)
+				
+Mongo Statistics:   
+http://zetcode.com/db/mongodbjava/
+
+Tutorials:
+https://mongodb-documentation.readthedocs.io/en/latest/ecosystem/tutorial/getting-started-with-java-driver.html
+
+........................................
+MongoDB Skip() Method
+Apart from limit() method, there is one more method skip() which also accepts number type argument and is used to skip the number of documents.
+
+Syntax
+The basic syntax of skip() method is as follows −
+
+>db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+
+
+........................................
+
+cursor.sort(new BasicDBObject("_id", -1));
+cursor.limit(limit);
+
+
+Use .limit()
+
+db.foo.find().limit(50);
+Or if you want to sort and then get last records then you can do
+
+db.foo.find().sort({_id:1}).limit(50);  and -1 for descending.
+
+
+........................................
+
+It is the new syntax in MongoDB version 3, therefore I could not use the suggested answer . So the working code is as follows:
+
+MongoCollection<Document> coll = db.getCollection(<collectionName>);
+
+FindIterable<Document> currentVersionDocumentIterable =   
+    coll.find().sort(new Document("_id", -1)).limit(50);
+
+........................................
+
+db.customers.find();
+
+db.counter.find().sort({_id:1}).limit(50);
+
+
+db.counter.aggregate(
+  {
+    $group: {
+      "ip": 1,
+      count: {
+        $sum: 1
+      }
+    }
+  }
+);
+
+db.counter.find().count();
+
 Login Search Comments Support Groups Court Opinions In the Media Parental Rights
 Parental Alienation
 Home
@@ -20,13 +130,34 @@ db.links.insert({
 })
 
 
+url
+title
+desc
+imageUrl
+display_height
+display_width
+
+mongoClient = new MongoClient("db");
+Document 
+MongoCollection<Document> collection = mongodb.getCollection("customers");
+ mongodb.getCollection("customers").insert(new org.bson.Document("url", url)
+				.append("title", title)
+				.append("desc", desc)
+				.append("imageUrl", imageUrl)
+				.append("display_height", display_height)
+				.append("display_width", display_width)
+				.append("comment", comment)
+				.append("userID", userID)
+				.append("date", new Date());
+
+
 
 
 db.links.insertMany([
-   {title: '0000', description: 'description0000', image: 'image0000', url: 'url0000',tags: ['mongodb', 'database', 'xml'],   postedon: new Date(Date.now()),insertedby: 2},
-   {title: '1111', description: 'description1111', image: 'image1111', url: 'url1111',tags: ['mongodb', 'database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '0000', description: 'description0000', image: 'image0000', url: 'url0000',tags: ['0', 'database', 'xml'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '1111', description: 'description1111', image: 'image1111', url: 'url1111',tags: ['0', 'database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
    {title: '2222', description: 'description2222', image: 'image2222', url: 'url2222',tags: ['apache', 'database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
-   {title: '3333', description: 'description3333', image: 'image3333', url: 'url3333',tags: ['mongodb', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
+   {title: '3333', description: 'description3333', image: 'image3333', url: 'url3333',tags: ['0', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
    {title: '4444', description: 'description4444', image: 'image4444', url: 'url4444',tags: ['database', 'NoSQL'],   postedon: new Date(Date.now()),insertedby: 2},
    ])
 
@@ -38,18 +169,6 @@ db.products.find().sort({"created_at": 1}) --- 1 for asc and -1 for desc
 
 
 .sort({"postedon": -1})
-
-Keanu Reeves Quotes to guide you:
-"Every struggle in your life has shaped you into the person you are today. Be thankful for the hard times, they can only make you stronger."
-
-"Even in the face of tragedy, a stellar person can thrive. No matter what’s going on in your life, you can overcome it! Life is worth living."
-
-"The simple act of paying attention can take you a long way."
-
-"If you have been brutally broken but still have the courage to be gentle to other living beings, then you’re a badass with a heart of an angel."
-
-"The person who was holding me back from my happiness was me."
-
 
 
 #java
