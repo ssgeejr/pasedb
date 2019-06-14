@@ -88,7 +88,7 @@ img { border-style: none; }
 						</td>
 						</tr>
 						<tr>
-						<td align="right"><input type="submit" name="login" value="Search"></td>
+						<td colspan="2" align="right"><input type="submit" name="login" value="Search"></td>
 						</tr>
 						</table>
 </div>						
