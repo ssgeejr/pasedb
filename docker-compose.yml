@@ -20,6 +20,8 @@ services:
             - db
         ports:
             - 80:8080
+        volumes:
+            - /opt/pasedb/tomcat/logs:/usr/local/tomcat/logs
 
 #        networks:
 #              pasedb_web:
