@@ -7,47 +7,62 @@
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
 <%@ include file="meta.htm"%>
 
-<% 
-	 new org.pasedb.pasedbui.Counter(request);
+<%
+	new org.pasedb.pasedbui.Counter(request);
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"
 	import="org.pasedb.pasedbui.*"%>
-<%!
-//--static
-%>
+<%!//--static%>
 <%
 	StringBuffer bfr = new StringBuffer();
-	try{
+	try {
 		String addurl = request.getParameter("addurl");
-		if(addurl == null)
+		if (addurl == null)
 			System.out.println("do note save ...");
-		else{
+		else {
 			System.out.println("... SAVE FORM VALUE ...");
 			System.out.println(": " + request.getParameter("url"));
-			System.out.println(": " + request.getParameter("comment"));		
-	    	ArrayList<Integer> tags = new ArrayList<Integer>();
-	    	tags.add(0);
-	    	int tagval = -1;
-			try{tagval = Integer.parseInt(request.getParameter("_cbpr"));tags.add(tagval);}catch(Exception ex){}
-			try{tagval = Integer.parseInt(request.getParameter("_cbim"));tags.add(tagval);}catch(Exception ex){}
-			try{tagval = Integer.parseInt(request.getParameter("_cbco"));tags.add(tagval);}catch(Exception ex){}
-			try{tagval = Integer.parseInt(request.getParameter("_cbsg"));tags.add(tagval);}catch(Exception ex){}
-			System.out.println("_cbpr: " + request.getParameter("_cbpr"));
-			System.out.println("_cbim: " + request.getParameter("_cbim"));
-			System.out.println("_cbco: " + request.getParameter("_cbco"));
-			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
-			
-			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),request.getParameter("comment"),tags,-99);
-			
-			
+			System.out.println(": " + request.getParameter("comment"));
+			ArrayList<Integer> tags = new ArrayList<Integer>();
+			tags.add(0);
+			int tagval = -1;
+			try {
+				tagval = Integer.parseInt(request.getParameter("_cbpr"));
+				tags.add(tagval);
+			} catch (Exception ex) {
+			}
+			try {
+				tagval = Integer.parseInt(request.getParameter("_cbim"));
+				tags.add(tagval);
+			} catch (Exception ex) {
+			}
+			try {
+				tagval = Integer.parseInt(request.getParameter("_cbco"));
+				tags.add(tagval);
+			} catch (Exception ex) {
+			}
+			try {
+				tagval = Integer.parseInt(request.getParameter("_cbsg"));
+				tags.add(tagval);
+			} catch (Exception ex) {
+			}
+//			System.out.println("_cbpr: " + request.getParameter("_cbpr"));
+//			System.out.println("_cbim: " + request.getParameter("_cbim"));
+//			System.out.println("_cbco: " + request.getParameter("_cbco"));
+//			System.out.println("_cbsg: " + request.getParameter("_cbsg"));
+
+			LinkItem li = new AddNewLink().fetchOGMetaData(request.getParameter("url"),
+					request.getParameter("comment"), tags, -99);
+
 			bfr.append(new HtmlEngine().generateTable(li));
-			
-//			bfr.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
-//			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
-//			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
- 		}
-	}catch(Exception ex){}
+
+			//			bfr.append("<img src=\"" + li.getImgurl() + "\" height=\"" + li.getDisplayHeight() + "\"  width=\"" + li.getDisplayWidth() + "\"><br>");
+			//			bfr.append("<b>Title:</b>" + li.getTitle() + "<br>");
+			//			bfr.append("<b>Description:</b> " + li.getDescription() + "<br>");
+		}
+	} catch (Exception ex) {
+	}
 %>
 
 
@@ -95,14 +110,19 @@ input[type=text], textarea, input[type=submit] {
 	border-collapse: collapse;
 	padding: 3px;
 }
+
 .links td {
 	padding: 3px;
 }
+
 .links tbody {
 	border: 1px solid #0000FF;
 	padding: 3px;
 }
-img { border-style: none; }
+
+img {
+	border-style: none;
+}
 </style>
 </head>
 <body>
@@ -128,7 +148,6 @@ img { border-style: none; }
 			</tr>
 			<tr>
 				<td>
-
 					<form action="addlink.jsp" method="post">
 						<div align="center">
 							<div>
@@ -138,8 +157,8 @@ img { border-style: none; }
 									</tr>
 									<tr>
 										<td><input name="_cbpr" type="checkbox" value="1" />Parental
-											Rights <input name="_cbim" type="checkbox" value="2" />In the
-											Media <input name="_cbco" type="checkbox" value="3" />Court
+											Rights <input name="_cbim" type="checkbox" value="2" />In
+											the Media <input name="_cbco" type="checkbox" value="3" />Court
 											Opinions <input name="_cbsg" type="checkbox" value="4" />Support</td>
 									</tr>
 									<tr>
@@ -163,7 +182,7 @@ img { border-style: none; }
 											value="Add Link" />&nbsp;</td>
 									</tr>
 								</table>
-<br>
+								<br>
 								<table class="links">
 									<%=bfr.toString()%>
 								</table>
@@ -175,7 +194,7 @@ img { border-style: none; }
 			<tr>
 				<td>
 					<!--
-				<center>
+					<center>
 					<%@ include file="footer.htm"%>
 					</center>
 					-->

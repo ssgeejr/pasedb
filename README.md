@@ -1,12 +1,26 @@
+
+
+[pasedb.org](pasedb_R_01.png)
+
 # PASEDB
 Parental Alienation Support &amp; Education Database
 
-### OpenSource, Teamsourced application to help those who have been abused by the family court system or alianeted by a narcisistic ex. 
-
-
-docker-compose stop <service_name> <-- If you want to live on the edge and have the shut-down go faster, try docker-compose kill <service_name>
-docker-compose up -d --no-deps <service_name> <-- this brings up the service using the newly built container.
-
+### Mission Statement
 ```
-docker-compose up -d --no-deps --build <service_name>
+Provide a simple, centralized location to allow easy access to support and educational sites relating to Parental Alienation
+``` 
+
+### Site Location
+```
+The site resides at http://pasedb.org
+```
+
+### Comments
+```
+When America's court systems fail you, when after committing no crime you lose everything you are presented with three options:  
+1) Become a victim  
+2) Quit and fade into oblivion   
+3) Become a light for other and share what you have learned so other's do not have to carve a path of their own  
+  
+It should be obvious my choice. This site is didicated to my three children whom I hope one day to see again. 
 ```
