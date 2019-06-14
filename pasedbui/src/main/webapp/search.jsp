@@ -84,7 +84,7 @@ img { border-style: none; }
 						<tr> 
 						<td>Search for:
 						</td>
-						<td><input type="text" id="q">
+						<td  style="width:500px"><input type="text" id="q">
 						</td>
 						</tr>
 						<tr>
