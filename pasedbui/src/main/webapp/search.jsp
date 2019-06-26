@@ -60,18 +60,6 @@ img {
 				<td><%@ include file="menu.htm"%></td>
 			</tr>
 			<tr>
-				<td class="auto-style7"><strong>OFFICIAL RELEASE JUNE
-						22, 2019</strong> <br> SEARCH</td>
-			</tr>
-			<tr>
-				<td>
-					<div align="center">
-						<strong><span class="auto-style5">VALIDATION
-								TESTING underway - site may (or MAY NOT) load correctly</span></strong>
-					</div>
-				</td>
-			</tr>
-			<tr>
 				<td>
 					<table style="width: 100%">
 						<tr>

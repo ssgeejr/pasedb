@@ -32,6 +32,16 @@
             <td>&lt;%@ include file="menu.htm"%&gt;</td>
           </tr>
           <tr>
+            <td class="auto-style7"><strong>OFFICIAL RELEASE JUNE 22, 2019</strong></td>
+          </tr>
+          <tr>
+            <td>
+              <div align="center"> <strong><span class="auto-style5">VALIDATION
+                    TESTING underway - site may (or MAY NOT) load correctly</span></strong>
+              </div>
+            </td>
+          </tr>
+          <tr>
             <td>
               <table style="width: 100%">
                 <tbody>
@@ -51,7 +61,7 @@
                       <hr style="width: 100%"> <strong>Mission Statement:</strong><br>
                       Provide a simple, centralized location to allow easy
                       access to support and educational sites relating to
-                      Parental Alienation </td>
+                      Parental Alienation</td>
                   </tr>
                 </tbody>
               </table>

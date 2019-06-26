@@ -13,5 +13,17 @@ clean up UI so all the colors match
 
 
 
+db.counter.aggregate(
+  {
+    $group: {
+      _id: {
+        name: '$query'
+      },
+      count: {
+        $sum: 1
+      }
+    }
+  }
+)
 
 

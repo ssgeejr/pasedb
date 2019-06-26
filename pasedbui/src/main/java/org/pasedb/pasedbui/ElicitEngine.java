@@ -22,10 +22,8 @@ public class ElicitEngine {
 	private MongoConnectionmanager connMan = null;
 	private  MongoDatabase mongodb = null;
 	private String source = "db";
-	public ElicitEngine() {
-
-	}
 	
+	public ElicitEngine() {}
 	public ElicitEngine(String dbsource) {
 		source = dbsource;
 	}
@@ -38,15 +36,8 @@ public class ElicitEngine {
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> col = mongodb.getCollection("links");
 			FindIterable<Document> fcol = col.find();
-//			FindIterable<Document> fcol = col.find(Filters.all("tags", 5));
-//			find(Filters.all(TAGS_FIELD, tags))
-			
-			
 			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
 			MongoCursor<Document> collection = fcol.iterator();
-//			for (Document cur : collection.find()) {
-//			    System.out.println(cur.toJson());
-//			}
 			while (collection.hasNext()) {
 				Document doc = collection.next(); 
 				System.out.println("Title:: " + doc.getString("title"));
@@ -54,7 +45,6 @@ public class ElicitEngine {
 			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
 		}finally{
 			connMan.closeConnection();
-//			closeConnection();
 		}
 		return links;
 	}
