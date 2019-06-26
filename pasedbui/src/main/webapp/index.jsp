@@ -5,8 +5,8 @@
     <title>Parental Alienation Support &amp; Education</title>
     <link href="menu.css" media="all" rel="stylesheet" type="text/css">
   </head>
-  <body>&lt;%@ include file="meta.htm"%&gt; &lt;% new
-    org.pasedb.pasedbui.Counter(request); %&gt;
+  <body><@ include file="meta.htm"> < new
+    org.pasedb.pasedbui.Counter(request); >
     <style type="text/css">
 .auto-style5 {
 	font-size: 8pt;
@@ -26,10 +26,10 @@
       <table style="border: 1px solid #AAAAAA; width: 900px">
         <tbody>
           <tr>
-            <td>&lt;%@ include file="banner.htm"%&gt;</td>
+            <td><@ include file="banner.htm"></td>
           </tr>
           <tr>
-            <td>&lt;%@ include file="menu.htm"%&gt;</td>
+            <td><@ include file="menu.htm"></td>
           </tr>
           <tr>
             <td>
