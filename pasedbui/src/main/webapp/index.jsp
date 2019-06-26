@@ -27,10 +27,10 @@
       <table style="border: 1px solid #AAAAAA; width: 900px">
         <tbody>
           <tr>
-            <td><@ include file="banner.htm"></td>
+            <td><%@ include file="banner.htm"%></td>
           </tr>
           <tr>
-            <td><@ include file="menu.htm"></td>
+            <td><%@ include file="menu.htm"%></td>
           </tr>
           <tr>
             <td>
