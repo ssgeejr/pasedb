@@ -41,7 +41,6 @@
         text-align: center;
 }
 .links {
-        width: 800px;
         border: 1px solid #0000FF;
         border-collapse: collapse;
         padding: 3px;
