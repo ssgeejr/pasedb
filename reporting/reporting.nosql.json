@@ -27,4 +27,11 @@ db.counter.aggregate([
 	}
 ])
 
+mongo mydb --eval "db.users.find({a:'b'}).pretty().shellPrint()"
+
+
+
+mongo pasedb  --eval 'db.counter.aggregate([{$group : {_id : {year: { $year: "$timestamp" } ,month: { $month: "$timestamp" },day: { $dayOfMonth: "$timestamp" }},count: { $sum: 1 }}},{$sort: { _id: 1 }}])'
+
+
 
