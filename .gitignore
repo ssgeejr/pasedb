@@ -32,6 +32,8 @@ hs_err_pid*
 # Tomcat autobuild files
 war-*
 
+target/
+
 /target
 pasedbms/target
 pasedbui/target
