@@ -35,6 +35,7 @@ war-*
 /target
 pasedbms/target
 pasedbui/target
+client/target
 
 
 .extract
