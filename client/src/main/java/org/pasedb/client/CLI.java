@@ -3,13 +3,13 @@ package org.pasedb.client;
 import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.imageio.ImageIO;
 //import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.pasedb.pasedbui.LinkItem;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -38,7 +38,7 @@ public class CLI {
 	
 	public CLI() {
 		try {
-			LinkItem ogi = fetchOGMetaData("http://pasedb.org","comment", new ArrayList<Integer>(),-1);
+			LinkItem ogi = fetchOGMetaData("https://medium.com/@SMD_1daycloser/understanding-stages-of-grief-applied-to-parents-affected-by-parental-child-abduction-alienation-5c17c3e331f1","comment", new ArrayList<Integer>(),-1);
 			System.out.println(ogi.getTitle());
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -72,12 +72,18 @@ public class CLI {
 	    Elements metaOgImage = document.select("meta[property=og:image]");
 	    if (metaOgImage!=null) {
 	    	imageUrl = metaOgImage.attr("content");
-//	    	System.out.println("imageUrl: " + imageUrl);
-//	    	System.out.println("length: " + imageUrl.trim().length());
+	    	System.out.println("imageUrl: " + imageUrl);
+	    	System.out.println("length: " + imageUrl.trim().length());
 	    	if(imageUrl != null && imageUrl.trim().length() > 4){
 		    	try{
 					URL iurl=new URL(imageUrl);
-					BufferedImage image = ImageIO.read(iurl);
+//					BufferedImage image = ImageIO.read(iurl);					
+					HttpURLConnection connection = (HttpURLConnection)iurl.openConnection();
+					connection.setRequestProperty(
+					    "User-Agent",
+					    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
+					BufferedImage image = ImageIO.read(connection.getInputStream());
+					
 					int height = image.getHeight();
 					int width = image.getWidth();
 					System.out.println("Image Height : "+ height);

@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import java.awt.image.BufferedImage;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.imageio.ImageIO;
 //import org.jsoup.Connection.Response;
@@ -103,7 +104,13 @@ public class AddNewLink {
 	    	if(imageUrl != null && imageUrl.trim().length() > 4){
 		    	try{
 					URL iurl=new URL(imageUrl);
-					BufferedImage image = ImageIO.read(iurl);
+//					BufferedImage image = ImageIO.read(iurl);
+					
+					HttpURLConnection connection = (HttpURLConnection)iurl.openConnection();
+					connection.setRequestProperty(
+					    "User-Agent",
+					    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
+					BufferedImage image = ImageIO.read(connection.getInputStream());
 					int height = image.getHeight();
 					int width = image.getWidth();
 					System.out.println("Image Height : "+ height);
