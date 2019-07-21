@@ -38,6 +38,7 @@ public class AddNewLink {
 	private final int MAX_XY = 200;
 	
 	public void addNewLink(HttpServletRequest request) {
+		System.setProperty ("jsse.enableSNIExtension", "false");
 		MongoClient mongoClient = null;
 		try {
 			String remoteIP = request.getRemoteAddr();

@@ -38,7 +38,8 @@ public class CLI {
 	
 	public CLI() {
 		try {
-			LinkItem ogi = fetchOGMetaData("https://medium.com/@SMD_1daycloser/understanding-stages-of-grief-applied-to-parents-affected-by-parental-child-abduction-alienation-5c17c3e331f1","comment", new ArrayList<Integer>(),-1);
+			System.setProperty ("jsse.enableSNIExtension", "false");
+			LinkItem ogi = fetchOGMetaData("https://cobhedition.com/?p=33580","comment", new ArrayList<Integer>(),-1);
 			System.out.println(ogi.getTitle());
 		}catch(Exception ex) {
 			ex.printStackTrace();
