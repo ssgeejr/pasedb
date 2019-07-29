@@ -40,9 +40,8 @@
 						<table style="width: 100%">
 							<tbody>
 							<tr>
-								<td style="text-align: Center"><font color="red"></font><b>New features coming First of August</b>
+								<td style="text-align: Center;color:red;"><b>New features coming First of August</b>
 								<br>Historical navigation (see more than 5 articles), view latest article added date/time and quick view most recent articles
-								</font>
 								<br>&nbsp;<br>
 								</td>
 							</tr>
