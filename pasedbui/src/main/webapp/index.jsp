@@ -39,6 +39,9 @@
 					<td>
 						<table style="width: 100%">
 							<tbody>
+							<tr>
+								<td style="text-align: Center">New features coming First of August to scroll history and see latest update and quick view most recent updates</td>
+							</tr>
 								<tr>
 									<td style="text-align: left"><strong>What is
 											Parental Alienation?</strong><br> Parental alienation is the
