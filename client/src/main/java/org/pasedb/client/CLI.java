@@ -45,7 +45,9 @@ public class CLI {
 //	https://www.fatherly.com/health-science/divorce-joint-custody-makes-men-better-fathers/
 //	https://www.liveabout.com/signs-of-parental-alienation-syndrome-1103082
 	
-	private final String pasedburl = "https://www.abc27.com/investigators/investigations/parental-alienation-is-your-child-being-brainwashed-to-not-like-you/";
+//	private final String pasedburl = "https://www.abc27.com/investigators/investigations/parental-alienation-is-your-child-being-brainwashed-to-not-like-you/";
+	
+	private final String pasedburl = "https://www.youtube.com/watch?v=fVt1po4OPIA";
 	private PaseDBLinkItem ogi = new PaseDBLinkItem();
 	
 	public CLI() {

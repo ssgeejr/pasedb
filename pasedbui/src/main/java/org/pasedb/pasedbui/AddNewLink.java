@@ -36,9 +36,9 @@ import java.math.BigDecimal;
 public class AddNewLink {
 
 	private final int MAX_XY = 200;
+	private LinkItem ogi = new LinkItem();
 	
 	public void addNewLink(HttpServletRequest request) {
-		
 		MongoClient mongoClient = null;
 		try {
 			String remoteIP = request.getRemoteAddr();
@@ -76,89 +76,95 @@ public class AddNewLink {
 	
 	public LinkItem fetchOGMetaData(String url, String comment, ArrayList<Integer> tags, int userID) throws Exception{
 		System.setProperty ("jsse.enableSNIExtension", "false");
-		LinkItem ogi = new LinkItem();
-		Document document = Jsoup.connect(url).get();
-	    String title = null;
-	    Elements metaOgTitle = document.select("meta[property=og:title]");
-	    if (metaOgTitle!=null) {
-	        title = metaOgTitle.attr("content");
-	    }
-	    if (title == null || title.length() < 3){
-	        title = document.title();
-	    }
-	    if (title == null || title.length() < 3){
-	    	title = url;
-	    }
-	    String desc = null;
-	    Elements metaOgDesc = document.select("meta[property=og:description]");
-	    if (metaOgTitle!=null) {
-	    	desc = metaOgDesc.attr("content");
-	    }else {
-	    	desc = "No description available";
-	    }
+		
+		try {
+			Document document = Jsoup.connect(url).get();
+		    String title = null;
+		    Elements metaOgTitle = document.select("meta[property=og:title]");
+		    if (metaOgTitle!=null) {
+		        title = metaOgTitle.attr("content");
+		    }
+		    if (title == null || title.length() < 3){
+		        title = document.title();
+		    }
+		    if (title == null || title.length() < 3){
+		    	title = url;
+		    }
+		    String desc = null;
+		    Elements metaOgDesc = document.select("meta[property=og:description]");
+		    if (metaOgTitle!=null) {
+		    	desc = metaOgDesc.attr("content");
+		    }else {
+		    	desc = "No description available";
+		    }
+		    
+		    String imageUrl = null;
+		    Elements metaOgImage = document.select("meta[property=og:image]");  
+		    if (metaOgImage!=null) {
+		    	imageUrl = metaOgImage.attr("content");
+		    	setImageDimensions(imageUrl);
+		    }		    
+		    ogi.setTitle(title);
+		    ogi.setDescription(desc);
+		}catch(javax.net.ssl.SSLHandshakeException ce) {
+			System.out.println("[#error] ---------- JSOUP FAILED TO CONNECT / TRYING OPENGRAPH TOOLSET ----------------");
+			ce.printStackTrace();
+			tryOpenGraphToolset(url);
+		}
 	    
-	    String imageUrl = null;
-	    Elements metaOgImage = document.select("meta[property=og:image]");
-	    if (metaOgImage!=null) {
-	    	imageUrl = metaOgImage.attr("content");
-//	    	System.out.println("imageUrl: " + imageUrl);
-//	    	System.out.println("length: " + imageUrl.trim().length());
-	    	if(imageUrl != null && imageUrl.trim().length() > 4){
-		    	try{
-					URL iurl=new URL(imageUrl);
-//					BufferedImage image = ImageIO.read(iurl);
-					
-					HttpURLConnection connection = (HttpURLConnection)iurl.openConnection();
-					connection.setRequestProperty(
-					    "User-Agent",
-					    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
-					BufferedImage image = ImageIO.read(connection.getInputStream());
-					int height = image.getHeight();
-					int width = image.getWidth();
-					System.out.println("Image Height : "+ height);
-					System.out.println("Image Width : "+ width);
-					float pct = setPct(height,width);
-					int display_height = Math.round(height * pct);
-					int display_width = Math.round(width * pct);
-					System.out.println("Display Height : "+ display_height);
-					System.out.println("Display Width : "+ display_width);
-					ogi.setImgurl(imageUrl);
-					ogi.setDisplayHeight(display_height);
-					ogi.setDisplayWidth(display_width);
-					// add the code to make the image smaller here -- revision 2, no need to work on this now!
-		    	}catch(java.net.MalformedURLException mu){
-		    		mu.printStackTrace();
-		    	}
-	    	}
-	    }
-	    
-//	    URL:  max length than 256 characters
-	    System.out.println("URL: " + url);
-//	    title max length than 100 characters
-	    System.out.println("Title: " + title);
-//	    description max length than 200 characters
-	    System.out.println("Description: " + desc);
-//	    Image url max length than 256 characters
-	    System.out.println("Image: " + imageUrl);
-	    System.out.println("comment: " + comment);
-	    System.out.println("userID: " + userID);
-	    
-	    ogi.setUrl(url);
-	    ogi.setTitle(title);
-	    ogi.setDescription(desc);
 	    ogi.setComment(comment);
 	    ogi.setUserID(userID);
 	    ogi.setTags(tags);
 	    	    
 	    try{	    	
 	    	persist(ogi);
-	    	
 	    }catch(Exception ex){
 	    	System.out.println("FAILED TO INSERT RECORD");
 	    	ex.printStackTrace();
 	    }
 	    
 	    return ogi;
+	}
+
+	private void tryOpenGraphToolset(String pasedburl) throws Exception{
+		  OpenGraph testPage = new OpenGraph(pasedburl, true);
+		  ogi.setTitle(testPage.getContent("title"));
+		  ogi.setDescription(testPage.getContent("description"));
+		  String imageUrl = testPage.getContent("image");
+		  if (imageUrl != null) {
+			  setImageDimensions(imageUrl);
+		  }
+	}
+
+	
+	public void setImageDimensions(String imageUrl) throws Exception {
+//    	System.out.println("imageUrl: " + imageUrl);
+//    	System.out.println("length: " + imageUrl.trim().length());
+    	if(imageUrl != null && imageUrl.trim().length() > 4){
+				URL iurl=new URL(imageUrl);
+//					BufferedImage image = ImageIO.read(iurl);					
+				HttpURLConnection connection = (HttpURLConnection)iurl.openConnection();
+				connection.setRequestProperty(
+				    "User-Agent",
+				    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
+				BufferedImage image = ImageIO.read(connection.getInputStream());
+				int height = image.getHeight();
+				int width = image.getWidth();
+//				System.out.println("Image Height : "+ height);
+//				System.out.println("Image Width : "+ width);
+				float pct = setPct(height,width);
+				int display_height = Math.round(height * pct);
+				int display_width = Math.round(width * pct);
+//				System.out.println("Display Height : "+ display_height);
+//				System.out.println("Display Width : "+ display_width);
+				ogi.setImgurl(imageUrl);
+				ogi.setDisplayHeight(display_height);
+				ogi.setDisplayWidth(display_width);
+				// add the code to make the image smaller here -- revision 2, no need to work on this now!
+    	}else {
+    		throw new NullPointerException("ImageURL is invalid");
+    	}
+
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
