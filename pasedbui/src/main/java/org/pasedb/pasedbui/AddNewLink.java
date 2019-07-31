@@ -76,7 +76,7 @@ public class AddNewLink {
 	
 	public LinkItem fetchOGMetaData(String url, String comment, ArrayList<Integer> tags, int userID) throws Exception{
 		System.setProperty ("jsse.enableSNIExtension", "false");
-		
+		ogi.setUrl(url);
 		try {
 			Document document = Jsoup.connect(url).get();
 		    String title = null;
