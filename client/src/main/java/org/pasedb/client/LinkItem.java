@@ -1,4 +1,4 @@
-package org.pasedb.pasedbui;
+package org.pasedb.client;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -100,20 +100,4 @@ public class LinkItem {
 		this.display_width = display_width;
 	}
 	
-	public String toString() {
-		return "url: " + url + "\n"
-				+ "title: " + title + "\n"
-				+ "description: " + description + "\n"
-				+ "imgurl: " + imgurl + "\n"
-				+ "imgPct: " + imgPct + "\n"
-				+ "userID: " + userID + "\n"
-				+ "tags: " + tags + "\n"
-				+ "GUID: " + GUID + "\n"
-				+ "comment: " + comment + "\n"
-				+ "date: " + date + "\n"
-				+ "image: " + image + "\n"
-				+ "display_height: " + display_height + "\n"
-				+ "display_width: " + display_width + "\n";
-	}
-
 }

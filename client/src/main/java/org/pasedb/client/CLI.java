@@ -47,7 +47,7 @@ public class CLI {
 	
 //	private final String pasedburl = "https://www.abc27.com/investigators/investigations/parental-alienation-is-your-child-being-brainwashed-to-not-like-you/";
 	
-	private final String pasedburl = "https://www.youtube.com/watch?v=fVt1po4OPIA";
+	private final String pasedburl = "https://thriveglobal.com/stories/5-ways-to-support-someone-experiencing-parental-alienation";
 	private PaseDBLinkItem ogi = new PaseDBLinkItem();
 	
 	public CLI() {
