@@ -61,7 +61,7 @@ public class ElicitEngine {
 				fcol = col.find();
 			else 
 				fcol = col.find(Filters.all("tags", cntx));
-			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
+			fcol.sort(new BasicDBObject("_id", -1)).limit(25);
 			MongoCursor<Document> collection = fcol.iterator();
 			LinkItem item = null;
 			while (collection.hasNext()) {
