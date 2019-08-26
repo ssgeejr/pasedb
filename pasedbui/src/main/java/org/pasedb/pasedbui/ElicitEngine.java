@@ -21,7 +21,7 @@ import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
 public class ElicitEngine {
-	private final DateFormat df = new SimpleDateFormat("MMddyy HH:mm");
+	private final DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm");
 	private MongoConnectionmanager connMan = null;
 	private  MongoDatabase mongodb = null;
 	private String source = "db";
