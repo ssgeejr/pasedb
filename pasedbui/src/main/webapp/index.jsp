@@ -82,7 +82,7 @@
 				</tr>
 				<tr>
 					<td>
-						<b>Last 5 Links added</b><br>
+						<hr style="width: 100%">
 						<table class="links">
 							<%=lnks.toString()%>
 						</table>	
