@@ -1,15 +1,29 @@
+<%@ include file="meta.htm"%>
+<%
+	new org.pasedb.pasedbui.Counter(request);
+%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="org.pasedb.pasedbui.*"%>
+<%!String[] context = { "Parental Alienation", "Parental Rights", "In the Media", "Court/Legal", "Support Groups",
+			"Comments", "Books/Reading" };%>
+<%
+	StringBuffer lnks = new StringBuffer();
+	try {
+		lnks.append(new HtmlEngine().generateTable(new ElicitEngine().getLinks(0,5)));
+	} catch (Exception ex) {
+		ex.printStackTrace();
+	}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>Parental Alienation Support &amp; Education</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="pasedb.css">
 </head>
 <body>
-	<%@ include file="meta.htm"%>
-	<%
-		new org.pasedb.pasedbui.Counter(request);
-	%>
 	<style type="text/css">
 .auto-style5 {
 	font-size: 8pt;
@@ -64,6 +78,14 @@
 								</tr>
 							</tbody>
 						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Last 5 Links added</b><br>
+						<table class="links">
+							<%=lnks.toString()%>
+						</table>	
 					</td>
 				</tr>
 				<tr>

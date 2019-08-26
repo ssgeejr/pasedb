@@ -33,7 +33,7 @@ public class HtmlEngine {
 		sb.append(li.getDescription());
 		sb.append("</td></tr><tr><td>");
 // comments should be numerous and should be updated for duplicates
-		sb.append("<b>Posted by:</b> {username}"); 
+		sb.append("<b>Posted:</b> " + li.getPostDate()); 
 		sb.append("</td></tr><tr><td>");
 		sb.append("<b>Comments:</b> " + li.getComment());
 		sb.append("</td></tr></tbody>");

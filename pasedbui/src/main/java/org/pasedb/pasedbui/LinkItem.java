@@ -14,6 +14,7 @@ public class LinkItem {
 	private String GUID = null;
 	private String comment = "";
 	private Date date = null;
+	private String postDate = "";
 	private boolean image = false;
 	private int display_height = 0;
 	private int display_width = 0;
@@ -93,11 +94,11 @@ public class LinkItem {
 	public void setDisplayHeight(int display_height) {
 		this.display_height = display_height;
 	}
-	public int getDisplayWidth() {
-		return display_width;
+	public String getPostDate() {
+		return postDate;
 	}
-	public void setDisplayWidth(int display_width) {
-		this.display_width = display_width;
+	public void setPostDate(String pdate) {
+		this.postDate = pdate;
 	}
 	
 	public String toString() {
@@ -113,7 +114,8 @@ public class LinkItem {
 				+ "date: " + date + "\n"
 				+ "image: " + image + "\n"
 				+ "display_height: " + display_height + "\n"
-				+ "display_width: " + display_width + "\n";
+				+ "display_width: " + display_width + "\n"
+				+ "postDate: " + postDate + "\n";
 	}
 
 }

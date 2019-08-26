@@ -19,6 +19,7 @@ import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
 public class ElicitEngine {
+	private final DateFormat df = new SimpleDateFormat("MMddyy HH:mm");
 	private MongoConnectionmanager connMan = null;
 	private  MongoDatabase mongodb = null;
 	private String source = "db";
@@ -50,6 +51,9 @@ public class ElicitEngine {
 	}
 
 	public ArrayList<LinkItem> getLinks(int cntx) throws Exception{
+		return getLinks(cntx,25);
+	}
+	public ArrayList<LinkItem> getLinks(int cntx, int rowLimit) throws Exception{
 		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
 		try{
 			System.out.println("==========>> Fetch Filtered Record <<==========");
@@ -61,7 +65,7 @@ public class ElicitEngine {
 				fcol = col.find();
 			else 
 				fcol = col.find(Filters.all("tags", cntx));
-			fcol.sort(new BasicDBObject("_id", -1)).limit(25);
+			fcol.sort(new BasicDBObject("_id", -1)).limit(rowLimit);
 			MongoCursor<Document> collection = fcol.iterator();
 			LinkItem item = null;
 			while (collection.hasNext()) {
@@ -75,6 +79,8 @@ public class ElicitEngine {
 				item.setComment(doc.getString("comment"));
 				item.setDisplayHeight(doc.getInteger("display_height"));	
 				item.setDisplayWidth(doc.getInteger("display_width"));
+				item.setPostDate(df.format(doc.getDate("date")));
+				
 //				{ "_id" : ObjectId("5d01231da7b11b000115c863"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:06:53.907Z") }
 //				{ "_id" : ObjectId("5d0123b3a7b11b0001641022"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:09:23.625Z") }
 				links.add(item);
