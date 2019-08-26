@@ -94,6 +94,12 @@ public class LinkItem {
 	public void setDisplayHeight(int display_height) {
 		this.display_height = display_height;
 	}
+	public int getDisplayWidth() {
+		return display_width;
+	}
+	public void setDisplayWidth(int display_width) {
+		this.display_width = display_width;
+	}
 	public String getPostDate() {
 		return postDate;
 	}
