@@ -6,3 +6,4 @@ LABEL url="http://pasedb.org"
 LABEL version="2.7"
 
 ADD . /tmp
+COPY counter.report /tmp/counter.report

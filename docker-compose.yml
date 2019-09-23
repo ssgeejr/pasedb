@@ -9,6 +9,8 @@ services:
         restart: always
         volumes:
             - /opt/pasedb/mongodb/pasedb:/data/db
+#        ports:
+#            - 27017:27017
 
     ui:
 #        build: pasedbui/docker
