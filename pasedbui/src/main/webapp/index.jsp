@@ -103,8 +103,8 @@
 				<tr>
 				<td>
 				<div align="center">
-				Last 5 Posts 
-				</div>"
+				<b>Last 5 Posts</b>
+				</div>
 				</td>
 				</tr>
 				<tr>
