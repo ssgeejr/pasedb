@@ -3,12 +3,16 @@
 cwd=`pwd`
 cd /opt/dev/pasedb/pasedbui
 
+docker pull origin develop
 mvn clean package
+
+
 cd /opt/dev/pasedb/
 docker-compose stop ui
+docker rm pasedbui
 
 cd /opt/dev/pasedb/pasedbui/docker
-docker rmi pasedbui
+docker rmi -f pasedbui
 docker build -t pasedbui .
 
 cd /opt/dev/pasedb/
