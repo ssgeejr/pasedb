@@ -81,6 +81,33 @@
 					</td>
 				</tr>
 				<tr>
+				<td>
+					<table width="100%" border="1">
+						<tr>
+						<td>
+						Facebook Groups
+						</td>
+						</tr>
+						<tr>
+						<td>
+							<ul>
+								<li><a href="https://www.facebook.com/groups/alliancetosolveparentalalienation/">Alliance to Solve Parental Alienation</a>: This is a Facebook group led by Dr. Childress  and Dorcy Pruter for the discussion of the various solution pathways for the pathology of "parental alienation" (AB-PA).</li>
+								<li><a href="https://www.facebook.com/groups/pasolution/">Parental Alienation Support and Information Solution</a>:  Our mission is for members to create reunifications. Love is the answer. We are survivors of parental alienation: parents, children, and family. We also welcome supporters bringing awareness.</li>
+								<li><a href="https://www.facebook.com/groups/wendyperrysupportgroup/">Parental Alienation Support And Education - North Texas and Worldwide</a>: Our mission is to create awareness, education and support for the public and professionals about the signs, remedies and prevention of parental alienation.</li>
+							</ul>
+						</td>
+						</tr>
+					</table>				
+				</td>				
+				</tr>
+				<tr>
+				<td>
+				<div align="center">
+				Last 5 Posts 
+				</div>"
+				</td>
+				</tr>
+				<tr>
 					<td>
 						<hr style="width: 100%">
 						<table class="links">
