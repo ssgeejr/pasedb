@@ -24,22 +24,6 @@
 <link rel="stylesheet" type="text/css" href="pasedb.css">
 </head>
 <body>
-	<style type="text/css">
-.auto-style5 {
-	font-size: 8pt;
-	color: #FF0000;
-}
-
-.auto-style6 {
-	color: #FF0000;
-}
-
-.auto-style7 {
-	color: #FF0000;
-	font-size: large;
-	text-align: center;
-}
-</style>
 	<div align="center">
 		<table style="border: 1px solid #AAAAAA; width: 900px">
 			<tbody>
@@ -54,9 +38,10 @@
 						<table style="width: 100%">
 							<tbody>
 							<tr>
-								<td style="text-align: Center;color:red;"><b>New features coming later in August</b>
-								<br>Historical navigation (see more than 25 articles), view latest article added date/time and quick view most recent articles
-								<br>&nbsp;<br>
+								<td style="text-align: Center;color:red;"><b>
+								Change Request:<br></b>Add [next][previous] 
+								nagivation, add search, add "highlight" link on 
+								index&nbsp;<br>
 								</td>
 							</tr>
 								<tr>
