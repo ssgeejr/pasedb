@@ -12,6 +12,21 @@ services:
 #        ports:
 #            - 27017:27017
 
+# ####### MYSQL #######
+#    myqsl:
+#        #image: pasedb:mongohhh
+#        image: mysql:5.7
+#        container_name: myqsl
+#        tty: true
+#        stdin_open: true
+#        restart: always
+#        ports:
+#            - 3306:3306
+#        volumes:
+#            - /opt/pasedb/mysql:/var/lib/mysql
+#        environment:
+#            - MYSQL_ROOT_PASSWORD=teamrocket
+
     ui:
 #        build: pasedbui/docker
         image: pasedbui
