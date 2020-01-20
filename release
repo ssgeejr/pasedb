@@ -3,7 +3,7 @@
 cwd=`pwd`
 cd /opt/dev/pasedb/pasedbui
 
-docker pull origin develop
+git pull origin develop
 mvn clean package
 
 
