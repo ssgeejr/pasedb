@@ -3,6 +3,7 @@
 
 
 
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 URL url=new URL("Any web image url");
  BufferedImage image = ImageIO.read(url);
@@ -31,7 +32,7 @@ You can get image size easily using URLConnection method getContentLength()
   int width          = image.getWidth();
   int height         = image.getHeight(); 
 
-... extended ... 
+extended 
 
 BufferedImage readImage = null;
 
@@ -43,11 +44,94 @@ try {
     readImage = null;
 }
 
+   { "item" : "canvas",
+     "qty" : 100,
+     "tags" : ["cotton"],
+     "size" : { "h" : 28, "w" : 35.5, "uom" : "cm" }
+   }
+)
+
+
+db.inventory.insertOne(
+{
+        "url" : "https://childrenandfamilyadvocacy.com/",
+        "title" : "Children and Family Advocacy",
+        "desc" : "Children and Family Advocacy",
+        "imageUrl" : "https://childrenandfamilyadvocacy.com/wp-content/uploads/2019/11/cropped-CAFA_Jaime_240x240.jpg",
+        "display_height" : 75,
+        "display_width" : 75,
+        "comment" : "<comment>",
+        "userID" : -99
+}
+);
+
+
+
+db.links.insertOne(
+{
+        "url" : "https://childrenandfamilyadvocacy.com/",
+        "title" : "Children and Family Advocacy",
+        "desc" : "Children and Family Advocacy",
+        "imageUrl" : "https://childrenandfamilyadvocacy.com/wp-content/uploads/2019/11/cropped-CAFA_Jaime_240x240.jpg",
+        "display_height" : 75,
+        "display_width" : 75,
+        "comment" : "<comment>",
+        "userID" : -99
+}
+);
+
+db.links.find().sort({$natural:-1}).limit(7);
+
+
+
+db.links.find({}, { sort: { _id: -1 }, limit: 1 });
+
+db.links.find().sort({"_id" : -1}).limit(5)
+db.links.find().sort({"_id" : -1}).limit(1)
+
+db.links.findOne( { "_id" : ObjectId("5ded58ca456fee5ac66863bd") } );
+
+deleteOne
+db.links.deleteOne( { "_id" : ObjectId("5ded5bbd456fee5ac66863bf") } );
 
 
 <meta property="fb:fbid" content="643755066" />
 
 og:url, og:type, og:title, og:image, og:description, fb:app_id
+
+
+
+
+
+db.links.insertOne(
+{ 
+	"url" : "https://childrenandfamilyadvocacy.com/", 
+	"title" : "Children and Family Advocacy", 
+	"desc" : "Child psychological abuse is an aberrant and deplorable parenting practice that underpins much of the evil in society. We believe it can be prevented and that is our mission", 
+	"imageUrl" : "https://childrenandfamilyadvocacy.com/wp-content/uploads/2019/11/cropped-CAFA_Jaime_240x240.jpg", 
+	"display_height" : 120, 
+	"display_width" : 120, 
+	"comment" : "", 
+	"tags" : [ 0 ], 
+	"userID" : -99
+}
+);
+
+db.links.insertOne(
+{ 
+	"url" : "https://childrenandfamilyadvocacy.com/", 
+	"title" : "Children and Family Advocacy", 
+	"desc" : "Child psychological abuse is an aberrant and deplorable parenting practice that underpins much of the evil in society. We believe it can be prevented and that is our mission", 
+	"imageUrl" : "", 
+	"display_height" : 0, 
+	"display_width" : 0, 
+	"comment" : "", 
+	"tags" : [ 0 ], 
+	"userID" : -99
+}
+);
+
+
 
 
 
@@ -105,7 +189,7 @@ https://www.facebook.com/groups/paaonorthtexas/?ref=nf_target&fref=nf
 https://www.facebook.com/groups/529209747272231/
 https://www.facebook.com/groups/PASurvivalCoach/
 
-PTSD ... is it caused 
+PTSD is it caused 
 
 Opinions:
 State
@@ -162,7 +246,7 @@ _cbsg
 https://childrenanddivorceguide.com/articles/signs-of-parental-alienation/
 
 ====================================================
-**AMAZING documentation ... **
+**AMAZING documentation **
 https://www.researchgate.net/post/Parental_alienation_syndrome
 
 Warshak, R. A. (2015). Ten parental alienation fallacies that compromise decisions in court and in therapy. Professional Psychology: Research and Practice. Advance online publication. http://dx.doi.org/10.1037/pro0000031. Retrieved from http://www.californiaparentingcoordinator.com/wp-content/uploads/2015/07/Warshak-2015.pdf

@@ -1,12 +1,19 @@
 
+Counting Name Popularity
+Let's group on name, then count how many people have each name:
 
-
-
-
-
-
-
-
+db.counter.aggregate(
+  {
+    $group: {
+      _id: {
+        name: '$ip'
+      },
+      count: {
+        $sum: 1
+      }
+    }
+  }
+)
 
 
 

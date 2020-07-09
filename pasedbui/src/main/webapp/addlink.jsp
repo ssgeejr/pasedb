@@ -18,34 +18,22 @@
 	StringBuffer bfr = new StringBuffer();
 	try {
 		String addurl = request.getParameter("addurl");
-		if (addurl == null)
-			System.out.println("do note save ...");
-		else {
-			System.out.println("... SAVE FORM VALUE ...");
-			System.out.println(": " + request.getParameter("url"));
-			System.out.println(": " + request.getParameter("comment"));
+//			System.out.println("do note save ...");
+		if (addurl != null){
+//			System.out.println("... SAVE FORM VALUE ...");
+//			System.out.println(": " + request.getParameter("url"));
+//			System.out.println(": " + request.getParameter("comment"));
 			ArrayList<Integer> tags = new ArrayList<Integer>();
 			tags.add(0);
 			int tagval = -1;
-			try {
-				tagval = Integer.parseInt(request.getParameter("_cbpr"));
-				tags.add(tagval);
-			} catch (Exception ex) {
-			}
-			try {
-				tagval = Integer.parseInt(request.getParameter("_cbim"));
-				tags.add(tagval);
-			} catch (Exception ex) {
-			}
-			try {
-				tagval = Integer.parseInt(request.getParameter("_cbco"));
-				tags.add(tagval);
-			} catch (Exception ex) {
-			}
-			try {
-				tagval = Integer.parseInt(request.getParameter("_cbsg"));
-				tags.add(tagval);
-			} catch (Exception ex) {
+			Enumeration en = request.getParameterNames();
+			while (en.hasMoreElements()) {
+                String pn = (String) en.nextElement();
+                try{
+	                if (pn.startsWith("_$")){
+	                	tags.add(Integer.parseInt(request.getParameter(pn)));
+	            	}
+                }catch(Exception ex){}
 			}
 //			System.out.println("_cbpr: " + request.getParameter("_cbpr"));
 //			System.out.println("_cbim: " + request.getParameter("_cbim"));
@@ -156,10 +144,12 @@ img {
 										<td>Add Link</td>
 									</tr>
 									<tr>
-										<td><input name="_cbpr" type="checkbox" value="1" />Parental
-											Rights <input name="_cbim" type="checkbox" value="2" />In
-											the Media <input name="_cbco" type="checkbox" value="3" />Court
-											Opinions <input name="_cbsg" type="checkbox" value="4" />Support</td>
+										<td><input name="_$cbpr" type="checkbox" value="1" />Parental
+											Rights <input name="_$cbim" type="checkbox" value="2" />In
+											the Media <input name="_$cbco" type="checkbox" value="3" />Court
+											Opinions <input name="_$cbsg" type="checkbox" value="4" />Support
+											 <input name="_$cbbr" type="checkbox" value="6" />Books/Reading
+											</td>
 									</tr>
 									<tr>
 										<td>

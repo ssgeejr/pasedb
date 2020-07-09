@@ -1,9 +1,10 @@
-package org.pasedb.pasedbui;
+package org.pasedb.client;
+
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class LinkItem {
+public class PaseDBLinkItem {
 	private String url = "";
 	private String title = "";
 	private String description = "";
@@ -14,7 +15,6 @@ public class LinkItem {
 	private String GUID = null;
 	private String comment = "";
 	private Date date = null;
-	private String postDate = "";
 	private boolean image = false;
 	private int display_height = 0;
 	private int display_width = 0;
@@ -100,13 +100,7 @@ public class LinkItem {
 	public void setDisplayWidth(int display_width) {
 		this.display_width = display_width;
 	}
-	public String getPostDate() {
-		return postDate;
-	}
-	public void setPostDate(String pdate) {
-		this.postDate = pdate;
-	}
-	
+
 	public String toString() {
 		return "url: " + url + "\n"
 				+ "title: " + title + "\n"
@@ -120,8 +114,7 @@ public class LinkItem {
 				+ "date: " + date + "\n"
 				+ "image: " + image + "\n"
 				+ "display_height: " + display_height + "\n"
-				+ "display_width: " + display_width + "\n"
-				+ "postDate: " + postDate + "\n";
+				+ "display_width: " + display_width + "\n";
 	}
-
+	
 }

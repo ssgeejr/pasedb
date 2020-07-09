@@ -1,7 +1,6 @@
-package org.pasedb.pasedbui;
+package org.pasedb.client;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 
 import java.awt.image.BufferedImage;
 import java.net.HttpURLConnection;
@@ -34,46 +33,22 @@ import com.google.common.collect.TreeMultiset;
 import java.math.BigDecimal;
 
 public class AddNewLink {
-
 	private final int MAX_XY = 200;
 	private LinkItem ogi = new LinkItem();
-	
-	public void addNewLink(HttpServletRequest request) {
-		MongoClient mongoClient = null;
+	private final String pasedburl = "https://thriveglobal.com/stories/5-ways-to-support-someone-experiencing-parental-alienation";
+	private AddNewLink() {
 		try {
-			String remoteIP = request.getRemoteAddr();
-			// mongoClient = new MongoClient();
-			// mongoClient = new MongoClient("gorkly", 27017);
-			// mongoClient = new MongoClient("gorkly");
-			mongoClient = new MongoClient("db");
-			DB db = mongoClient.getDB("pasedb");
-			DBCollection coll = db.getCollection("links");
-			List<BasicDBObject> tags = new ArrayList<BasicDBObject>();
-			Multiset<String> hashTags = TreeMultiset.create();
-			hashTags.add("#fake");
-			hashTags.add("#tags");
-			// tags.add(new DB)
-			BasicDBObject newURL = new BasicDBObject("ip", remoteIP).append("user", "fake-user").append("timestamp",
-					new Date());
-			newURL.append("title", "fake-title").append("description", "fake-description").append("url", "fake-url")
-					.append("tags", hashTags);
-
-			// System.out.println("Data Display");
-			coll.insert(newURL);
-			DBCursor cursor = coll.find();
-			try {
-				while (cursor.hasNext()) {
-					System.out.println(cursor.next());
-				}
-			} finally {
-				// mongoClient.dropDatabase("test");
-			}
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			ogi = fetchOGMetaData(pasedburl,"comment", new ArrayList<Integer>(),-1);
+			System.out.println(ogi.toString());
+		}catch(Exception ex) {
+			ex.printStackTrace();
 		}
 	}
+	public static void main(String args[]) {
+		new AddNewLink();
+	}
 	
+
 	public LinkItem fetchOGMetaData(String url, String comment, ArrayList<Integer> tags, int userID) throws Exception{
 	    ogi.setUrl(url);
 		String title = url;
@@ -115,12 +90,6 @@ public class AddNewLink {
 	    ogi.setUserID(userID);
 	    ogi.setTags(tags);
 	    	    
-	    try{	    	
-	    	persist(ogi);
-	    }catch(Exception ex){
-	    	System.out.println("FAILED TO INSERT RECORD");
-	    	ex.printStackTrace();
-	    }
 	    
 	    return ogi;
 	}
@@ -166,28 +135,7 @@ public class AddNewLink {
 
 	}
 	
-	private void persist(LinkItem ogi) throws Exception{
-		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
-		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
-		try{
-			mongodb.getCollection("links").insertOne(new org.bson.Document("url", ogi.getUrl())
-					.append("title", ogi.getTitle())
-					.append("desc", ogi.getDescription())
-					.append("imageUrl", ogi.getImgurl())
-					.append("display_height", ogi.getDisplayHeight())
-					.append("display_width", ogi.getDisplayWidth())
-					.append("comment", ogi.getComment())
-					.append("tags", ogi.getTags())
-//					.append("tags", Arrays.asList(ogi.getTags()))
-					.append("userID", ogi.getUserID())
-					.append("date", new Date()));
-		}finally{
-			if (connMan != null) connMan.closeConnection();
-		}
-	}
-//	
-	
-	
+
 	private float setPct(int height, int width) {
 		double max = new Double(height).doubleValue();
 		if (width > height) max = new Double(width).doubleValue();;

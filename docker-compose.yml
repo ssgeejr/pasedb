@@ -9,6 +9,23 @@ services:
         restart: always
         volumes:
             - /opt/pasedb/mongodb/pasedb:/data/db
+#        ports:
+#            - 27017:27017
+
+# ####### MYSQL #######
+#    myqsl:
+#        #image: pasedb:mongohhh
+#        image: mysql:5.7
+#        container_name: myqsl
+#        tty: true
+#        stdin_open: true
+#        restart: always
+#        ports:
+#            - 3306:3306
+#        volumes:
+#            - /opt/pasedb/mysql:/var/lib/mysql
+#        environment:
+#            - MYSQL_ROOT_PASSWORD=teamrocket
 
     ui:
 #        build: pasedbui/docker
@@ -20,6 +37,9 @@ services:
             - db
         ports:
             - 80:8080
+            - 443:8443
+        volumes:
+            - /opt/pasedb/tomcat/logs:/usr/local/tomcat/logs
 
 #        networks:
 #              pasedb_web:
@@ -40,4 +60,3 @@ services:
 #        ipam:
 #            driver: default
 #            config: [{subnet: 10.10.2.0/24}]
-

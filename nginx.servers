@@ -1,0 +1,43 @@
+
+https://serverfault.com/questions/706694/use-nginx-as-reverse-proxy-for-multiple-servers
+
+
+server {
+  server_name app1.local;
+
+  location ~ {
+    proxy_pass_header Authorization;
+    proxy_pass http://localhost:3300;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    proxy_buffering off;
+    client_max_body_size 0;
+    proxy_read_timeout 36000s;
+    proxy_redirect off;
+  }
+}
+
+server {
+  server_name app2.local;
+
+  location ~ {
+    proxy_pass_header Authorization;
+    proxy_pass http://localhost:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_http_version 1.1;
+    proxy_set_header Connection "";
+    proxy_buffering off; 
+    client_max_body_size 0;
+    proxy_read_timeout 36000s;
+    proxy_redirect off;
+  }
+}
+Also, those hostnames are made up and need to be in /etc/hosts as follows to have them work:
+
+127.0.0.1       app1.local
+127.0.0.1       app2.local
