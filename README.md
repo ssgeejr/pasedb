@@ -22,39 +22,44 @@ When America's court systems fail you, three options remain:
 It should be obvious my choice. This site is dedicated to my three children whom I hope one day to see again. 
 
 
+https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar
+
 CREATE USER 'pasedb'@'%' IDENTIFIED BY 'alienation';
 GRANT ALL PRIVILEGES ON pasedb.* TO 'pasedb'@'%';
 
 
-counter
-create table counter(
-counterid integer NOT NULL AUTO_INCREMENT,
-ip varchar(32),
-page integer,
-query varchar(128),
-counter_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-PRIMARY KEY (counterid)
-)
+#counter
+drop tabl counter;
+drop table counter;
+	create table counter(
+	counterid integer not null auto_increment,
+	ip varchar(32),
+	page integer,
+	query varchar(128),
+	counter_date timestamp default current_timestamp,
+	primary key (counterid)
+);
 
 
-palink
+#palink
+drop table palink;
 create table palink(
-palinkid integer NOT NULL AUTO_INCREMENT,
-title varchar(100) not null,
-url varchar(256) not null,
-description varchar(200) default '',
-imageUrl varchar(256) default '',
-display_height	int default 0,
-display_width int default 0,
-userID integer default 0,
-link_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-PRIMARY KEY (palinkid)
-)
+	palinkid integer not null auto_increment,
+	title varchar(100) not null,
+	url varchar(256) not null,
+	description varchar(200) default '',
+	imageurl varchar(256) default '',
+	display_height	decimal(6,4) default 0,
+	display_width decimal(6,4) default 0,
+	userid integer default 0,
+	link_date timestamp default current_timestamp,
+	primary key (palinkid)
+);
 
-tags
+#tags
 create table tag(
-tag integer not null,
-palinkid integer not null
+	tag integer not null,
+	palinkid integer not null
 )
 
 

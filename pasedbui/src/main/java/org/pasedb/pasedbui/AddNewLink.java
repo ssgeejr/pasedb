@@ -12,6 +12,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.sql.*;
+
+// - remove mongo references after change
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -168,9 +171,9 @@ public class AddNewLink {
 	
 	private void persist(LinkItem ogi) throws Exception{
 		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
-		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palinkid values(?,?,?,?,?,?,?)"); 
+		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palinkid values(?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS); 
 		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag values(?,?)"); 
-
+		int palinkid = -1;
 		try{
 			try{
 				newlink.setString(1,ogi.getTitle());
@@ -181,24 +184,29 @@ public class AddNewLink {
 				newlink.setInt(6,ogi.getDisplayWidth());
 				newlink.setInt(7,ogi.getUserID());
 				newlink.executeUpdate();
+				ResultSet rs = newlink.getGeneratedKeys();
+				if (rs.next()) {
+					palinkid = rs.getInt(0);
+				}
 			}catch(Exception exa){
 				exa.printStackTrace();
 				throw exa;
 			}
-			try{
-				ArrayList<Integer> tags = ogi.getTags();
-				for(Integer tag:tags){
-					int itag = tag.intValue();
-    				System.out.println(itag);    				
-					newtag.setInt(1,itag);
-					newtag.setInt(2,palinkid);
-					newtag.executeUpdate();
+			if (palinkid > 0)
+				try{
+					ArrayList<Integer> tags = ogi.getTags();
+					for(Integer tag:tags){
+						int itag = tag.intValue();
+	    				System.out.println(itag);    				
+						newtag.setInt(1,itag);
+						newtag.setInt(2,palinkid);
+						newtag.executeUpdate();
+					}
+				}catch(Exception exa){
+					exa.printStackTrace();
 				}
-			}catch(Exception exa){
-				exa.printStackTrace();
-			}
 		}finally{
-			if (pasedbconn != null) pasedbconn.closeConnection();
+			if (pasedbconn != null) pasedbconn.close();
 		}
 	}
 //	
