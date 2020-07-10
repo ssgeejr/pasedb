@@ -4,7 +4,7 @@ LABEL maintainer="ioexcept@gmail.com"
 LABEL version="1.1"
 
 ADD pasedb.war /usr/local/tomcat/webapps/
-#ADD https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.2/mongo-java-driver-3.8.2.jar /usr/local/tomcat/lib/
+ADD https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.2/mongo-java-driver-3.8.2.jar /usr/local/tomcat/lib/
 ADD https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar /usr/local/tomcat/lib/
 ADD https://repo1.maven.org/maven2/com/google/guava/guava/24.1.1-jre/guava-24.1.1-jre.jar /usr/local/tomcat/lib/
 ADD https://repo1.maven.org/maven2/org/jsoup/jsoup/1.10.2/jsoup-1.10.2.jar /usr/local/tomcat/lib/

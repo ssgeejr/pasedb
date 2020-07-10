@@ -29,9 +29,8 @@ GRANT ALL PRIVILEGES ON pasedb.* TO 'pasedb'@'%';
 
 
 #counter
-drop tabl counter;
 drop table counter;
-	create table counter(
+create table counter(
 	counterid integer not null auto_increment,
 	ip varchar(32),
 	page integer,
