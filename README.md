@@ -33,7 +33,7 @@ drop table counter;
 create table counter(
 	counterid integer not null auto_increment,
 	ip varchar(32),
-	page integer,
+	page varchar(16),
 	query varchar(128),
 	counter_date timestamp default current_timestamp,
 	primary key (counterid)

@@ -3,6 +3,8 @@ package org.pasedb.pasedbui;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import com.mysql.jdbc.Driver;
+
 import java.awt.image.BufferedImage;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -170,9 +172,10 @@ public class AddNewLink {
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
 		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
-		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palinkid values(?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS); 
-		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag values(?,?)"); 
+		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palinkid(title,url,description,imageurl,display_height,display_width,userid) values(?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS); 
+		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag(tag,palinkid) values(?,?)"); 
 		int palinkid = -1;
 		try{
 			try{
@@ -180,8 +183,8 @@ public class AddNewLink {
 				newlink.setString(2,ogi.getUrl());
 				newlink.setString(3,ogi.getDescription());
 				newlink.setString(4,ogi.getImgurl());
-				newlink.setInt(5,ogi.getDisplayHeight());
-				newlink.setInt(6,ogi.getDisplayWidth());
+				newlink.setFloat(5,ogi.getDisplayHeight());
+				newlink.setFloat(6,ogi.getDisplayWidth());
 				newlink.setInt(7,ogi.getUserID());
 				newlink.executeUpdate();
 				ResultSet rs = newlink.getGeneratedKeys();
