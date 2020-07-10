@@ -3,7 +3,7 @@ package org.pasedb.pasedbui;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 
 import java.awt.image.BufferedImage;
 import java.net.HttpURLConnection;
@@ -172,7 +172,7 @@ public class AddNewLink {
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
 		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palink(title,url,description,imageurl,display_height,display_width,userid) values(?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS); 
 		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag(tag,palinkid) values(?,?)"); 
@@ -189,7 +189,7 @@ public class AddNewLink {
 				newlink.executeUpdate();
 				ResultSet rs = newlink.getGeneratedKeys();
 				if (rs.next()) {
-					palinkid = rs.getInt(0);
+					palinkid = rs.getInt(1);
 				}
 			}catch(Exception exa){
 				exa.printStackTrace();

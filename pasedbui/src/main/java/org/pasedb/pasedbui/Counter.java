@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 
 public class Counter {
 	private Connection counterConn = null;
@@ -18,7 +18,7 @@ public class Counter {
 			try{page = request.getRequestURI().trim();}catch(Exception x){}
 			String query = "";
 			try{query = request.getQueryString().trim();}catch(Exception x){}
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			counterConn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
 			PreparedStatement addhit=counterConn.prepareStatement("insert into counter(ip,page,query) values(?,?,?)"); 
 			addhit.setString(1, request.getRemoteAddr());
