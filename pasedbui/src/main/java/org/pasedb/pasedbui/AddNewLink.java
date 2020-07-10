@@ -187,17 +187,16 @@ public class AddNewLink {
 				newlink.setInt(6,ogi.getDisplayWidth());
 				newlink.setInt(7,ogi.getUserID());
 				newlink.executeUpdate();
-				ResultSet rs = newlink.getGeneratedKeys();
-				if (rs.next()) {
-					palinkid = rs.getInt(1);
-				}
+				ResultSet rs = newlink.getGeneratedKeys();  
+				palinkid = rs.next() ? rs.getInt(1) : -1;
 			}catch(Exception exa){
 				exa.printStackTrace();
 				throw exa;
 			}
-			if (palinkid > 0)
-				try{
-					ArrayList<Integer> tags = ogi.getTags();
+			
+			try{
+				ArrayList<Integer> tags = ogi.getTags();
+				if (tags.size() > 0)
 					for(Integer tag:tags){
 						int itag = tag.intValue();
 	    				System.out.println(itag);    				
@@ -205,9 +204,9 @@ public class AddNewLink {
 						newtag.setInt(2,palinkid);
 						newtag.executeUpdate();
 					}
-				}catch(Exception exa){
-					exa.printStackTrace();
-				}
+			}catch(Exception exa){
+				exa.printStackTrace();
+			}
 		}finally{
 			if (pasedbconn != null) pasedbconn.close();
 		}
