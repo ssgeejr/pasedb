@@ -167,6 +167,41 @@ public class AddNewLink {
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
+		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palinkid values(?,?,?,?,?,?,?)"); 
+		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag values(?,?)"); 
+
+		try{
+			try{
+				newlink.setString(1,ogi.getTitle());
+				newlink.setString(2,ogi.getUrl());
+				newlink.setString(3,ogi.getDescription());
+				newlink.setString(4,ogi.getImgurl());
+				newlink.setInt(5,ogi.getDisplayHeight());
+				newlink.setInt(6,ogi.getDisplayWidth());
+				newlink.setInt(7,ogi.getUserID());
+				newlink.executeUpdate();
+			}catch(Exception exa){
+				exa.printStackTrace();
+				throw exa;
+			}
+			try{
+				ArrayList<Integer> tags = ogi.getTags();
+				for(Integer tag:tags){
+    				System.out.println(tag.intValue());    
+				}
+				newtag.setInt(1,tag);
+				newtag.setInt(2,palinkid);
+				newtag.executeUpdate();
+			}catch(Exception exa){
+				exa.printStackTrace();
+			}
+		}finally{
+			if (pasedbconn != null) pasedbconn.closeConnection();
+		}
+	}
+//	
+	private void mongoPersist(LinkItem ogi) throws Exception{
 		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
 		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
 		try{
@@ -186,7 +221,6 @@ public class AddNewLink {
 		}
 	}
 //	
-	
 	
 	private float setPct(int height, int width) {
 		double max = new Double(height).doubleValue();
