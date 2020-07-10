@@ -1,41 +1,28 @@
 package org.pasedb.pasedbui;
 
-import javax.management.Query;
 import javax.servlet.http.HttpServletRequest;
 
-import org.bson.Document;
-
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB; 
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Multisets;
-import com.google.common.collect.TreeMultiset;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 public class Counter {
-	private MongoConnectionmanager connMan = null;
-	private  MongoDatabase mongodb = null;
+	private Connection counterConn = null;
 	
 	public Counter(HttpServletRequest request) {
 		try {
-			connMan = new MongoConnectionmanager("db");
-			mongodb = connMan.getDatabase("pasedb");
-			MongoCollection<Document> collection =  mongodb.getCollection("counter");	
 			String page = "/";
 			try{page = request.getRequestURI().trim();}catch(Exception x){}
 			String query = "";
 			try{query = request.getQueryString().trim();}catch(Exception x){}
-			collection.insertOne(new Document("ip", request.getRemoteAddr()).append("page",page).append("query",query).append("timestamp", new Date()));	
+
+			counterConn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+			PreparedStatement addhit=counterConn.prepareStatement("insert into counter values(?,?,?)"); 
+			addhit.setString(1, request.getRemoteAddr());
+			addhit.setInt(2, Integer.parseInt(page));
+			addhit.setString(3, query);
+			addhit.executeUpdate();
+			
 //			DBCollection coll = db.getCollection("links");				
 //			System.out.println("REMOTE_ADDRESS: " + remoteIP);
 //			System.out.println(request.getHeader("X_FORWARDED_FOR"));
@@ -46,7 +33,7 @@ public class Counter {
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}finally{
-			connMan.closeConnection();
+			try {counterConn.close();}catch(Exception ce) {}
 		}
 	}
 }
