@@ -188,11 +188,12 @@ public class AddNewLink {
 			try{
 				ArrayList<Integer> tags = ogi.getTags();
 				for(Integer tag:tags){
-    				System.out.println(tag.intValue());    
+					int itag = tag.intValue();
+    				System.out.println(itag);    				
+					newtag.setInt(1,itag);
+					newtag.setInt(2,palinkid);
+					newtag.executeUpdate();
 				}
-				newtag.setInt(1,tag);
-				newtag.setInt(2,palinkid);
-				newtag.executeUpdate();
 			}catch(Exception exa){
 				exa.printStackTrace();
 			}
