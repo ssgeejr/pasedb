@@ -183,8 +183,8 @@ public class AddNewLink {
 				newlink.setString(2,ogi.getUrl());
 				newlink.setString(3,ogi.getDescription());
 				newlink.setString(4,ogi.getImgurl());
-				newlink.setFloat(5,ogi.getDisplayHeight());
-				newlink.setFloat(6,ogi.getDisplayWidth());
+				newlink.setInt(5,ogi.getDisplayHeight());
+				newlink.setInt(6,ogi.getDisplayWidth());
 				newlink.setInt(7,ogi.getUserID());
 				newlink.executeUpdate();
 				ResultSet rs = newlink.getGeneratedKeys();

@@ -48,8 +48,8 @@ create table palink(
 	url varchar(256) not null,
 	description varchar(200) default '',
 	imageurl varchar(256) default '',
-	display_height	decimal(6,4) default 0,
-	display_width decimal(6,4) default 0,
+	display_height	int default 0,
+	display_width int default 0,
 	userid integer default 0,
 	link_date timestamp default current_timestamp,
 	primary key (palinkid)
