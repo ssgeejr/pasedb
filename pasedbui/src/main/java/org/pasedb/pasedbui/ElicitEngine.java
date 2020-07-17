@@ -24,7 +24,7 @@ public class ElicitEngine {
 	private final DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm");
 	private MongoConnectionmanager connMan = null;
 	private  MongoDatabase mongodb = null;
-	private String source = "db";
+	private String source = "127.0.0.1";
 	
 	public ElicitEngine() {}
 	public ElicitEngine(String dbsource) {

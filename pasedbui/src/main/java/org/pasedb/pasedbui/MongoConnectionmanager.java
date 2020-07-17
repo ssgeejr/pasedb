@@ -28,7 +28,7 @@ public class MongoConnectionmanager {
 		mongoClient = new MongoClient();
 	}
 	public MongoConnectionmanager(String host) throws Exception {
-		mongoClient = new MongoClient(host);
+		mongoClient = new MongoClient("127.0.0.1");
 	}
 	public MongoConnectionmanager(String host, int port) throws Exception {
 		mongoClient = new MongoClient(host,port);

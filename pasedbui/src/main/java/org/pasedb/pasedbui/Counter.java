@@ -28,7 +28,7 @@ public class Counter {
 	
 	public Counter(HttpServletRequest request) {
 		try {
-			connMan = new MongoConnectionmanager("db");
+			connMan = new MongoConnectionmanager("127.0.0.1");
 			mongodb = connMan.getDatabase("pasedb");
 			MongoCollection<Document> collection =  mongodb.getCollection("counter");	
 			String page = "/";

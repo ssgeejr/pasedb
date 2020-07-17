@@ -45,7 +45,7 @@ public class AddNewLink {
 			// mongoClient = new MongoClient();
 			// mongoClient = new MongoClient("gorkly", 27017);
 			// mongoClient = new MongoClient("gorkly");
-			mongoClient = new MongoClient("db");
+			mongoClient = new MongoClient("127.0.0.1");
 			DB db = mongoClient.getDB("pasedb");
 			DBCollection coll = db.getCollection("links");
 			List<BasicDBObject> tags = new ArrayList<BasicDBObject>();
@@ -167,7 +167,7 @@ public class AddNewLink {
 	}
 	
 	private void persist(LinkItem ogi) throws Exception{
-		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
+		MongoConnectionmanager connMan = new MongoConnectionmanager("127.0.0.1");
 		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
 		try{
 			mongodb.getCollection("links").insertOne(new org.bson.Document("url", ogi.getUrl())
