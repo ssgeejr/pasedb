@@ -7,6 +7,8 @@ services:
         tty: true
         stdin_open: true
         restart: always
+        volumes:
+            - /opt/pasedb/mongodb/pasedb:/data/db
 #        ports:
 #            - 27017:27017
 
@@ -36,4 +38,25 @@ services:
         ports:
             - 80:8080
             - 443:8443
+        volumes:
+            - /opt/pasedb/tomcat/logs:/usr/local/tomcat/logs
 
+#        networks:
+#              pasedb_web:
+#                aliases:
+#                 - md
+#              pasedb_dmz:
+#                aliases:
+#                 - md
+
+#networks:
+#    pasedb_web:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.1.0/24}]
+#    pasedb_dmz:
+#        driver: bridge
+#        ipam:
+#            driver: default
+#            config: [{subnet: 10.10.2.0/24}]

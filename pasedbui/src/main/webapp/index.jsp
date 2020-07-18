@@ -1,4 +1,4 @@
-<%@ include file="meta.htm"%>
+	<%@ include file="meta.htm"%>
 <%
 	new org.pasedb.pasedbui.Counter(request);
 %>
@@ -8,8 +8,10 @@
 			"Comments", "Books/Reading" };%>
 <%
 	StringBuffer lnks = new StringBuffer();
+	ResponseItem ri = new ResponseItem();
 	try {
-		lnks.append(new HtmlEngine().generateTable(new ElicitEngine().getLinks(0,5)));
+		ri = new ElicitEngine().getLinks(0,0);
+		lnks.append(ri.getHtml());
 	} catch (Exception ex) {
 		ex.printStackTrace();
 	}
@@ -98,6 +100,11 @@
 						<table class="links">
 							<%=lnks.toString()%>
 						</table>	
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<center><%= ri.getPrev() %> <%= ri.getNext() %></center>
 					</td>
 				</tr>
 				<tr>

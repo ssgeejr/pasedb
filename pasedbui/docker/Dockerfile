@@ -1,7 +1,10 @@
 FROM tomcat:7-jre8
+# FROM tomcat:7.0.105-jdk8-openjdk-slim * Fails with some security error
 
 LABEL maintainer="ioexcept@gmail.com"
 LABEL version="1.1"
+
+RUN rm -rf /usr/local/tomcat/webapps/*
 
 ADD pasedb.war /usr/local/tomcat/webapps/
 ADD https://repo1.maven.org/maven2/org/mongodb/mongo-java-driver/3.8.2/mongo-java-driver-3.8.2.jar /usr/local/tomcat/lib/
