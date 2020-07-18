@@ -88,16 +88,9 @@
 				</td>				
 				</tr>
 				<tr>
-				<td>
-				<div align="center">
-				<b>Last 5 Posts</b>
-				</div>
-				</td>
-				</tr>
-				<tr>
 					<td>
 						<hr style="width: 100%">
-						<table class="links">
+						<table style="width: 100%" class="links">
 							<%=lnks.toString()%>
 						</table>	
 					</td>

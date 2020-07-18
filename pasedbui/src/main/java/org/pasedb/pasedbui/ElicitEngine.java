@@ -1,37 +1,14 @@
 package org.pasedb.pasedbui;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bson.Document;
-
-import static com.mongodb.client.model.Filters.eq;
 
 public class ElicitEngine {
-	private final int ROW_LIMIT = 20;
-	private final DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm");
-	private MongoConnectionmanager connMan = null;
-	private  MongoDatabase mongodb = null;
-	private String source = "db";
 	
 	public ElicitEngine() {}
-	public ElicitEngine(String dbsource) {
-		source = dbsource;
-	}
+
 
 	public ResponseItem getLinks(int cntx) throws Exception{
 		return getLinks(cntx,-1);

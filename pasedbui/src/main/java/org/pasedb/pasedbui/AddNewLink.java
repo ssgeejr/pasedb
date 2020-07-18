@@ -16,17 +16,6 @@ import org.jsoup.select.Elements;
 
 import java.sql.*;
 
-// - remove mongo references after change
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-
-import java.awt.image.BufferedImage;
-import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,42 +31,6 @@ public class AddNewLink {
 
 	private final int MAX_XY = 200;
 	private LinkItem ogi = new LinkItem();
-	
-	public void addNewLink(HttpServletRequest request) {
-		MongoClient mongoClient = null;
-		try {
-			String remoteIP = request.getRemoteAddr();
-			// mongoClient = new MongoClient();
-			// mongoClient = new MongoClient("gorkly", 27017);
-			// mongoClient = new MongoClient("gorkly");
-			mongoClient = new MongoClient("db");
-			DB db = mongoClient.getDB("pasedb");
-			DBCollection coll = db.getCollection("links");
-			List<BasicDBObject> tags = new ArrayList<BasicDBObject>();
-			Multiset<String> hashTags = TreeMultiset.create();
-			hashTags.add("#fake");
-			hashTags.add("#tags");
-			// tags.add(new DB)
-			BasicDBObject newURL = new BasicDBObject("ip", remoteIP).append("user", "fake-user").append("timestamp",
-					new Date());
-			newURL.append("title", "fake-title").append("description", "fake-description").append("url", "fake-url")
-					.append("tags", hashTags);
-
-			// System.out.println("Data Display");
-			coll.insert(newURL);
-			DBCursor cursor = coll.find();
-			try {
-				while (cursor.hasNext()) {
-					System.out.println(cursor.next());
-				}
-			} finally {
-				// mongoClient.dropDatabase("test");
-			}
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
 	
 	public LinkItem fetchOGMetaData(String url, String comment, ArrayList<Integer> tags, int userID) throws Exception{
 	    ogi.setUrl(url);
@@ -140,7 +93,6 @@ public class AddNewLink {
 		  }
 	}
 
-	
 	public void setImageDimensions(String imageUrl) throws Exception {
 //    	System.out.println("imageUrl: " + imageUrl);
 //    	System.out.println("length: " + imageUrl.trim().length());
@@ -211,27 +163,6 @@ public class AddNewLink {
 			if (pasedbconn != null) pasedbconn.close();
 		}
 	}
-//	
-	private void mongoPersist(LinkItem ogi) throws Exception{
-		MongoConnectionmanager connMan = new MongoConnectionmanager("db");
-		MongoDatabase mongodb = connMan.getDatabase("pasedb");	
-		try{
-			mongodb.getCollection("links").insertOne(new org.bson.Document("url", ogi.getUrl())
-					.append("title", ogi.getTitle())
-					.append("desc", ogi.getDescription())
-					.append("imageUrl", ogi.getImgurl())
-					.append("display_height", ogi.getDisplayHeight())
-					.append("display_width", ogi.getDisplayWidth())
-					.append("comment", ogi.getComment())
-					.append("tags", ogi.getTags())
-//					.append("tags", Arrays.asList(ogi.getTags()))
-					.append("userID", ogi.getUserID())
-					.append("date", new Date()));
-		}finally{
-			if (connMan != null) connMan.closeConnection();
-		}
-	}
-//	
 	
 	private float setPct(int height, int width) {
 		double max = new Double(height).doubleValue();
@@ -248,11 +179,5 @@ public class AddNewLink {
 //		System.out.println("bd: " + bd.floatValue());
 	    return bd.floatValue();
 	}
-	
-	
-	
-	
-	
-	
 	
 }
