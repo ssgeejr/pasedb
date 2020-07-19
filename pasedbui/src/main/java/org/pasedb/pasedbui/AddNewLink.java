@@ -1,14 +1,9 @@
 package org.pasedb.pasedbui;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-
-import com.mysql.cj.jdbc.Driver;
-
 import java.awt.image.BufferedImage;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import javax.imageio.ImageIO;
 //import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -16,15 +11,7 @@ import org.jsoup.select.Elements;
 
 import java.sql.*;
 
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Multisets;
-import com.google.common.collect.TreeMultiset;
-
 import java.math.BigDecimal;
 
 public class AddNewLink {

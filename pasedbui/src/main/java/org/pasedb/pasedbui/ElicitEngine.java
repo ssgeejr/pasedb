@@ -1,8 +1,10 @@
 package org.pasedb.pasedbui;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ElicitEngine {
@@ -17,10 +19,10 @@ public class ElicitEngine {
 
 	public ResponseItem getLinks(int cntx, int start) throws Exception{
 		
-		System.out.println("********IMCOMING********");
-		System.out.println("cntx: " + cntx);
-		System.out.println("start: " + start);
-		System.out.println("************************");
+//		System.out.println("********IMCOMING********");
+//		System.out.println("cntx: " + cntx);
+//		System.out.println("start: " + start);
+//		System.out.println("************************");
 		Connection conn = null;
 		ResponseItem ri = new ResponseItem();
 		ri.setPageID(cntx);
@@ -81,25 +83,25 @@ public class ElicitEngine {
  			}
 			
  			
- 			int PREV_ID = lastid + 39;
+ 			int PREV_ID = lastid + 40;
  			ri.setPrev(PREV_ID);
 				
  			
  			if(lastid == minrow) ri.setNext(-1);
- 			if (PREV_ID > maxrow)ri.setPrev(-1);
+ 			if (PREV_ID > (maxrow + 1))ri.setPrev(-1);
  			
  			if (start <= 0) {
- 				System.out.println("*** START >= 0, REMOVING PREVIOUS LINK ***");
+// 				System.out.println("*** START >= 0, REMOVING PREVIOUS LINK ***");
  				ri.setPrev(-1);
  			}
  			
  			ri.setLinks(links);
- 			System.out.println("MINROW: " + minrow);
- 			System.out.println("MAXROW: " + maxrow);
- 			System.out.println("NEXT: " + lastid);
- 			System.out.println("PREV: " + PREV_ID);
- 			System.out.println("*____*** RESPONSE_ITEM VALUES ***___*");
- 			System.out.println(ri.toString());
+// 			System.out.println("MINROW: " + minrow);
+// 			System.out.println("MAXROW: " + maxrow);
+// 			System.out.println("NEXT: " + lastid);
+// 			System.out.println("PREV: " + PREV_ID);
+// 			System.out.println("*____*** RESPONSE_ITEM VALUES ***___*");
+// 			System.out.println(ri.toString());
 		}catch(Exception ex){
 			ex.printStackTrace();
 //			throw ex;

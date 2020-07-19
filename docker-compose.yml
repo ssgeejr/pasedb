@@ -1,14 +1,14 @@
 version: '3'
 services:
-    db:
-        #image: pasedb:mongohhh
-        image: mongo:4.0.2
-        container_name: db
-        tty: true
-        stdin_open: true
-        restart: always
-#        ports:
-#            - 27017:27017
+#    db:
+#        #image: pasedb:mongohhh
+#        image: mongo:4.0.2
+#        container_name: db
+#        tty: true
+#        stdin_open: true
+#        restart: always
+##        ports:
+##            - 27017:27017
 
 # ####### MYSQL #######
 #    myqsl:
@@ -31,8 +31,8 @@ services:
         container_name: pasedbui
         tty: true
         stdin_open: true
-        links:
-            - db
+#        links:
+#            - db
         ports:
             - 80:8080
             - 443:8443

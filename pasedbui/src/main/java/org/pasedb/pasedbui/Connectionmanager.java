@@ -1,7 +1,5 @@
 package org.pasedb.pasedbui;
 
-import java.net.UnknownHostException;
-import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 
 public class Connectionmanager {

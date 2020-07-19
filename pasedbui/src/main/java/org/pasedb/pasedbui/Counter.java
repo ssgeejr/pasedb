@@ -1,12 +1,10 @@
 package org.pasedb.pasedbui;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-import com.mysql.cj.jdbc.Driver;
+import javax.servlet.http.HttpServletRequest;
 
 public class Counter {
 	private Connection counterConn = null;
