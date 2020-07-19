@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -10,7 +10,11 @@
 <%
 	new org.pasedb.pasedbui.Counter(request);
 %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ 
+	
+	[REMOVE ME IN ORDER TO WORK] 
+
+	page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"
 	import="org.pasedb.pasedbui.*"%>
 <%!//--static%>
