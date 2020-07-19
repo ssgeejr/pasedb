@@ -41,9 +41,8 @@
 							<tbody>
 							<tr>
 								<td style="text-align: Center;color:red;"><b>
-								Change Request:<br></b>Add [next][previous] 
-								nagivation, add search, add "highlight" link on 
-								index&nbsp;<br>
+								Welcome to version 2.0 (released July 18, 2020)<br>
+								successfully ported from MongoDB to MySQL and implemented the [Next] [Prev] navigation lists
 								</td>
 							</tr>
 								<tr>
