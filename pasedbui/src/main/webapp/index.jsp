@@ -1,4 +1,4 @@
-	<%@ include file="meta.htm"%>
+<%@ include file="meta.htm"%>
 <%
 	new org.pasedb.pasedbui.Counter(request);
 %>
