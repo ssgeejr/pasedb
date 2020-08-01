@@ -4,9 +4,6 @@
 wd=`pwd`
 echo "Setting Working Directory (wd) to $wd"
 
-echo "stopping docker container"
-docker-compose down
-
 echo "<<<<<<<<<<< UI >>>>>>>>>>>"
 #docker stop ui
 #docker rm ui
@@ -20,7 +17,20 @@ cd docker
 docker rmi pasedbui
 docker build -t pasedbui .
 
-#echo "<<<<<<<<<<< docker-compose up -d >>>>>>>>>>>"
-cd $wd
-docker-compose up -d
+#echo "<<<<<<<<<<< MS >>>>>>>>>>>"
+#docker stop ms
+#docker rm ms
+#docker rmi ms
 
+
+#echo "<<<<<<<<<<< DB >>>>>>>>>>>"
+#docker stop db
+#docker rm db
+#docker rmi db
+
+#echo "<<<<<<<<<<< docker build >>>>>>>>>>>"
+#cd $wd
+#docker-compose build
+
+
+cd $wd

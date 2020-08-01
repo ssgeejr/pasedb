@@ -11,13 +11,9 @@
 	new org.pasedb.pasedbui.Counter(request);
 %>
 <%@ 
-	
-	[REMOVE ME IN ORDER TO WORK] 
-
 	page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"
 	import="org.pasedb.pasedbui.*"%>
-<%!//--static%>
 <%
 	StringBuffer bfr = new StringBuffer();
 	try {
