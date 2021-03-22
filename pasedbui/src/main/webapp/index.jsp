@@ -8,8 +8,10 @@
 			"Comments", "Books/Reading" };%>
 <%
 	StringBuffer lnks = new StringBuffer();
+	ResponseItem ri = new ResponseItem();
 	try {
-		lnks.append(new HtmlEngine().generateTable(new ElicitEngine().getLinks(0,5)));
+		ri = new ElicitEngine().getLinks(0,0);
+		lnks.append(ri.getHtml());
 	} catch (Exception ex) {
 		ex.printStackTrace();
 	}
@@ -39,9 +41,8 @@
 							<tbody>
 							<tr>
 								<td style="text-align: Center;color:red;"><b>
-								Change Request:<br></b>Add [next][previous] 
-								nagivation, add search, add "highlight" link on 
-								index&nbsp;<br>
+								Welcome to version 2.0 (released July 18, 2020)<br>
+								successfully ported from MongoDB to MySQL and implemented the [Next] [Prev] navigation lists
 								</td>
 							</tr>
 								<tr>
@@ -86,18 +87,16 @@
 				</td>				
 				</tr>
 				<tr>
-				<td>
-				<div align="center">
-				<b>Last 5 Posts</b>
-				</div>
-				</td>
+					<td>
+						<hr style="width: 100%">
+						<table style="width: 100%" class="links">
+							<%=lnks.toString()%>
+						</table>	
+					</td>
 				</tr>
 				<tr>
 					<td>
-						<hr style="width: 100%">
-						<table class="links">
-							<%=lnks.toString()%>
-						</table>	
+					<center><%= ri.getPrev() %> <%= ri.getNext() %></center>
 					</td>
 				</tr>
 				<tr>

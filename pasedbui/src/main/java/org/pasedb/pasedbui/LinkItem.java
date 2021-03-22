@@ -107,6 +107,7 @@ public class LinkItem {
 		this.postDate = pdate;
 	}
 	
+	@Override
 	public String toString() {
 		return "url: " + url + "\n"
 				+ "title: " + title + "\n"

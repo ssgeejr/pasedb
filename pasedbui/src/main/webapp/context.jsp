@@ -16,12 +16,19 @@
 <%
 	StringBuffer lnks = new StringBuffer();
 	int cntx = 0;
+	int start = -1;
 	try {
 		cntx = Integer.parseInt(request.getParameter("id").toString());
 	} catch (Exception ex) {
 	}
 	try {
-		lnks.append(new HtmlEngine().generateTable(new ElicitEngine().getLinks(cntx)));
+		start = Integer.parseInt(request.getParameter("start").toString());
+	} catch (Exception ex) {
+	}
+	ResponseItem ri = new ResponseItem();
+	try {
+		ri = new ElicitEngine().getLinks(cntx,start);
+		lnks.append(ri.getHtml());
 	} catch (Exception ex) {
 		ex.printStackTrace();
 	}
@@ -76,6 +83,11 @@ img {
 					</table>
 				</td>
 			</tr>
+				<tr>
+					<td>
+					<center><%= ri.getPrev() %> <%= ri.getNext() %></center>
+					</td>
+				</tr>
 			<tr>
 				<td>
 					<!--

@@ -12,10 +12,10 @@ public class HtmlEngine {
 	private StringBuffer sb = new StringBuffer();
 	
 	public String generateTable(ArrayList<LinkItem> links){
-		System.out.println(".......  public String generateTable(ArrayList<LinkItem> links) ..........");
+//		System.out.println(".......  public String generateTable(ArrayList<LinkItem> links) ..........");
 		StringBuffer lisb = new StringBuffer();
 		for(LinkItem li: links){
-			System.out.println("-------- li -------");
+//			System.out.println("-------- li -------");
 			lisb.append(generateTable(li));
 		}
 		return lisb.toString();

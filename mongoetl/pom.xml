@@ -3,9 +3,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.pasedb</groupId>
-	<artifactId>pasedbui</artifactId>
+	<artifactId>mongoetl</artifactId>
 	<version>2.7</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>pasedb</name>
 	<url>http://pasedb.org</url>
@@ -16,7 +16,7 @@
 	</properties>
 
 	<build>
-		<finalName>pasedb</finalName>
+		<finalName>mongoetl</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -26,21 +26,6 @@
 					<target>1.8</target>
 					<fork>true</fork>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<warName>pasedb</warName>
-					<outputDirectory>docker/</outputDirectory>
-				</configuration>
-			</plugin>
-			<plugin>
-				<!-- Used for local debugging -->
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.10.v20180503</version>
 			</plugin>
 		</plugins>
 	</build>
@@ -52,6 +37,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+				<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.8.2</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

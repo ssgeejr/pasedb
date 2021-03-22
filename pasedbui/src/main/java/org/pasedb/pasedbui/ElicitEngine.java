@@ -1,123 +1,115 @@
 package org.pasedb.pasedbui;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
-import org.bson.Document;
-
-import static com.mongodb.client.model.Filters.eq;
 
 public class ElicitEngine {
-	private final DateFormat df = new SimpleDateFormat("MM/dd/yy HH:mm");
-	private MongoConnectionmanager connMan = null;
-	private  MongoDatabase mongodb = null;
-	private String source = "db";
 	
 	public ElicitEngine() {}
-	public ElicitEngine(String dbsource) {
-		source = dbsource;
-	}
-	
-	public ArrayList<LinkItem> fetchPALinks() throws Exception{
-		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
-		try{
-			System.out.println("==========>> Fetch Filtered Record <<==========");
-			connMan = new MongoConnectionmanager(source);
-			mongodb = connMan.getDatabase("pasedb");
-			MongoCollection<Document> col = mongodb.getCollection("links");
-			FindIterable<Document> fcol = col.find();
-			fcol.sort(new BasicDBObject("_id", -1)).limit(5);
-			MongoCursor<Document> collection = fcol.iterator();
-			while (collection.hasNext()) {
-				Document doc = collection.next(); 
-				System.out.println("Title:: " + doc.getString("title"));
-			}
-			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
-		}finally{
-			connMan.closeConnection();
-		}
-		return links;
+
+
+	public ResponseItem getLinks(int cntx) throws Exception{
+		return getLinks(cntx,-1);
 	}
 
-	public ArrayList<LinkItem> getLinks(int cntx) throws Exception{
-		return getLinks(cntx,25);
-	}
-	public ArrayList<LinkItem> getLinks(int cntx, int rowLimit) throws Exception{
+
+	public ResponseItem getLinks(int cntx, int start) throws Exception{
+		
+//		System.out.println("********IMCOMING********");
+//		System.out.println("cntx: " + cntx);
+//		System.out.println("start: " + start);
+//		System.out.println("************************");
+		Connection conn = null;
+		ResponseItem ri = new ResponseItem();
+		ri.setPageID(cntx);
 		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
 		try{
-			System.out.println("==========>> Fetch Filtered Record <<==========");
-			connMan = new MongoConnectionmanager(source);
-			mongodb = connMan.getDatabase("pasedb");
-			MongoCollection<Document> col = mongodb.getCollection("links");
-			FindIterable<Document> fcol = null;
-			if(cntx == 0) 
-				fcol = col.find();
-			else 
-				fcol = col.find(Filters.all("tags", cntx));
-			fcol.sort(new BasicDBObject("_id", -1)).limit(rowLimit);
-			MongoCursor<Document> collection = fcol.iterator();
-			LinkItem item = null;
-			while (collection.hasNext()) {
-				Document doc = collection.next(); 
-				System.out.println("Title:: " + doc.getString("title"));
-				item = new LinkItem();
-				item.setUrl(doc.getString("url"));
-				item.setImgurl(doc.getString("imageUrl"));
-				item.setTitle(doc.getString("title"));
-				item.setDescription(doc.getString("desc"));
-				item.setComment(doc.getString("comment"));
-				item.setDisplayHeight(doc.getInteger("display_height"));	
-				item.setDisplayWidth(doc.getInteger("display_width"));
-				item.setPostDate(df.format(doc.getDate("date")));
-				
-//				{ "_id" : ObjectId("5d01231da7b11b000115c863"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:06:53.907Z") }
-//				{ "_id" : ObjectId("5d0123b3a7b11b0001641022"), "url" : "https://farzadlaw.com/divorce-and-child-custody/what-is-parental-alienation", "title" : "What is Parental Alienation? | Here is the Surprising Truth for Parents", "desc" : "What is parental alienation? Parents like you want to know. The answer is not only surprising but it will help you avoid being blindsided by making mistakes.", "imageUrl" : "https://dynamix-cdn.s3.amazonaws.com/farzadlawcom/farzadlawcom_563896146.png", "display_height" : 64, "display_width" : 198, "comment" : "99 beep boop beep beep beep boop bip-bip-bip", "userID" : -99, "date" : ISODate("2019-06-12T16:09:23.625Z") }
+ 			conn = DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+ 			LinkItem item = null;
+ 			
+ 			PreparedStatement maxrowps=conn.prepareStatement("SELECT max(palinkid) as maxid, min(palinkid) as minid from palink");
+ 			ResultSet rs = maxrowps.executeQuery();
+ 			int maxrow = -1;
+ 			int minrow = -1;
+ 			if (rs.next()) {
+ 				maxrow = rs.getInt("maxid");
+ 				minrow = rs.getInt("minid");
+ 			}
+ 			
+ 			StringBuffer fetchSQL = new StringBuffer("SELECT"
+ 					+" a.palinkid as lastid,"
+ 				    +" title,"
+ 				    +" url,"
+ 				    +" description,"
+ 				    +" imageurl,"
+ 				    +" display_height,"
+ 				    +" display_width,"
+ 				    +" userid,"
+ 				    +" DATE_FORMAT(link_date, '%m-%d-%Y') as postedon"
+ 					+" FROM palink a, tag b"
+ 					+" where "
+ 					+" a.palinkid = b.palinkid"
+ 					+" and b.tag = ?");
+ 			if (start > 0) {
+ 				fetchSQL.append(" and a.palinkid < " + start);
+ 			}
+ 			fetchSQL.append(" order by a.palinkid desc limit 20");
+ 			System.out.println(fetchSQL.toString());
+ 			PreparedStatement fetch=conn.prepareStatement(fetchSQL.toString());
+ 			fetch.setInt(1,cntx);
+// 			fetch.setInt(2,start);
+// 			fetch.setInt(3,ROW_LIMIT);
+ 			rs = fetch.executeQuery();
+ 			ri.setNext(-1);
+ 			ri.setPrev(-1);
+ 			int lastid = -1;
+ 			while(rs.next()){
+ 				item = new LinkItem();
+				item.setUrl(rs.getString("url"));
+				item.setImgurl(rs.getString("imageUrl"));
+				item.setTitle(rs.getString("title"));
+				item.setDescription(rs.getString("description"));
+//				item.setComment(rs.getString("comment"));
+				item.setDisplayHeight(rs.getInt("display_height"));	
+				item.setDisplayWidth(rs.getInt("display_width"));
+				item.setPostDate(rs.getString("postedon"));
 				links.add(item);
-			}
-			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
+				lastid = rs.getInt("lastid");
+				ri.setNext(lastid);
+ 			}
+			
+ 			
+ 			int PREV_ID = lastid + 40;
+ 			ri.setPrev(PREV_ID);
+				
+ 			
+ 			if(lastid == minrow) ri.setNext(-1);
+ 			if (PREV_ID > (maxrow + 1))ri.setPrev(-1);
+ 			
+ 			if (start <= 0) {
+// 				System.out.println("*** START >= 0, REMOVING PREVIOUS LINK ***");
+ 				ri.setPrev(-1);
+ 			}
+ 			
+ 			ri.setLinks(links);
+// 			System.out.println("MINROW: " + minrow);
+// 			System.out.println("MAXROW: " + maxrow);
+// 			System.out.println("NEXT: " + lastid);
+// 			System.out.println("PREV: " + PREV_ID);
+// 			System.out.println("*____*** RESPONSE_ITEM VALUES ***___*");
+// 			System.out.println(ri.toString());
+		}catch(Exception ex){
+			ex.printStackTrace();
+//			throw ex;
 		}finally{
-			connMan.closeConnection();
-//			closeConnection();
+			try{conn.close();}catch(Exception e){}
 		}
-		return links;
-	}
 		
-	public void filterPALinks() throws Exception{
-		try{
-			connMan = new MongoConnectionmanager();
-			mongodb = connMan.getDatabase("pasedb");
-			System.out.println("==========>> Fetch Filtered Record <<==========");
-			MongoCollection<Document> collection = mongodb.getCollection("links");
-//			Document olethaFilter = (Document) collection.find(eq("city", "Olathe")).sort(new BasicDBObject("_id","-1")).limit(3);
-//			MongoCursor<Document> cursor = collection.find(eq("city", "Olathe")).sort(new BasicDBObject("_id","-1")).limit(3).iterator();
-			MongoCursor<Document> cursor = collection.find().sort(new BasicDBObject("_id","-1")).limit(3).iterator();
-		    while (cursor.hasNext()) {
-		        System.out.println(cursor.next().toJson());
-		    }
-//			Document olethaFilter = collection.find(eq("city", "Olathe")).first();
-//			System.out.println(olethaFilter.toJson());
-			System.out.println("__________>> END [Fetch Filtered Record] <<__________");
-		}finally{
-			connMan.closeConnection();
-		}
-	}
-	
-	public static void main(String args[]) throws Exception{
-		ElicitEngine ee = new ElicitEngine("localhost");
-		ee.fetchPALinks();
-	}
+ 		return ri;
+ 	}
 	
 }

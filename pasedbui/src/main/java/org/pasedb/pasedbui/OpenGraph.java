@@ -280,7 +280,7 @@ public class OpenGraph
         for (ArrayList<MetaElement> collection : metaAttributes.values())
 			allElements.addAll(collection);
 
-		return (MetaElement[]) allElements.toArray(new MetaElement[allElements.size()]);
+		return allElements.toArray(new MetaElement[allElements.size()]);
     }
 
     /**
