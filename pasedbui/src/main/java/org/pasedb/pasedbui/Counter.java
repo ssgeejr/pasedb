@@ -17,7 +17,7 @@ public class Counter {
 			String query = "";
 			try{query = request.getQueryString().trim();}catch(Exception x){}
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			counterConn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+			counterConn=DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
 			PreparedStatement addhit=counterConn.prepareStatement("insert into counter(ip,page,query) values(?,?,?)"); 
 			addhit.setString(1, request.getRemoteAddr());
 			addhit.setString(2, page);

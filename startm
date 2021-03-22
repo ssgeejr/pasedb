@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "attempting to start pasedb:mongo on port 27017"
-#docker run -ti --rm --name mongo -p 27017:27017 -v /opt/pasedb/mongodb/db:/data/db pasedb:mongo
-docker run -ti --rm --name mongox --hostname MONGODB  -v /opt/pasedb/mongodb/db:/data/db pasedb:mongo

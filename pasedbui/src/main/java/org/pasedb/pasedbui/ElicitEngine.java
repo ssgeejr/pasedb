@@ -28,7 +28,7 @@ public class ElicitEngine {
 		ri.setPageID(cntx);
 		ArrayList<LinkItem> links = new ArrayList<LinkItem>();
 		try{
- 			conn = DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+ 			conn = DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
  			LinkItem item = null;
  			
  			PreparedStatement maxrowps=conn.prepareStatement("SELECT max(palinkid) as maxid, min(palinkid) as minid from palink");

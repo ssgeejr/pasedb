@@ -17,7 +17,7 @@ public class HitCounter {
 		StringBuffer hits = new StringBuffer();
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
- 			conn = DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+ 			conn = DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
  			PreparedStatement hc=conn.prepareStatement("select\n" + 
  					" DATE_FORMAT(counter_date, \"%m-%d-%Y\") as a, count(*) as b" + 
  					" from counter\n" + 

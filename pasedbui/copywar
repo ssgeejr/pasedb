@@ -1,4 +1,0 @@
-#!/bin/bash
-echo ">>>> copying pasedb.war to running container pasedb"
-docker cp target/pasedb.war pasedb:/usr/local/tomcat/webapps/pasedb.war
-echo "..... completed"

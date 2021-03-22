@@ -9,10 +9,7 @@
 .extract
 .service
 *.iml
-frontend/*.iml
-service/*.iml
 pasedbui/*.iml
-pasedbms/*.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -35,20 +32,15 @@ war-*
 target/
 
 /target
-pasedbms/target
 pasedbui/target
-client/target
 
 
 .extract
-pasedbms/.extract
 pasedbui/.extrace
 
 .service
-pasedbms/.service
 pasedbui/.service
 
 .settings
-pasedbms/.settings
 pasedbui/.settings
 

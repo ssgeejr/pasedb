@@ -27,6 +27,22 @@
 					<fork>true</fork>
 				</configuration>
 			</plugin>
+        		<plugin>
+            			<groupId>org.apache.maven.plugins</groupId>
+            			<artifactId>maven-clean-plugin</artifactId>
+            			<version>2.4.1</version>
+            			<configuration>
+                			<filesets>
+                    			<fileset>
+                        			<directory>docker</directory>
+                        			<includes>
+                            				<include>pasedb.war</include>
+                        			</includes>
+                        			<followSymlinks>false</followSymlinks>
+                    			</fileset>
+                			</filesets>
+            			</configuration>
+        		</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
