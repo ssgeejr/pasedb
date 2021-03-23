@@ -19,10 +19,10 @@ public class HitCounter {
 			Class.forName("com.mysql.cj.jdbc.Driver");
  			conn = DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
  			PreparedStatement hc=conn.prepareStatement("select\n" + 
- 					" DATE_FORMAT(counter_date, \"%m-%d-%Y\") as a, count(*) as b" + 
+ 					" DATE_FORMAT(counter_date, \"%Y-%m-%d\") as a, count(*) as b" + 
  					" from counter\n" + 
- 					" group by DATE_FORMAT(counter_date, \"%m-%d-%Y\")" + 
- 					" order by DATE_FORMAT(counter_date, \"%m-%d-%Y\") desc");
+ 					" group by a" +
+ 					" order by a desc");
  			ResultSet rs = hc.executeQuery();
  			int count = 0;
  			while(rs.next()) {
