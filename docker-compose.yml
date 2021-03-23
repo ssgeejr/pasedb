@@ -1,38 +1,23 @@
 version: '3'
 services:
-#    db:
-#        #image: pasedb:mongohhh
-#        image: mongo:4.0.2
-#        container_name: db
-#        tty: true
-#        stdin_open: true
-#        restart: always
-##        ports:
-##            - 27017:27017
 
 # ####### MYSQL #######
-#    myqsl:
-#        #image: pasedb:mongohhh
-#        image: mysql:5.7
-#        container_name: myqsl
-#        tty: true
-#        stdin_open: true
-#        restart: always
-#        ports:
-#            - 3306:3306
-#        volumes:
-#            - /opt/pasedb/mysql:/var/lib/mysql
-#        environment:
-#            - MYSQL_ROOT_PASSWORD=teamrocket
+    pasedb:
+        image: mysql:5.7
+        container_name: pasedb
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'pasedb'
+            MYSQL_USER: 'pasedb'
+            MYSQL_PASSWORD: 'alienation'
+            MYSQL_ROOT_PASSWORD: 'teamrocket'
+        volumes:
+            - /opt/apps/pasedb/mysql:/var/lib/mysql
+            - ./mysql:/docker-entrypoint-initdb.d/:ro
 
     ui:
-#        build: pasedbui/docker
-        image: pasedbui
+        image: pasedbui:2
         container_name: pasedbui
-        tty: true
-        stdin_open: true
-#        links:
-#            - db
         ports:
             - 80:8080
             - 443:8443

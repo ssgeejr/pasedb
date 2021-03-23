@@ -1,4 +1,3 @@
 #!/bin/bash
-docker-compose down
 ./bootstrap
-docker-compose up -d 
+docker-compose up -d --force

@@ -9,7 +9,7 @@ public class GravyTrainTesting {
 		Connection conn = null;
 		int rownum = 0;
 		try{
- 			conn = DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+ 			conn = DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
  			String sql = "INSERT INTO palink(title,url,description,imageurl,display_height,display_width,userid) " + 
  					"VALUES('Parental Alienation','https://emmm.org.au/parental-alienation','is Emotional and Psychological Abuse','http://img1.wsimg.com/isteam/stock/3683',130,194,-99)";
 			String tagsql = "INSERT INTO tag(tag,palinkid)\n" + 

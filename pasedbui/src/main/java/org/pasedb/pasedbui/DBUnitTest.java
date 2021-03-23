@@ -11,7 +11,7 @@ public class DBUnitTest {
 		try {
 
 			connection = DriverManager.getConnection(
-					"jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation");
+					"jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation");
 			PreparedStatement newlink = connection.prepareStatement(
 					"insert into palink(title,url,description,imageurl,display_height,display_width,userid) values(?,?,?,?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
@@ -43,7 +43,7 @@ public class DBUnitTest {
 			String query = "4";
 
 			connection = DriverManager.getConnection(
-					"jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation");
+					"jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation");
 			PreparedStatement addhit = connection.prepareStatement("insert into counter(ip,page,query) values(?,?,?)");
 			addhit.setString(1, "127.0.0.1");
 			addhit.setString(2, page);

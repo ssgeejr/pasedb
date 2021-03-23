@@ -39,12 +39,6 @@
 					<td>
 						<table style="width: 100%">
 							<tbody>
-							<tr>
-								<td style="text-align: Center;color:red;"><b>
-								Welcome to version 2.0 (released July 18, 2020)<br>
-								successfully ported from MongoDB to MySQL and implemented the [Next] [Prev] navigation lists
-								</td>
-							</tr>
 								<tr>
 									<td style="text-align: left"><strong>What is
 											Parental Alienation?</strong><br> Parental alienation is the

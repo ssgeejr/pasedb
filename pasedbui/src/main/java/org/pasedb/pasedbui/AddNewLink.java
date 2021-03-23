@@ -112,7 +112,7 @@ public class AddNewLink {
 	
 	private void persist(LinkItem ogi) throws Exception{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://mysql-pasedb.cmiuqauobhwc.us-east-2.rds.amazonaws.com:3306/pasedb?user=pasedb&password=alienation"); 
+		Connection pasedbconn=DriverManager.getConnection("jdbc:mysql://pasedb:3306/pasedb?user=pasedb&password=alienation"); 
 		PreparedStatement newlink=pasedbconn.prepareStatement("insert into palink(title,url,description,imageurl,display_height,display_width,userid) values(?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS); 
 		PreparedStatement newtag=pasedbconn.prepareStatement("insert into tag(tag,palinkid) values(?,?)"); 
 		int palinkid = -1;
