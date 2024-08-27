@@ -20,10 +20,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Parental Alienation Support &amp; Education</title>
-<link href="menu.css" media="all" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="pasedb.css">
+	<title>Parental Alienation Support &amp; Education Database</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="content-language" content="en">
+	<meta name="title" content="Parental Alienation Support & Education Database" />
+	<meta name="description" content="Crowdsourced links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..."">
+	<meta name="robots" content="index, follow">
+	<meta name="keywords" content="parental alienation, dmv-v, parental rights, alienation, mad mother syndrome, mad mother, parental alienation syndrome, dr chidress, pas, pa, parental alienation tactics, prevent parental alienation, child abuse" />
+	<meta name="author" content="PASEDB Team">
+	<meta property="og:title" content="Parental Alienation Support & Education Database" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://pasedb.org/" />
+	<meta property="og:image" content="http://pasedb.org/ogimg/logo-pasedb_sm.jpg" />
+	<meta property="og:description" content="Crowdsourced links for Parental Alienation: support, education, references, stories, comments, links, legal cases, court rulings and more ..." />
+	<meta property="og:site_name" content="PASEDB" />
+	<link href="menu.css" media="all" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="pasedb.css">
 </head>
 <body>
 	<div align="center">
