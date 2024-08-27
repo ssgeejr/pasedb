@@ -37,13 +37,11 @@
 
 <style type="text/css">
 .auto-style5 {
-	font-size: 8pt;
 	color: #FF0000;
 }
 
 .auto-style7 {
 	color: #FF0000;
-	font-size: large;
 	text-align: center;
 }
 
