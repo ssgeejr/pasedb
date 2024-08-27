@@ -60,6 +60,7 @@ ul.pureCssMenu ul {
 ul.pureCssMenu li {
 	display: block;
 	margin: 2px 0px 0px 2px;
+	font-size: 0px;
 }
 
 ul.pureCssMenu a:active, ul.pureCssMenu a:focus {
@@ -77,7 +78,8 @@ ul.pureCssMenu a, ul.pureCssMenu li.dis a:hover, ul.pureCssMenu li.sep a:hover
 	text-align: right;
 	text-decoration: none;
 	padding: 4px;
-	padding-right: 0;
+	_padding-right: 0;
+	font: normal 11px Verdana;
 	color: #444444;
 	text-decoration: none;
 	cursor: default;
@@ -130,6 +132,7 @@ ul.pureCssMenu li:hover>a {
 	background-color: #4792E6;
 	border-color: #665500;
 	border-style: solid;
+	font: normal 11px Verdana;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -139,6 +142,7 @@ ul.pureCssMenu li a:hover {
 	background-color: #4792E6;
 	border-color: #665500;
 	border-style: solid;
+	font: normal 11px Verdana;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -229,6 +233,7 @@ ul.pureCssMenu table a:hover span {
 }
 
 .auto-style2 {
+	font-size: 14pt;
 	color: #000000;
 }
 
@@ -239,3 +244,6 @@ ul.pureCssMenu table a:hover span {
 .auto-style4 {
 	color: #4D4D4D;
 }
+</
+style
+>
