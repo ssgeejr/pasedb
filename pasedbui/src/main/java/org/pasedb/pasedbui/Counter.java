@@ -10,7 +10,7 @@ public class Counter {
 	private Connection counterConn = null;
 	
 	public Counter(HttpServletRequest request) {
-		System.out.println("init...");
+		//System.out.println("init...");
 		try {
 			String page = "/";
 			try{page = request.getRequestURI().trim();}catch(Exception x){}
@@ -36,6 +36,6 @@ public class Counter {
 		}finally{
 			try {counterConn.close();}catch(Exception ce) {}
 		}
-		System.out.println("exit ...");
+		//System.out.println("exit ...");
 	}
 }

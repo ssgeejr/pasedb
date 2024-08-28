@@ -58,7 +58,7 @@ public class ElicitEngine {
  				fetchSQL.append(" and a.palinkid < " + start);
  			}
  			fetchSQL.append(" order by a.palinkid desc limit 20");
- 			System.out.println(fetchSQL.toString());
+ 			//System.out.println(fetchSQL.toString());
  			PreparedStatement fetch=conn.prepareStatement(fetchSQL.toString());
  			fetch.setInt(1,cntx);
 // 			fetch.setInt(2,start);
