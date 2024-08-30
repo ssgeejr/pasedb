@@ -77,8 +77,7 @@
 										separation or divorce, particularly where legal action is
 										involved. The most common cause is one parent wishing to
 										exclude the other parent from the life of their child<br>
-										<hr style="width: 100%"> <strong>Mission
-											Statement:</strong><br> Provide a simple, centralized location to
+										<hr style="width: 100%"> <h2>Mission Statement:</h2><br> Provide a simple, centralized location to
 										allow easy access to support and educational sites relating to
 										Parental Alienation</td>
 								</tr>
