@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "... stopping docker container UI ..."
+cd /opt/pasedb
+docker-compose stop ui
+./bootstrap
+docker rm pasedbui
+docker-compose up -d ui
