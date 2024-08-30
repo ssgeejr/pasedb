@@ -66,8 +66,8 @@
 						<table style="width: 100%">
 							<tbody>
 								<tr>
-									<td style="text-align: left"><strong>What is
-											Parental Alienation?</strong><br> Parental alienation is the
+									<td style="text-align: left"><h1>What is
+											Parental Alienation?</h1><br> Parental alienation is the
 										process, and the result, of psychological manipulation of a
 										child into showing unwarranted fear, disrespect or hostility
 										towards a parent and/or other family members. It is a
