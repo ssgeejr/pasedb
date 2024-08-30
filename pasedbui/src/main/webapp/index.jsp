@@ -31,6 +31,7 @@
 	</script>
 
 	<title>Parental Alienation Support &amp; Education Database</title>
+	<link rel="canonical" href="http://pasedb.org/" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta http-equiv="content-language" content="en">
 	<meta name="title" content="Parental Alienation Support & Education Database" />
@@ -46,6 +47,17 @@
 	<meta property="og:site_name" content="PASEDB" />
 	<link href="menu.css" media="all" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="pasedb.css">
+	<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Parental Alienation Support and Education Database",
+      "url": "http://pasedb.org",
+      "description": "A comprehensive resource for those affected by parental alienation.",
+      "inLanguage": "en"
+    }
+    </script>
+
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
