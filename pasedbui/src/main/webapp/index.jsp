@@ -20,7 +20,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZT7Y4P7RQ"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-KZT7Y4P7RQ');
+	</script>
+
 	<title>Parental Alienation Support &amp; Education Database</title>
+	<link rel="canonical" href="http://pasedb.org/" />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta http-equiv="content-language" content="en">
 	<meta name="title" content="Parental Alienation Support & Education Database" />
@@ -36,8 +47,21 @@
 	<meta property="og:site_name" content="PASEDB" />
 	<link href="menu.css" media="all" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="pasedb.css">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NZLZDTC');</script>
+    <!-- End Google Tag Manager -->
+    </script>
+
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZLZDTC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 	<div align="center">
 		<table style="border: 1px solid #AAAAAA; width: 900px">
 			<tbody>
@@ -52,8 +76,8 @@
 						<table style="width: 100%">
 							<tbody>
 								<tr>
-									<td style="text-align: left"><strong>What is
-											Parental Alienation?</strong><br> Parental alienation is the
+									<td style="text-align: left"><h1>What is
+											Parental Alienation?</h1><br> Parental alienation is the
 										process, and the result, of psychological manipulation of a
 										child into showing unwarranted fear, disrespect or hostility
 										towards a parent and/or other family members. It is a
@@ -63,8 +87,7 @@
 										separation or divorce, particularly where legal action is
 										involved. The most common cause is one parent wishing to
 										exclude the other parent from the life of their child<br>
-										<hr style="width: 100%"> <strong>Mission
-											Statement:</strong><br> Provide a simple, centralized location to
+										<hr style="width: 100%"> <h2>Mission Statement:</h2><br> Provide a simple, centralized location to
 										allow easy access to support and educational sites relating to
 										Parental Alienation</td>
 								</tr>
