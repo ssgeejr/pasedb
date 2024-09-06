@@ -39,7 +39,8 @@ public class ElicitEngine {
  				maxrow = rs.getInt("maxid");
  				minrow = rs.getInt("minid");
  			}
- 			
+
+ 			/*
  			StringBuffer fetchSQL = new StringBuffer("SELECT"
  					+" a.palinkid as lastid,"
  				    +" title,"
@@ -54,10 +55,26 @@ public class ElicitEngine {
  					+" where "
  					+" a.palinkid = b.palinkid"
  					+" and b.tag = ?");
+ 			*/
+			StringBuffer fetchSQL = new StringBuffer("SELECT"
+ 					+" a.palinkid as lastid,"
+ 				    +" title,"
+ 				    +" url,"
+ 				    +" description,"
+ 				    +" imageurl,"
+ 				    +" display_height,"
+ 				    +" display_width,"
+ 				    +" userid,"
+ 				    +" DATE_FORMAT(link_date, '%m-%d-%Y') as postedon"
+ 					+" FROM palink");
+
  			if (start > 0) {
- 				fetchSQL.append(" and a.palinkid < " + start);
+ 				//fetchSQL.append(" and a.palinkid < " + start);
+ 				fetchSQL.append(" where palinkid < " + start);
  			}
- 			fetchSQL.append(" order by a.palinkid desc limit 20");
+// 			fetchSQL.append(" order by a.palinkid desc limit 20");
+			fetchSQL.append(" order by palinkid desc limit 20");
+
  			//System.out.println(fetchSQL.toString());
  			PreparedStatement fetch=conn.prepareStatement(fetchSQL.toString());
  			fetch.setInt(1,cntx);
