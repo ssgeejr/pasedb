@@ -57,7 +57,7 @@ public class ElicitEngine {
  					+" and b.tag = ?");
  			*/
 			StringBuffer fetchSQL = new StringBuffer("SELECT"
- 					+" a.palinkid as lastid,"
+ 					+" palinkid as lastid,"
  				    +" title,"
  				    +" url,"
  				    +" description,"
