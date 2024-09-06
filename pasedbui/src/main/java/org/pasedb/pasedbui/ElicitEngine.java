@@ -77,7 +77,7 @@ public class ElicitEngine {
 
  			//System.out.println(fetchSQL.toString());
  			PreparedStatement fetch=conn.prepareStatement(fetchSQL.toString());
- 			fetch.setInt(1,cntx);
+// 			fetch.setInt(1,cntx);
 // 			fetch.setInt(2,start);
 // 			fetch.setInt(3,ROW_LIMIT);
  			rs = fetch.executeQuery();
