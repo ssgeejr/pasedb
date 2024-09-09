@@ -1,2 +1,133 @@
 
 pip install requests beautifulsoup4 Pillow
+
+
+
+import requests
+from bs4 import BeautifulSoup
+from PIL import Image
+from io import BytesIO
+from decimal import Decimal, ROUND_HALF_UP
+
+class LinkItem:
+    def __init__(self):
+        self.url = ""
+        self.title = ""
+        self.description = ""
+        self.img_url = ""
+        self.display_height = 0
+        self.display_width = 0
+        self.comment = ""
+        self.user_id = 0
+        self.tags = []
+
+    def set_url(self, url):
+        self.url = url
+
+    def set_title(self, title):
+        self.title = title
+
+    def set_description(self, description):
+        self.description = description
+
+    def set_imgurl(self, img_url):
+        self.img_url = img_url
+
+    def set_display_height(self, height):
+        self.display_height = height
+
+    def set_display_width(self, width):
+        self.display_width = width
+
+    def set_comment(self, comment):
+        self.comment = comment
+
+    def set_user_id(self, user_id):
+        self.user_id = user_id
+
+    def set_tags(self, tags):
+        self.tags = tags
+
+class AddNewLink:
+    MAX_XY = 200
+    ogi = LinkItem()
+
+    def fetch_og_meta_data(self, url, comment, tags, user_id):
+        self.ogi.set_url(url)
+        title = url
+        desc = "unavailable"
+        image_url = None
+
+        try:
+            response = requests.get(url)
+            document = BeautifulSoup(response.text, 'html.parser')
+            meta_og_title = document.select_one("meta[property='og:title']")
+            if meta_og_title:
+                title = meta_og_title['content']
+            if not title or len(title) < 3:
+                title = document.title or url
+
+            meta_og_desc = document.select_one("meta[property='og:description']")
+            desc = meta_og_desc['content'] if meta_og_desc else "No description available"
+
+            meta_og_image = document.select_one("meta[property='og:image']")
+            if meta_og_image:
+                image_url = meta_og_image['content']
+                self.set_image_dimensions(image_url)
+
+            self.ogi.set_title(title)
+            self.ogi.set_description(desc)
+
+        except requests.exceptions.SSLError as e:
+            print("[#error] ---------- JSOUP FAILED TO CONNECT / TRYING OPENGRAPH TOOLSET ----------------")
+            self.try_open_graph_toolset(url)
+
+        self.ogi.set_comment(comment)
+        self.ogi.set_user_id(user_id)
+        self.ogi.set_tags(tags)
+
+        try:
+            self.persist(self.ogi)
+        except Exception as ex:
+            print("FAILED TO INSERT RECORD")
+            raise ex
+
+        return self.ogi
+
+    def try_open_graph_toolset(self, pasedburl):
+        response = requests.get(pasedburl)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        self.ogi.set_title(soup.title.text)
+        self.ogi.set_description(soup.meta['description'])
+        image_url = soup.meta['image']
+        if image_url:
+            self.set_image_dimensions(image_url)
+
+    def set_image_dimensions(self, image_url):
+        response = requests.get(image_url, headers={'User-Agent': 'Mozilla/5.0'})
+        image = Image.open(BytesIO(response.content))
+        height = image.height
+        width = image.width
+        pct = self.set_pct(height, width)
+        display_height = round(height * pct)
+        display_width = round(width * pct)
+        self.ogi.set_imgurl(image_url)
+        self.ogi.set_display_height(display_height)
+        self.ogi.set_display_width(display_width)
+
+    def set_pct(self, height, width):
+        max_dim = max(height, width)
+        if max_dim <= self.MAX_XY:
+            return 1
+        val = self.MAX_XY / max_dim
+        bd = Decimal(val).quantize(Decimal('.01'), rounding=ROUND_HALF_UP)
+        return float(bd)
+
+    def persist(self, link_item):
+        # Placeholder for database insertion logic
+        pass
+
+# Usage example:
+# add_link = AddNewLink()
+# result = add_link.fetch_og_meta_data("http://example.com", "This is a comment", [1, 2, 3], 1)
+# print(result.title, result.description)
