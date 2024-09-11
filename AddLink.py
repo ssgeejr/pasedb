@@ -23,6 +23,9 @@ class LinkEngine:
         try:
             try:
                 response = requests.get(self.url)
+#                print(response.status_code)
+                if response.status_code != 200:
+                    raise Exception(f"Response code {response}.")
                 document = BeautifulSoup(response.text, 'html.parser')
                 meta_og_title = document.select_one("meta[property='og:title']")
                 if meta_og_title:
