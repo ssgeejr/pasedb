@@ -172,7 +172,7 @@ class LinkEngine:
         if self.url:
             self.addURL()
         else:
-            print('You must provide a valid URL with the -u argument')
+            print('You must provide a valid URL with the -u <URL>')
 
 
 
