@@ -174,8 +174,6 @@ class LinkEngine:
         else:
             print('You must provide a valid URL with the -u <URL>')
 
-
-
 if __name__ == "__main__":
     addLink = LinkEngine()
     addLink.main(*sys.argv[1:])
