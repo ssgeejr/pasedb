@@ -86,10 +86,11 @@
 										occurs almost exclusively in association with family
 										separation or divorce, particularly where legal action is
 										involved. The most common cause is one parent wishing to
-										exclude the other parent from the life of their child<br>
+										exclude the other parent from the life of their child<br><br>
 										<hr style="width: 100%"> <h2>Mission Statement:</h2><br> Provide a simple, centralized location to
 										allow easy access to support and educational sites relating to
 										Parental Alienation</td>
+										<br>
 								</tr>
 							</tbody>
 						</table>
