@@ -10,7 +10,6 @@ class LinkItem:
         self.user_id = -101
         self.tags = []
 
-
     def toString(self):
         print(f"url: {self.url}")
         print(f"title: {self.title}")
