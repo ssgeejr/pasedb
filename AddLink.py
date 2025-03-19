@@ -56,7 +56,9 @@ class LinkEngine:
                 self.persistURL(self.ogi)
         except Exception as e:
             self.logger.error("An error occurred in the parsing process ...")
-            self.logger.error(e)
+            print(f"Error type: {type(e).__name__}")
+            print(f"Error message: {e}")
+            print(f"Error args: {e.args}")
 
     def try_open_graph_toolset(self, pasedburl):
         response = requests.get(pasedburl)
