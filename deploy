@@ -4,7 +4,7 @@ echo "... pulling new changes ..."
 git pull
 
 echo "... stopping docker container UI ..."
-docker-compose stop ui
+docker compose stop ui
 
 echo "... building new container ..."
 ./bootstrap
@@ -13,4 +13,4 @@ echo "... removing old container ..."
 docker rm pasedbui
 
 echo "... redeploysing newest build ..."
-docker-compose up -d ui
+docker compose up -d ui
