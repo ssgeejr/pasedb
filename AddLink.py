@@ -23,7 +23,7 @@ class LinkEngine:
         try:
             try:
                 response = requests.get(self.url)
-#                print(response.status_code)
+                print(response.status_code)
                 if response.status_code != 200:
                     raise Exception(f"Response code {response}.")
                 document = BeautifulSoup(response.text, 'html.parser')
