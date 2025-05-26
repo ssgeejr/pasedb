@@ -5,6 +5,7 @@
 <meta content="text/html;charset=utf-8" http-equiv="content-type">
 <title>Parental Alienation Support & Education</title>
 <link href="menu.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="pasedb.css">
 <%@ include file="meta.htm"%>
 <%
 	new org.pasedb.pasedbui.Counter(request);
@@ -34,36 +35,6 @@
 	}
 %>
 
-
-<style type="text/css">
-.auto-style5 {
-	color: #FF0000;
-}
-
-.auto-style7 {
-	color: #FF0000;
-	text-align: center;
-}
-
-.links {
-	border: 1px solid #0000FF;
-	border-collapse: collapse;
-	padding: 3px;
-}
-
-.links td {
-	padding: 3px;
-}
-
-.links tbody {
-	border: 1px solid #0000FF;
-	padding: 3px;
-}
-
-img {
-	border-style: none;
-}
-</style>
 </head>
 <body>
 	<div align="center">
