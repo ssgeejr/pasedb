@@ -76,10 +76,10 @@
 						<table style="width: 100%">
 							<tbody>
 								<tr>
-									<td style="text-align: left"><h3>Welcome to PASEDB: Advocating Against Parental Alienation</h3><br>
+									<td style="text-align: left"><h3>Welcome to PASEDB: Advocating Against Parental Alienation</h3>
 									   Parental alienation is a form of psychological manipulation where one parent unjustly influences a child to reject the other parent, leading to the erosion of familial bonds. This behavior not only damages the targeted parent but also inflicts long-term emotional harm on the child, often resulting in anxiety, depression, and trust issues .
                                         <br><br>
-										<hr style="width: 100%"> <h3>Mission Statement:</h3><br>
+										<hr style="width: 100%"> <h3>Mission Statement:</h3>
 										At PASEDB, we are committed to shedding light on this often-overlooked form of emotional abuse. Our mission is to educate, support, and advocate for those affected by parental alienation, ensuring that no parent or child suffers in silence.
 										<br><br>
 									</td>
