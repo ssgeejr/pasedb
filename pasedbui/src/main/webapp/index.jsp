@@ -91,7 +91,6 @@
 				</tr>
 				<tr>
 				<td>
-					<table width="100%" border="1">
 					<table class="clean-table">
 						<tr>
 						<td>
