@@ -76,20 +76,12 @@
 						<table style="width: 100%">
 							<tbody>
 								<tr>
-									<td style="text-align: left"><h1>What is
-											Parental Alienation?</h1><br> Parental alienation is the
-										process, and the result, of psychological manipulation of a
-										child into showing unwarranted fear, disrespect or hostility
-										towards a parent and/or other family members. It is a
-										distinctive form of psychological abuse and family violence,
-										towards both the child and the rejected family members, that
-										occurs almost exclusively in association with family
-										separation or divorce, particularly where legal action is
-										involved. The most common cause is one parent wishing to
-										exclude the other parent from the life of their child<br><br>
-										<hr style="width: 100%"> <h2>Mission Statement:</h2><br> Provide a simple, centralized location to
-										allow easy access to support and educational sites relating to
-										Parental Alienation</td>
+									<td style="text-align: left"><h3>Welcome to PASEDB: Advocating Against Parental Alienation</h3><br>
+									   Parental alienation is a form of psychological manipulation where one parent unjustly influences a child to reject the other parent, leading to the erosion of familial bonds. This behavior not only damages the targeted parent but also inflicts long-term emotional harm on the child, often resulting in anxiety, depression, and trust issues .
+                                        <br>
+										<hr style="width: 100%"> <h3>Mission Statement:</h3><br>
+										At PASEDB, we are committed to shedding light on this often-overlooked form of emotional abuse. Our mission is to educate, support, and advocate for those affected by parental alienation, ensuring that no parent or child suffers in silence.
+									</td>
 										<br>
 								</tr>
 							</tbody>
