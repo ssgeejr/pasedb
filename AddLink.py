@@ -19,11 +19,26 @@ class LinkEngine:
         print(f'config: {self.config}')
         print(f'loadData: {self.loadData}')
         title = 'PaseDB Service URL'
+        print(f"fetching url meta data {self.url}")
         self.ogi.set_url(self.url)
         try:
             try:
-                response = requests.get(self.url)
-                print(response.status_code)
+                headers = {
+                    "User-Agent": (
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        "Chrome/114.0.0.0 Safari/537.36"
+                    ),
+                    "Accept": (
+                        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,"
+                        "*/*;q=0.8"
+                    ),
+                    "Accept-Language": "en-US,en;q=0.5",
+                    "Referer": "https://google.com",
+                    "Connection": "keep-alive",
+                }
+                response = requests.get(self.url, headers=headers)
+                print(f"Response Code [{response.status_code}]")
                 if response.status_code != 200:
                     raise Exception(f"Response code {response}.")
                 document = BeautifulSoup(response.text, 'html.parser')
@@ -54,11 +69,13 @@ class LinkEngine:
             #we made it this far, which means we should have all the data ready to put into the DB
             if self.loadData:
                 self.persistURL(self.ogi)
-        except Exception as e:
+        #except Exception as e:
+        except requests.exceptions.HTTPError as e:
             self.logger.error("An error occurred in the parsing process ...")
             print(f"Error type: {type(e).__name__}")
             print(f"Error message: {e}")
             print(f"Error args: {e.args}")
+            print(e.response.text)
 
     def try_open_graph_toolset(self, pasedburl):
         response = requests.get(pasedburl)
