@@ -70,6 +70,7 @@ pasedbui | Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new dr
 for the cleaning of bad docker layers, we've set a crontable to A) remove ugly unused layers and B) backup the DB weekly.
 
 
-
+0 3 * * 0 docker system prune -af --volumes >/dev/null 2>&1
+0 2 * * 0 /opt/apps/pasedb/backup_pasedb.sh >/dev/null 2>&1
 
 
