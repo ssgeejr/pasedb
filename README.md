@@ -67,6 +67,7 @@ Notes:
 pasedbui | Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 
 
+for the cleaning of bad docker layers, we've set a crontable to A) remove ugly unused layers and B) backup the DB weekly.
 
 
 
